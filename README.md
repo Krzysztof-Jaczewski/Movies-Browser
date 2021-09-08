@@ -1,4 +1,8 @@
-# :: Movies Browser
+# :movie_camera: Movies Browser
+
+## Demonstration
+
+checkout [Demo](https://krzysztof-jaczewski.github.io/Movies-Browser/)
 
 ## Available Scripts
 
