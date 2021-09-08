@@ -1,3 +1,5 @@
+import { MovieList } from "./features/MovieList";
+
 export const App = () => {
-  return <div>Lets Start</div>;
+  return <MovieList />;
 };
