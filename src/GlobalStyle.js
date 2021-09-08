@@ -13,5 +13,7 @@ html {
 button {
   cursor: pointer;
 }
-
+body{
+  font-family: 'Poppins', sans-serif;
+}
 `;
