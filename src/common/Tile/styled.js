@@ -50,7 +50,7 @@ export const Tag = styled.li`
   background-color: ${({ theme }) => theme.colors.mystic};
   border-radius: 5px;
   padding: 8px 16px;
-  margin: 8px 4px;
+  margin: 8px 4px 0;
   font-size: 14px;
   line-height: 19.6px;
 `;
