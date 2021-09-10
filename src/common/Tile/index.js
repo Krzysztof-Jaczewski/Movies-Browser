@@ -23,11 +23,17 @@ export const Tile = ({ title, subtitle, tags, rate, votes }) => {
           <Caption>{subtitle}</Caption>
         </Info>
         <Tags>{tags && tags.map((tag) => <Tag>{tag}</Tag>)}</Tags>
-        <Ratings>
-          <Star />
-          <Rate>{rate}</Rate>
-          <Caption>{votes} votes</Caption>
-        </Ratings>
+        {votes ? (
+          <Ratings>
+            <Star />
+            <Rate>{rate}</Rate>
+            <Caption>{votes} votes</Caption>
+          </Ratings>
+        ) : (
+          <Ratings>
+            <Caption>No votes yet </Caption>
+          </Ratings>
+        )}
       </Descrition>
     </StyledTile>
   );
