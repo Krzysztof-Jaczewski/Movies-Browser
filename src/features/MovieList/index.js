@@ -7,7 +7,7 @@ export const MovieList = () => {
       <Tile
         title={"Mulan"}
         subtitle={"2020"}
-        tags={["Drama", "Adventure", "Action"]}
+        tags={["Drama", "Adventure", "Action", "Thriller"]}
         rate={"7.8"}
         votes={"35"}
       />
@@ -17,8 +17,6 @@ export const MovieList = () => {
         title={"Mulan very long title for experiment"}
         subtitle={"2020"}
         tags={["Drama"]}
-        rate={"7.8"}
-        votes={"35"}
       />
     </Container>
   );
