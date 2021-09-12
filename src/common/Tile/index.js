@@ -10,8 +10,8 @@ import {
   Tags,
   Title,
 } from "./styled";
-import poster from "./poster.jpg";
-import { ReactComponent as Star } from "./Vector.svg";
+import poster from "../../images/poster.jpg";
+import { ReactComponent as Star } from "../../images/star.svg";
 
 export const Tile = ({ title, subtitle, tags, rate, votes }) => {
   return (
