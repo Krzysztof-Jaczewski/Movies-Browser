@@ -7,7 +7,7 @@ export const MovieList = () => {
       <Tile
         title={"Mulan"}
         subtitle={"2020"}
-        tags={["Drama", "Adventure", "Action", "Thriller"]}
+        tags={["Drama", "Action", "Adventure", "Thriller"]}
         rate={"7.8"}
         votes={"35"}
       />
