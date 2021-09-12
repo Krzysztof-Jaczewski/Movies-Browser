@@ -1,12 +1,7 @@
 import { StyledPlaceholder, CameraIcon, PersonIcon } from "./styled";
 
-export const Placeholder = ({ person }) =>
-  person ? (
-    <StyledPlaceholder person>
-      <PersonIcon />
-    </StyledPlaceholder>
-  ) : (
-    <StyledPlaceholder>
-      <CameraIcon />
-    </StyledPlaceholder>
-  );
+export const Placeholder = ({ person }) => (
+  <StyledPlaceholder person={person}>
+    {person ? <PersonIcon /> : <CameraIcon />}
+  </StyledPlaceholder>
+);
