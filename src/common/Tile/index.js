@@ -12,12 +12,12 @@ import {
   Title,
   TileDate,
 } from "./styled";
-import poster from "../../images/poster.jpg";
+import { Placeholder } from "../Placeholder";
 
-export const Tile = ({ title, subtitle, tags, rate, votes }) => {
+export const Tile = ({ poster, title, subtitle, tags, rate, votes }) => {
   return (
     <StyledTile>
-      <Poster src={poster} alt="" />
+      {poster ? <Poster src={poster} alt="" /> : <Placeholder />}
       <Descrition>
         <Info>
           <Title>{title}</Title>
