@@ -10,19 +10,19 @@ export const MovieList = () => {
   const size = "w500";
 
   const genres = useGenres();
+  console.log(genres);
 
   return (
     <Container>
       {results &&
         results.map((result) => {
-          const MovieGenres = genres && genres.map((genre) => genre.name);
           return (
             <Tile
               key={result.id}
               poster={`${baseImgUrl}/${size}${result.poster_path}`}
               title={result.title}
               subtitle={result.release_date}
-              genres={MovieGenres}
+              genres={result.genre_ids}
               rate={result.vote_average}
               votes={result.vote_count}
             />
