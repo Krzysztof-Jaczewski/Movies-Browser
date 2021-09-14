@@ -23,7 +23,9 @@ export const Tile = ({ poster, title, subtitle, genres, rate, votes }) => {
           <Title>{title}</Title>
           <TileDate>{subtitle}</TileDate>
         </Info>
-        <Tags>{genres && genres.map((genre) => <Tag>{genre}</Tag>)}</Tags>
+        <Tags>
+          {genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
+        </Tags>
         {votes ? (
           <Ratings>
             <StarIcon />
