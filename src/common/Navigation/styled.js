@@ -40,7 +40,7 @@ export const StyledLogo = styled(Logo)`
 export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     color: ${({ theme }) => theme.colors.white};
 
     @media(max-width: 767px){
