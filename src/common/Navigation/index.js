@@ -1,5 +1,5 @@
 import { ReactComponent as Logo } from "./logo.svg";
-import { Link, Links, LogoHeader, LogoWrapper, StyledNavigation, Wrapper } from "./styled";
+import { Link, Links, LogoHeader, LogoWrapper, StyledInput, StyledNavigation, Wrapper } from "./styled";
 
 export const Navigation = () => (
     <StyledNavigation>
@@ -9,11 +9,12 @@ export const Navigation = () => (
                 <LogoHeader>
                     Movies Browser
                 </LogoHeader>
+                <Links>
+                    <Link href="#">Movies</Link>
+                    <Link href="#">People</Link>
+                </Links>
             </LogoWrapper>
-            <Links>
-                <Link>Movies</Link>
-                <Link>People</Link>
-            </Links>
+            <StyledInput placeholder="Search for movies..." />
         </Wrapper>
     </StyledNavigation>
 );
