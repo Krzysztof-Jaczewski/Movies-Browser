@@ -1,33 +1,40 @@
 import {
   Caption,
   Descrition,
-  Image,
+  Poster,
   Info,
   Rate,
   Ratings,
   StyledTile,
+  StarIcon,
   Tag,
   Tags,
   Title,
+  TileDate,
 } from "./styled";
-import poster from "./poster.jpg";
-import { ReactComponent as Star } from "./Vector.svg";
+import { Placeholder } from "../Placeholder";
 
-export const Tile = ({ title, subtitle, tags, rate, votes }) => {
+export const Tile = ({ poster, title, subtitle, tags, rate, votes }) => {
   return (
     <StyledTile>
-      <Image src={poster} alt="" />
+      {poster ? <Poster src={poster} alt="" /> : <Placeholder />}
       <Descrition>
         <Info>
           <Title>{title}</Title>
-          <Caption>{subtitle}</Caption>
+          <TileDate>{subtitle}</TileDate>
         </Info>
         <Tags>{tags && tags.map((tag) => <Tag>{tag}</Tag>)}</Tags>
-        <Ratings>
-          <Star />
-          <Rate>{rate}</Rate>
-          <Caption>{votes} votes</Caption>
-        </Ratings>
+        {votes ? (
+          <Ratings>
+            <StarIcon />
+            <Rate>{rate}</Rate>
+            <Caption>{votes} votes</Caption>
+          </Ratings>
+        ) : (
+          <Ratings>
+            <Caption>No votes yet </Caption>
+          </Ratings>
+        )}
       </Descrition>
     </StyledTile>
   );
