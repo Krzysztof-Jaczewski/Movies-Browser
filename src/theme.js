@@ -5,5 +5,9 @@ export const theme = {
     waterloo: "#7E839A",
     mystic: "#E4E6F0",
     silver: "#C4C4C4",
+    wisper: "#F5F5FA",
+  },
+  size: {
+    mobile: "767px",
   },
 };
