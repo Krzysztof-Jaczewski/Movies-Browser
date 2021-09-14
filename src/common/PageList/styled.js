@@ -1,0 +1,75 @@
+import styled, { css } from "styled-components";
+
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    margin-bottom: 103px;
+    justify-content: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        width: 100%;
+        margin-bottom: 31px;
+    }
+`;
+
+export const Button = styled.button`
+    background: ${({theme}) => theme.colors.pattensBlue};
+    border-radius: 5px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: none;
+    position: static;
+    padding: 8px 16px 8px 31px;
+
+    ${({right}) => right && css`
+        padding: 8px 31px 8px 16px;
+    `}
+
+    ${({first}) => first && css`
+        margin: 0px 12px 0px 0px;
+    `}
+
+    ${({last}) => last && css`
+        margin: 0px 0px 0px 12px;
+    `}
+
+    &:disabled {
+        background: ${({theme}) => theme.colors.mystic};
+    }
+`;
+
+export const ButtonText = styled.span`
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+    font-size: 14px;
+    color: ${({theme}) => theme.colors.mineShaft};
+
+    &:disabled {
+        background: ${({theme}) => theme.colors.woodsmoke};
+    }
+`;
+
+export const PagesWrapper = styled.div`
+    align-items: center;
+    color: ${({theme}) => theme.colors.waterloo};
+    flex-grow: 0;
+    margin: 0px 24px;
+    font-size: 16px;
+    padding: 0px;
+`;
+
+export const Pages = styled.span`
+    margin: 0px 8px;
+
+    ${({number}) => number && css`
+        font-weight: 600;
+        color: ${({theme}) => theme.colors.woodsmoke};
+    `}
+`;
+
