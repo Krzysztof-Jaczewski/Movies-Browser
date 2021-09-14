@@ -1,10 +1,17 @@
 import styled from "styled-components";
+import { ReactComponent as Logo } from "./logo.svg";
 
 export const StyledNavigation = styled.nav`
+    display: flex;
+    align-items: center;
     background-color: ${({ theme }) => theme.colors.woodsmoke};
     padding: 23px;
     margin-bottom: 56px;
     width: 100%;
+
+    @media(max-width: 767px){
+        flex-direction: column;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -20,10 +27,20 @@ export const Wrapper = styled.div`
     }
 `;
 
+export const StyledLogo = styled(Logo)`
+    width: 40px;
+    height: 40px;
+
+    @media(max-width: 767px){
+        width: 17px;
+        height: 17px;
+    }
+`;
+
 export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     color: ${({ theme }) => theme.colors.white};
 
     @media(max-width: 767px){
@@ -39,6 +56,8 @@ export const LogoHeader = styled.h1`
     letter-spacing: -1.5px;
 
     @media(max-width: 767px){
+        margin-left: 0;
+        margin-right: 0;
         font-size: 13px;
         letter-spacing: -0.5px;
     }
@@ -77,6 +96,7 @@ export const StyledInput = styled.input`
     border: 1px solid ${({ theme }) => theme.colors.mystic};
     border-radius: 33px;
     padding: 12px 64px;
+    margin: 0 auto;
 
     @media(max-width: 767px){
         width: 100%;
