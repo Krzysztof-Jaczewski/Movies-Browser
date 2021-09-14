@@ -1,16 +1,24 @@
 import { Container } from "../../common/Container";
 import { Tile } from "../../common/Tile";
-import { useMoviesApi } from "../fetchApi";
+import { baseImgUrl, size } from "../ApiParameters";
+import { useMoviesApi } from "../fetchMoviesPopularApi";
 import { useGenres } from "../fetchGenres";
 
 export const MovieList = () => {
   const results = useMoviesApi();
-  console.log(results);
-  const baseImgUrl = "https://image.tmdb.org/t/p";
-  const size = "w500";
-
   const genres = useGenres();
-  console.log(genres);
+
+  const nameMovieGenres = (array) => {
+    const movieGenresList = [];
+    array.map(
+      (id) =>
+        genres &&
+        genres.filter((genre) =>
+          id === genre.id ? movieGenresList.push(genre.name) : ""
+        )
+    );
+    return movieGenresList;
+  };
 
   return (
     <Container>
@@ -21,8 +29,8 @@ export const MovieList = () => {
               key={result.id}
               poster={`${baseImgUrl}/${size}${result.poster_path}`}
               title={result.title}
-              subtitle={result.release_date}
-              genres={result.genre_ids}
+              subtitle={result.release_date.slice(0, 4)}
+              genres={nameMovieGenres(result.genre_ids)}
               rate={result.vote_average}
               votes={result.vote_count}
             />
