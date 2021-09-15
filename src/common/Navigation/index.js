@@ -17,12 +17,12 @@ export const Navigation = () => (
                 <LogoHeader>
                     Movies Browser
                 </LogoHeader>
-                <Links>
-                    <Link href="#" key="1">Movies</Link>
-                    <Link href="#" key="2">People</Link>
-                </Links>
             </LogoWrapper>
-            <StyledInput placeholder="Search for movies..." />
+            <Links>
+                <Link href="#" key="1">Movies</Link>
+                <Link href="#" key="2">People</Link>
+            </Links>
         </Wrapper>
-    </StyledNavigation>
+        <StyledInput placeholder="Search for movies..." />
+    </StyledNavigation >
 );
