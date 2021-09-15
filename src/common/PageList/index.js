@@ -1,5 +1,5 @@
-import { ReactComponent as ArrowLeft } from "./arrowLeft.svg";
-import { ReactComponent as ArrowRight } from "./arrowRight.svg";
+import { ReactComponent as ArrowLeft } from "../../images/arrowLeft.svg";
+import { ReactComponent as ArrowRight } from "../../images/arrowRight.svg";
 import { Button, ButtonText, ButtonWrapper, Pages, PagesWrapper } from "./styled";
 
 export const PageList = () => (
