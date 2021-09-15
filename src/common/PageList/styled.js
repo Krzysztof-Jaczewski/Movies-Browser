@@ -26,7 +26,6 @@ export const Button = styled.button`
     position: static;
     padding: 8px 16px;
 
-
     &:disabled {
         background: ${({theme}) => theme.colors.mystic};
     }
