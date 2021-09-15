@@ -8,6 +8,7 @@ export const theme = {
     whisper: "#F5F5FA",
     mineShaft: "#333333",
     pattensBlue: "#D6E4FF",
+    silver: "#C4C4C4",
   },
 
   breakpoint: {
