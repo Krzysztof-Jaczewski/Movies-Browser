@@ -8,6 +8,7 @@ export const ButtonWrapper = styled.div`
     padding: 0px;
     margin-bottom: 103px;
     justify-content: center;
+    column-gap: 12px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 100%;
@@ -23,19 +24,8 @@ export const Button = styled.button`
     flex-grow: 0;
     border: none;
     position: static;
-    padding: 8px 16px 8px 31px;
+    padding: 8px 16px;
 
-    ${({right}) => right && css`
-        padding: 8px 31px 8px 16px;
-    `}
-
-    ${({first}) => first && css`
-        margin: 0px 12px 0px 0px;
-    `}
-
-    ${({last}) => last && css`
-        margin: 0px 0px 0px 12px;
-    `}
 
     &:disabled {
         background: ${({theme}) => theme.colors.mystic};
@@ -59,7 +49,6 @@ export const PagesWrapper = styled.div`
     align-items: center;
     color: ${({theme}) => theme.colors.waterloo};
     flex-grow: 0;
-    margin: 0px 24px;
     font-size: 16px;
     padding: 0px;
 `;
