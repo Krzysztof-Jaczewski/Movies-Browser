@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "./logo.svg";
+import SearchIcon from "../../images/Search.svg";
 
 export const StyledNavigation = styled.nav`
     display: flex;
@@ -21,10 +22,6 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @media(max-width: 767px){
-        flex-direction: column;
-    }
 `;
 
 export const StyledLogo = styled(Logo)`
@@ -40,12 +37,8 @@ export const StyledLogo = styled(Logo)`
 export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     color: ${({ theme }) => theme.colors.white};
-
-    @media(max-width: 767px){
-        width: 100%;
-    }
 `;
 
 export const LogoHeader = styled.h1`
@@ -65,6 +58,7 @@ export const LogoHeader = styled.h1`
 
 export const Links = styled.ul`
     text-transform: uppercase;
+    margin-left: 0;
     font-weight: 600;
     font-size: 14px;
     list-style-type: none;
@@ -92,6 +86,10 @@ export const Link = styled.a`
 `;
 
 export const StyledInput = styled.input`
+    background-image: url(${SearchIcon});
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 12px center;
     font-size: 12px;
     border: 1px solid ${({ theme }) => theme.colors.mystic};
     border-radius: 33px;
