@@ -12,6 +12,7 @@ export const StyledNavigation = styled.nav`
 
     @media(max-width: 767px){
         flex-direction: column;
+        padding: 16px;
     }
 `;
 
@@ -37,20 +38,24 @@ export const StyledLogo = styled(Logo)`
 export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     color: ${({ theme }) => theme.colors.white};
+    margin-right: 80px;
+
+    @media(max-width: 767px){
+        width: 120px;
+        margin-right: 0;
+    }
 `;
 
 export const LogoHeader = styled.h1`
     margin-left: 16.58px;
-    margin-right: 80px;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: -1.5px;
 
     @media(max-width: 767px){
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 8px;
         font-size: 13px;
         letter-spacing: -0.5px;
     }
@@ -73,6 +78,7 @@ export const Link = styled.a`
 
     @media(max-width: 767px){
         font-size: 12px;
+        padding: 8px 12px;
     }
 
     &:hover{
@@ -95,9 +101,10 @@ export const StyledInput = styled.input`
     border-radius: 33px;
     padding: 12px 64px;
     margin: 0 auto;
+    width: 432px;
 
     @media(max-width: 767px){
         width: 100%;
-        margin-top: 33px;
+        margin-top: 24px;
     }
 `
