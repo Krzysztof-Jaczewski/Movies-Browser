@@ -1,5 +1,7 @@
+import { HashRouter } from "react-router-dom";
 import {
     Link,
+    LinkItem,
     Links,
     LogoHeader,
     LogoWrapper,
@@ -19,8 +21,14 @@ export const Navigation = () => (
                 </LogoHeader>
             </LogoWrapper>
             <Links>
-                <Link href="#" key="1">Movies</Link>
-                <Link href="#" key="2">People</Link>
+                <HashRouter>
+                    <LinkItem>
+                        <Link to="/">Movies</Link>
+                    </LinkItem>
+                    <LinkItem>
+                        <Link to="/">People</Link>
+                    </LinkItem>
+                </HashRouter>
             </Links>
         </Wrapper>
         <StyledInput placeholder="Search for movies..." />
