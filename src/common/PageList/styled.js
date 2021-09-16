@@ -13,6 +13,7 @@ export const ButtonWrapper = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 100%;
         margin-bottom: 31px;
+        column-gap: 8px;
     }
 `;
 
@@ -50,6 +51,10 @@ export const PagesWrapper = styled.div`
     flex-grow: 0;
     font-size: 16px;
     padding: 0px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        font-size: 10px;
+    }
 `;
 
 export const Pages = styled.span`
@@ -59,5 +64,9 @@ export const Pages = styled.span`
         font-weight: 600;
         color: ${({theme}) => theme.colors.woodsmoke};
     `}
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        margin: 0px 2px;
+    }
 `;
 
