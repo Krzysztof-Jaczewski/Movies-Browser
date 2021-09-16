@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "./logo.svg";
+import { ReactComponent as Logo } from "../../images/Video.svg";
 import SearchIcon from "../../images/Search.svg";
+import { NavLink } from "react-router-dom";
 
 export const StyledNavigation = styled.nav`
     display: flex;
@@ -49,10 +50,11 @@ export const LogoWrapper = styled.div`
 `;
 
 export const LogoHeader = styled.h1`
-    margin-left: 16.58px;
+    margin: 0 0 0 12px;
     font-size: 24px;
     font-weight: 500;
     letter-spacing: -1.5px;
+    white-space: nowrap;
 
     @media(max-width: 767px){
         margin-left: 8px;
@@ -63,14 +65,16 @@ export const LogoHeader = styled.h1`
 
 export const Links = styled.ul`
     text-transform: uppercase;
-    margin-left: 0;
+    padding-left: 0;
     font-weight: 600;
     font-size: 14px;
     list-style-type: none;
     display: flex;
 `;
 
-export const Link = styled.a`
+export const LinkItem = styled.li``;
+
+export const Link = styled(NavLink)`
     padding: 8px 24px;
     text-decoration: none;
     color: currentColor;
@@ -95,11 +99,11 @@ export const StyledInput = styled.input`
     background-image: url(${SearchIcon});
     background-repeat: no-repeat;
     background-size: 12px;
-    background-position: 12px center;
+    background-position: 17px center;
     font-size: 12px;
     border: 1px solid ${({ theme }) => theme.colors.mystic};
     border-radius: 33px;
-    padding: 12px 64px;
+    padding: 12px 40px;
     margin: 0 auto;
     width: 432px;
 
