@@ -5,6 +5,13 @@ export const theme = {
     waterloo: "#7E839A",
     mystic: "#E4E6F0",
     woodsmoke: "#18181B",
+    whisper: "#F5F5FA",
+    mineShaft: "#333333",
+    pattensBlue: "#D6E4FF",
     silver: "#C4C4C4",
+  },
+
+  breakpoint: {
+    mobileMax: 767,
   },
 };
