@@ -8,7 +8,7 @@ export const StyledContainer = styled.main`
   height: 1391px;
   margin: 0 auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto;
     grid-gap: 16px;
     width: fit-content;

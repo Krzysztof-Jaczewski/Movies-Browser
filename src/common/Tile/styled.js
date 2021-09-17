@@ -12,7 +12,7 @@ export const StyledTile = styled.article`
   grid-gap: 16px;
   grid-template-rows: auto 1fr;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     width: 288px;
     height: 201px;
     grid-template-columns: auto 1fr;
@@ -24,7 +24,7 @@ export const Poster = styled.img`
   height: 434px;
   border-radius: 5px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     width: 114px;
     height: 169px;
   }
@@ -35,7 +35,7 @@ export const Descrition = styled.div`
   grid-template-rows: auto 1fr;
   align-items: start;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     grid-template-rows: auto auto 1fr;
   }
 `;
@@ -44,7 +44,7 @@ export const Info = styled.div`
   display: grid;
   grid-template-rows: auto auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     grid-template-rows: auto auto 1fr;
   }
 `;
@@ -56,7 +56,7 @@ export const Title = styled.h2`
   word-break: break-word;
   margin-bottom: 8px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     font-size: 16px;
   }
 `;
@@ -65,7 +65,7 @@ export const Caption = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 16.9px;
   }
@@ -91,7 +91,7 @@ export const Tags = styled.ul`
     margin-bottom: 0;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     flex-direction: row;
   }
 `;
@@ -102,7 +102,7 @@ export const Tag = styled.li`
   font-size: 14px;
   line-height: 19.6px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     font-size: 11px;
     line-height: 11px;
     padding: 4px 8px;
@@ -114,7 +114,7 @@ export const Ratings = styled.section`
   display: flex;
   align-items: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     grid-row: auto;
   }
 `;
@@ -123,13 +123,13 @@ export const Rate = styled.span`
   line-height: 24px;
   padding: 0 12px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     font-size: 13px;
   }
 `;
 
 export const StarIcon = styled(Star)`
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
     width: 16px;
   }
 `;
