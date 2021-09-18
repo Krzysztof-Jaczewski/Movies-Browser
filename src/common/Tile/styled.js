@@ -16,6 +16,12 @@ export const StyledTile = styled.article`
     width: 100%;
     grid-template-columns: auto 1fr;
   }
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const Poster = styled.img`
