@@ -6,18 +6,18 @@ export const StyledContainer = styled.main`
   gap: 24px;
   max-width: 1368px;
   margin: 0 auto;
-  transition: all 2s;
+  transition: all 0.5s;
 
   @media (max-width: 1372px) {
     grid-template-columns: repeat(3, auto);
     width: fit-content;
-    transition: all 2s;
+    transition: all 0.5s;
   }
   @media (max-width: 1000px) {
     grid-template-columns: repeat(2, auto);
     width: fit-content;
   }
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-template-columns: auto;
     gap: 16px;
     width: fit-content;
