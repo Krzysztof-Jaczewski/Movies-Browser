@@ -14,7 +14,7 @@ import {
 } from "./styled";
 import { Placeholder } from "../Placeholder";
 
-export const Tile = ({ poster, title, subtitle, tags, rate, votes }) => {
+export const Tile = ({ poster, title, subtitle, genres, rate, votes }) => {
   return (
     <StyledTile>
       {poster ? <Poster src={poster} alt="" /> : <Placeholder />}
@@ -23,7 +23,9 @@ export const Tile = ({ poster, title, subtitle, tags, rate, votes }) => {
           <Title>{title}</Title>
           <TileDate>{subtitle}</TileDate>
         </Info>
-        <Tags>{tags && tags.map((tag) => <Tag>{tag}</Tag>)}</Tags>
+        <Tags>
+          {genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
+        </Tags>
         {votes ? (
           <Ratings>
             <StarIcon />

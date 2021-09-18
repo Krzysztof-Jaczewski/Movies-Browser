@@ -1,37 +1,41 @@
 import { Container } from "../../common/Container";
 import { Tile } from "../../common/Tile";
-import poster from "../../images/poster.jpg";
+import { baseImgUrl, size } from "../ApiParameters";
+import { useMoviesApi } from "../fetchMoviesPopularApi";
+import { useGenres } from "../fetchGenres";
 
 export const MovieList = () => {
+  const results = useMoviesApi();
+  const genres = useGenres();
+
+  const nameMovieGenres = (array) => {
+    const movieGenresList = [];
+    array.map(
+      (id) =>
+        genres &&
+        genres.filter((genre) =>
+          id === genre.id ? movieGenresList.push(genre.name) : ""
+        )
+    );
+    return movieGenresList;
+  };
+
   return (
     <Container>
-      <Tile
-        poster={poster}
-        title={"Mulan"}
-        subtitle={"2020"}
-        tags={["Drama", "Action", "Adventure", "Thriller"]}
-        rate={"7.8"}
-        votes={"35"}
-      />
-      <Tile
-        poster={poster}
-        title={"Mulan"}
-        tags={["Drama"]}
-        rate={"7.5"}
-        votes={"35"}
-      />
-      <Tile
-        poster={poster}
-        title={"Mulan"}
-        subtitle={"2020"}
-        rate={"7.5"}
-        votes={"35"}
-      />
-      <Tile
-        title={"Mulan very long title for experiment"}
-        subtitle={"2020"}
-        tags={["Drama"]}
-      />
+      {results &&
+        results.map((result) => {
+          return (
+            <Tile
+              key={result.id}
+              poster={`${baseImgUrl}/${size}${result.poster_path}`}
+              title={result.title}
+              subtitle={result.release_date.slice(0, 4)}
+              genres={nameMovieGenres(result.genre_ids)}
+              rate={result.vote_average}
+              votes={result.vote_count}
+            />
+          );
+        })}
     </Container>
   );
 };

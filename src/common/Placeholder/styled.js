@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Camera } from "../../images/Video.svg";
-import { ReactComponent as Profile } from "../../images/Profile.svg";
+import { ReactComponent as Camera } from "../../images/video.svg";
+import { ReactComponent as Profile } from "../../images/profile.svg";
 
 export const StyledPlaceholder = styled.div`
   width: 292px;
@@ -10,7 +10,7 @@ export const StyledPlaceholder = styled.div`
   display: grid;
   place-items: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 114px;
     height: 169px;
   }
@@ -22,7 +22,7 @@ export const StyledPlaceholder = styled.div`
       height: 264px;
       border-radius: 5px;
 
-      @media (max-width: 767px) {
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         width: 120px;
         height: 178px;
       }
@@ -32,7 +32,7 @@ export const StyledPlaceholder = styled.div`
 export const CameraIcon = styled(Camera)`
   width: 100px;
   height: 75px;
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 40px;
   }
 `;
@@ -40,7 +40,7 @@ export const CameraIcon = styled(Camera)`
 export const PersonIcon = styled(Profile)`
   width: 100px;
   height: 75px;
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 48px;
     height: 60px;
   }
