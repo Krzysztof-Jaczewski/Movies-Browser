@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "../../images/star.svg";
+import { ReactComponent as Star } from "../../images/Star.svg";
 
 export const StyledTile = styled.article`
   background-color: ${({ theme }) => theme.colors.white};

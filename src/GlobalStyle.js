@@ -15,6 +15,6 @@ button {
 }
 body{
   font-family: 'Poppins', sans-serif;
-  background-color: ${({ theme }) => theme.colors.wisper};
+  background-color: ${({ theme }) => theme.colors.whisper};
   }
 `;
