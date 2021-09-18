@@ -12,7 +12,6 @@ export const useGenres = () => {
           `${baseSiteUrl}genre/movie/list?api_key=${API_Key}&language=${language}`
         );
         const result = await response.data.genres;
-        console.log(result);
         setGenre(result);
       } catch {
         setGenre({ state: "error" });
