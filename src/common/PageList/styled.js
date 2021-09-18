@@ -8,6 +8,7 @@ export const ButtonWrapper = styled.div`
   margin-bottom: 103px;
   justify-content: center;
   column-gap: 12px;
+  margin-top: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 100%;
