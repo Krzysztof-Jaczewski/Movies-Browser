@@ -6,7 +6,7 @@ import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
 import { fetchMovies, selectMovies, selectStatus } from "./moviesSlice";
 
-export const MovieList = () => {
+export const MoviesList = () => {
   const { results } = useSelector(selectMovies);
   const status = useSelector(selectStatus);
   const genres = useGenres();
