@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "../../images/Star.svg";
+import { ReactComponent as Star } from "../../images/star.svg";
 
 export const StyledTile = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
@@ -12,7 +12,7 @@ export const StyledTile = styled.article`
   grid-template-rows: auto 1fr;
   transition: all 0.5s;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 100%;
     grid-template-columns: auto 1fr;
   }
@@ -22,9 +22,9 @@ export const Poster = styled.img`
   width: 292px;
   height: 434px;
   border-radius: 5px;
-  transition: all 2s;
+  transition: all 0.5s;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 114px;
     height: 169px;
   }
@@ -35,7 +35,7 @@ export const Descrition = styled.div`
   grid-template-rows: auto 1fr;
   align-items: start;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-template-rows: auto auto 1fr;
   }
 `;
@@ -44,7 +44,7 @@ export const Info = styled.div`
   display: grid;
   grid-template-rows: auto auto;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-template-rows: auto auto 1fr;
   }
 `;
@@ -56,7 +56,7 @@ export const Title = styled.h2`
   word-break: break-word;
   margin-bottom: 8px;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
   }
 `;
@@ -65,7 +65,7 @@ export const Caption = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 13px;
     line-height: 16.9px;
   }
@@ -91,7 +91,7 @@ export const Tags = styled.ul`
     margin-bottom: 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: row;
   }
 `;
@@ -102,7 +102,7 @@ export const Tag = styled.li`
   font-size: 14px;
   line-height: 19.6px;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 11px;
     line-height: 11px;
     padding: 4px 8px;
@@ -115,7 +115,7 @@ export const Ratings = styled.section`
   align-items: center;
   margin-top: 8px;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-row: auto;
   }
 `;
@@ -124,13 +124,13 @@ export const Rate = styled.span`
   line-height: 24px;
   padding: 0 12px;
 
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 13px;
   }
 `;
 
 export const StarIcon = styled(Star)`
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 16px;
   }
 `;
