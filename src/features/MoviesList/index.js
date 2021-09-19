@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { baseImgUrl, size } from "../../ApiParameters";
 import { Container } from "../../common/Container";
+import { Header } from "../../common/Header";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
 import { fetchMovies, selectMovies, selectStatus } from "./moviesSlice";
@@ -29,21 +30,24 @@ export const MoviesList = () => {
   };
 
   return (
-    <Container>
-      {results &&
-        results.map((result) => {
-          return (
-            <Tile
-              key={result.id}
-              poster={`${baseImgUrl}/${size}${result.poster_path}`}
-              title={result.title}
-              subtitle={result.release_date.slice(0, 4)}
-              genres={nameMovieGenres(result.genre_ids)}
-              rate={result.vote_average}
-              votes={result.vote_count}
-            />
-          );
-        })}
-    </Container>
+    <>
+      <Header title={"Popular movies"} />
+      <Container>
+        {results &&
+          results.map((result) => {
+            return (
+              <Tile
+                key={result.id}
+                poster={`${baseImgUrl}/${size}${result.poster_path}`}
+                title={result.title}
+                subtitle={result.release_date.slice(0, 4)}
+                genres={nameMovieGenres(result.genre_ids)}
+                rate={result.vote_average}
+                votes={result.vote_count}
+              />
+            );
+          })}
+      </Container>
+    </>
   );
 };
