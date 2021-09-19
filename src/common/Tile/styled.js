@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Star } from "../../images/star.svg";
 
 export const StyledTile = styled.article`
@@ -13,12 +13,32 @@ export const StyledTile = styled.article`
   transition: all 0.5s;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 100%;
+    width: auto;
     grid-template-columns: auto 1fr;
+    margin: 0 16px;
   }
+
+  ${({ person }) =>
+    person &&
+    css`
+      width: 208px;
+      border-radius: 5px;
+      padding: 16px;
+      gap: 24px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        width: 136px;
+        grid-template-columns: auto;
+        padding: 8px;
+        gap: 16px;
+        margin: 0;
+      }
+    `}
+
   &:hover {
     transform: scale(1.05);
   }
+
   &:active {
     transform: scale(0.95);
   }
@@ -32,8 +52,20 @@ export const Poster = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 114px;
-    height: 169px;
+    height: auto;
   }
+  ${({ person }) =>
+    person &&
+    css`
+      width: 177px;
+      height: 264px;
+      border-radius: 5px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        width: 120px;
+        height: 178px;
+      }
+    `}
 `;
 
 export const Descrition = styled.div`
