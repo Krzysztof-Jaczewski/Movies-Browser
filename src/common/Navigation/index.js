@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
 import { HashRouter } from "react-router-dom";
-import { fetchMovies } from "../../features/MoviesList/moviesSlice";
 import {
   Link,
   LinkItem,
@@ -14,8 +12,6 @@ import {
 } from "./styled";
 
 export const Navigation = () => {
-  const dispatch = useDispatch();
-
   return (
     <StyledNavigation>
       <Wrapper>
@@ -26,9 +22,7 @@ export const Navigation = () => {
         <Links>
           <HashRouter>
             <LinkItem>
-              <Link to="/" onClick={() => dispatch(fetchMovies())}>
-                Movies
-              </Link>
+              <Link to="/">Movies</Link>
             </LinkItem>
             <LinkItem>
               <Link to="/">People</Link>
