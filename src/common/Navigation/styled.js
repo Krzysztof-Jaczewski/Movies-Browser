@@ -18,6 +18,20 @@ export const StyledNavigation = styled.nav`
   }
 `;
 
+export const NavigationContainer = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1368px;
+  width: 100%;
+
+  @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
+  {
+    flex-direction: column;
+  }
+`
+
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
   max-width: 1368px;
