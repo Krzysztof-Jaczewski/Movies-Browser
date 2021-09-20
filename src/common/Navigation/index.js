@@ -1,4 +1,4 @@
-import { HashRouter } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Link,
   LinkItem,
@@ -12,6 +12,7 @@ import {
 } from "./styled";
 
 export const Navigation = () => {
+  const location = useLocation();
   return (
     <StyledNavigation>
       <Wrapper>
@@ -20,17 +21,15 @@ export const Navigation = () => {
           <LogoHeader>Movies Browser</LogoHeader>
         </LogoWrapper>
         <Links>
-          <HashRouter>
-            <LinkItem>
-              <Link to="/">Movies</Link>
-            </LinkItem>
-            <LinkItem>
-              <Link to="/">People</Link>
-            </LinkItem>
-          </HashRouter>
+          <LinkItem>
+            <Link to="/Movies">Movies</Link>
+          </LinkItem>
+          <LinkItem>
+            <Link to="/People">People</Link>
+          </LinkItem>
         </Links>
       </Wrapper>
-      <StyledInput placeholder="Search for movies..." />
+      <StyledInput placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`} />
     </StyledNavigation>
   );
 };
