@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "../../images/Video.svg";
-import SearchIcon from "../../images/Search.svg";
+import { ReactComponent as Logo } from "../../images/video.svg";
+import SearchIcon from "../../images/search.svg";
 import { NavLink } from "react-router-dom";
 
 export const StyledNavigation = styled.nav`
