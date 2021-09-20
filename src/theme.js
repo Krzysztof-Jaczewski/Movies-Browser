@@ -10,8 +10,7 @@ export const theme = {
     pattensBlue: "#D6E4FF",
     silver: "#C4C4C4",
   },
-
   breakpoint: {
-    mobileMax: 767,
+    mobileMax: "767px",
   },
 };
