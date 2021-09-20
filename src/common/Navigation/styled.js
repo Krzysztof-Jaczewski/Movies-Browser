@@ -95,7 +95,9 @@ export const Link = styled(NavLink).attrs(() => ({
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
+  background-color: ${({ theme }) => theme.colors.woodsmoke};
   border: 1px solid transparent;
+  border-radius: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 12px;
@@ -103,12 +105,11 @@ export const Link = styled(NavLink).attrs(() => ({
   }
 
   &:hover {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+    filter: invert(1);
   }
 
   &.${activeClassName} {
     border: 1px solid ${({ theme }) => theme.colors.white};
-    border-radius: 24px;
   }
 `;
 
