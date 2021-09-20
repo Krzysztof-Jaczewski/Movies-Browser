@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "../../images/Video.svg";
-import SearchIcon from "../../images/Search.svg";
+import { ReactComponent as Logo } from "../../images/video.svg";
+import SearchIcon from "../../images/search.svg";
 import { NavLink } from "react-router-dom";
 
+const activeClassName = "active";
 export const StyledNavigation = styled.nav`
   display: flex;
   align-items: center;
@@ -74,7 +75,9 @@ export const Links = styled.ul`
 
 export const LinkItem = styled.li``;
 
-export const Link = styled(NavLink)`
+export const Link = styled(NavLink).attrs(() => ({
+  activeClassName
+}))`
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
@@ -89,7 +92,7 @@ export const Link = styled(NavLink)`
     border-bottom: 1px solid ${({ theme }) => theme.colors.white};
   }
 
-  &:active {
+  &.${activeClassName} {
     border: 1px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;
   }

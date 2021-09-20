@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Camera } from "../../images/Video.svg";
-import { ReactComponent as Profile } from "../../images/Profile.svg";
+import { ReactComponent as Camera } from "../../images/video.svg";
+import { ReactComponent as Profile } from "../../images/profile.svg";
 
 export const StyledPlaceholder = styled.div`
   width: 292px;
