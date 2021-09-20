@@ -1,7 +1,7 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Navigation } from "./common/Navigation";
 import { PageList } from "./common/PageList";
-import { LoadingPage } from "./features/LoadingPage";
+import { Loading } from "./common/Loading";
 import { MoviesList } from "./features/MoviesList";
 import { PeopleList } from "./features/PeopleList";
 
@@ -16,8 +16,8 @@ export const App = () => (
         <Route path="/People">
           <PeopleList />
         </Route>
-        <Route path="/LoadingPage">
-          <LoadingPage />
+        <Route path="/Loading">
+          <Loading />
         </Route>
         <Route path="/">
           <Redirect to="/Movies" />
