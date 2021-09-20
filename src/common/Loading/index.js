@@ -1,5 +1,7 @@
-import { LoadingImage } from "./styled";
+import { LoadingContainer, LoadingImage } from "./styled";
 
 export const Loading = () => (
-    <LoadingImage />
+    <LoadingContainer>
+        <LoadingImage />
+    </LoadingContainer>
 );
