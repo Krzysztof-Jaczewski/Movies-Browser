@@ -8,13 +8,9 @@ export const StyledContainer = styled.main`
   margin: 0 auto;
   transition: all 0.5s;
 
-<<<<<<< HEAD
-  @media (max-width: ${({theme})=>theme.breakpoint.mobileMax}px) {
-=======
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     gap: 16px;
     width: auto;
->>>>>>> main
     grid-template-columns: auto;
   }
   ${({ person }) =>

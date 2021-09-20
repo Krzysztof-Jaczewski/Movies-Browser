@@ -5,6 +5,7 @@ import {
   Links,
   LogoHeader,
   LogoWrapper,
+  NavigationContainer,
   StyledInput,
   StyledLogo,
   StyledNavigation,
@@ -15,21 +16,23 @@ export const Navigation = () => {
   const location = useLocation();
   return (
     <StyledNavigation>
-      <Wrapper>
-        <LogoWrapper>
-          <StyledLogo />
-          <LogoHeader>Movies Browser</LogoHeader>
-        </LogoWrapper>
-        <Links>
-          <LinkItem>
-            <Link to="/Movies">Movies</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link to="/People">People</Link>
-          </LinkItem>
-        </Links>
-      </Wrapper>
-      <StyledInput placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`} />
+      <NavigationContainer>
+        <Wrapper>
+          <LogoWrapper>
+            <StyledLogo />
+            <LogoHeader>Movies Browser</LogoHeader>
+          </LogoWrapper>
+          <Links>
+            <LinkItem>
+              <Link to="/Movies">Movies</Link>
+            </LinkItem>
+            <LinkItem>
+              <Link to="/People">People</Link>
+            </LinkItem>
+          </Links>
+        </Wrapper>
+        <StyledInput placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`} />
+      </NavigationContainer>
     </StyledNavigation>
   );
 };
