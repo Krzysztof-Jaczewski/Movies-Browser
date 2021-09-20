@@ -3,6 +3,7 @@ import { Navigation } from "./common/Navigation";
 import { PageList } from "./common/PageList";
 import { MoviesList } from "./features/MoviesList";
 import { PeopleList } from "./features/PeopleList";
+import { NoResult } from "./features/NoResults";
 
 export const App = () => (
   <>
@@ -14,6 +15,9 @@ export const App = () => (
         </Route>
         <Route path="/People">
           <PeopleList />
+        </Route>
+        <Route path="/NoResult">
+          <NoResult />
         </Route>
         <Route path="/">
           <Redirect to="/Movies" />
