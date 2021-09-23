@@ -1,4 +1,5 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Footer } from "./common/Footer";
 import { Navigation } from "./common/Navigation";
 import { PageList } from "./common/PageList";
 import { Loading } from "./common/Loading";
@@ -29,5 +30,6 @@ export const App = () => (
       </Switch>
     </HashRouter>
     <PageList />
+    <Footer />
   </>
 );
