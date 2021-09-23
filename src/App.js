@@ -6,6 +6,7 @@ import { Loading } from "./common/Loading";
 import { MoviesList } from "./features/MoviesList";
 import { PeopleList } from "./features/PeopleList";
 import { NoResult } from "./common/NoResults";
+import { Error } from "./common/Error";
 
 export const App = () => (
   <>
@@ -23,6 +24,9 @@ export const App = () => (
         </Route>
         <Route path="/NoResult">
           <NoResult />
+        </Route>
+        <Route path="/Error">
+          <Error />
         </Route>
         <Route path="/">
           <Redirect to="/Movies" />
