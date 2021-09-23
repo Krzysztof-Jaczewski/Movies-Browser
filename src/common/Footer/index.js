@@ -1,11 +1,11 @@
-import { PageFooter, PageFooterContainer, PageFooterLogo } from "./styled";
+import { PageFooter, FooterContainer, FooterLogo } from "./styled";
 
 export const Footer = () => (
     <PageFooter>
-        <PageFooterContainer>
-            <PageFooterLogo />
+        <FooterContainer>
             This product uses the TMDB API but is not endorsed or certified by TMDB.<br />
-            Created by Pawlo1994, Krzysztof-Jaczewski and Eugen-save
-        </PageFooterContainer>
+            Created by Paweł Suchy, Krzysztof Jaczewski and Evgeny Savalyev
+        </FooterContainer>
+        <FooterLogo />
     </PageFooter>
 );

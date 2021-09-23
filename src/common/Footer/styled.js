@@ -1,42 +1,42 @@
 import styled from "styled-components";
-import { ReactComponent as FooterLogo } from "../../images/tmdb.svg";
+import { ReactComponent as Logo } from "../../images/tmdb.svg";
 
 export const PageFooter = styled.footer`
-    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
-    text-align: center;
     background-color: ${({ theme }) => theme.colors.woodsmoke};
     padding: 10px;
+    line-height: 1.5;
     color: ${({ theme }) => theme.colors.white};
 
     @media(max-width:${({ theme }) => theme.breakpoint.mobileMax})
     {
-        font-size: 14px;
+        font-size: 10px;
+        text-align: left;
     }
 `;
 
-export const PageFooterContainer = styled.div`
+export const FooterContainer = styled.div`
+    width: 70%;
     max-width: 1368px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
-    {
-        flex-direction: column;
-    }
 `;
 
-export const PageFooterLogo = styled(FooterLogo)`
-    width: 22px;
-    height: 22px;
+export const FooterLogo = styled(Logo)`
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
 
     @media(max-width:${({ theme }) => theme.breakpoint.mobileMax})
     {
         margin: 10px;
-        width: 14px;
-        height: 14px;
+        width: 36px;
+        height: 36px;
     }
 `;
