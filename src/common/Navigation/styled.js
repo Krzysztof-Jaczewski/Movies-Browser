@@ -3,7 +3,6 @@ import { ReactComponent as Logo } from "../../images/video.svg";
 import SearchIcon from "../../images/search.svg";
 import { NavLink } from "react-router-dom";
 
-const activeClassName = "active";
 export const StyledNavigation = styled.nav`
   display: flex;
   align-items: center;
@@ -34,8 +33,6 @@ export const NavigationContainer = styled.div`
 
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
-  max-width: 1368px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,19 +76,24 @@ export const LogoHeader = styled.h1`
 `;
 
 export const Links = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   text-transform: uppercase;
   padding-left: 0;
   font-weight: 600;
   font-size: 14px;
   list-style-type: none;
-  display: flex;
+
+  @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
+  {
+    margin-left: 10px;
+  }
 `;
 
 export const LinkItem = styled.li``;
 
-export const Link = styled(NavLink).attrs(() => ({
-  activeClassName
-}))`
+export const Link = styled(NavLink)`
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
@@ -108,7 +110,7 @@ export const Link = styled(NavLink).attrs(() => ({
     filter: invert(1);
   }
 
-  &.${activeClassName} {
+  &.active {
     border: 1px solid ${({ theme }) => theme.colors.white};
   }
 `;
@@ -122,11 +124,10 @@ export const StyledInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.mystic};
   border-radius: 33px;
   padding: 12px 40px;
-  margin: 0 auto;
-  width: 432px;
+  max-width: 432px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 100%;
     margin-top: 24px;
   }
 `;
