@@ -5,7 +5,7 @@ import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
-import { useParameter } from "../../useParameters";
+import { useURLParameter } from "../../useURLParameters";
 import {
   fetchMovies,
   selectMovies,
@@ -18,7 +18,7 @@ export const MoviesList = () => {
   const status = useSelector(selectStatus);
   const totalMoviesPages = useSelector(selectTotalMoviesPages);
   const genres = useGenres();
-  const pageParameter = +useParameter("page");
+  const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
   console.log(status);

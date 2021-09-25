@@ -4,7 +4,7 @@ import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
-import { useParameter } from "../../useParameters";
+import { useURLParameter } from "../../useURLParameters";
 import {
   fetchPeople,
   selectPeople,
@@ -16,8 +16,9 @@ export const PeopleList = () => {
   const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
-  const pageParameter = +useParameter("page");
+  const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+
   console.log(status);
   console.log(people);
 
