@@ -5,8 +5,8 @@ import {
   fetchPeopleError,
   fetchPeopleSuccess,
 } from "./peopleSlice";
-import { API_Key, baseSiteUrl, page } from "../../ApiParameters";
-function* fetchPeopleHandler() {
+import { API_Key, baseSiteUrl } from "../../ApiParameters";
+function* fetchPeopleHandler({ payload: { page } }) {
   const url = `${baseSiteUrl}person/popular?api_key=${API_Key}&page=${page}`;
   try {
     const people = yield call(getApi, url);
