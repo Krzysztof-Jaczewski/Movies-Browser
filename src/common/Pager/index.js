@@ -9,7 +9,7 @@ import {
   PagesWrapper,
 } from "./styled";
 
-export const Pager = ({ totalPages }) => {
+export const Pager = ({ page, totalPages }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 767;
   useEffect(() => {
@@ -34,7 +34,7 @@ export const Pager = ({ totalPages }) => {
 
       <PagesWrapper>
         <Pages>Page</Pages>
-        <Pages number>1</Pages>
+        <Pages number>{page}</Pages>
         <Pages>of</Pages>
         <Pages number>{totalPages}</Pages>
       </PagesWrapper>

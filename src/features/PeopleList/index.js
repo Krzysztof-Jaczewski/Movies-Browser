@@ -4,6 +4,7 @@ import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
+import { useParameter } from "../../useParameters";
 import {
   fetchPeople,
   selectPeople,
@@ -15,13 +16,14 @@ export const PeopleList = () => {
   const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
-
+  const pageParameter = +useParameter("page");
+  const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
   console.log(status);
   console.log(people);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople()), [dispatch]);
+  useEffect(() => dispatch(fetchPeople({ page })), [dispatch, page]);
 
   return (
     <>
@@ -32,7 +34,7 @@ export const PeopleList = () => {
             return <Tile person key={id} title={name} poster={profile_path} />;
           })}
       </Container>
-      <Pager totalPages={totalPeoplePages} />
+      <Pager page={page} totalPages={totalPeoplePages} />
     </>
   );
 };

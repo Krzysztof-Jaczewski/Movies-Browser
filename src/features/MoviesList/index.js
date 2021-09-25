@@ -5,6 +5,7 @@ import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
+import { useParameter } from "../../useParameters";
 import {
   fetchMovies,
   selectMovies,
@@ -16,14 +17,15 @@ export const MoviesList = () => {
   const movies = useSelector(selectMovies);
   const status = useSelector(selectStatus);
   const totalMoviesPages = useSelector(selectTotalMoviesPages);
-
   const genres = useGenres();
+  const pageParameter = +useParameter("page");
+  const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
   console.log(status);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchMovies()), [dispatch]);
+  useEffect(() => dispatch(fetchMovies({ page })), [dispatch, page]);
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
@@ -56,7 +58,7 @@ export const MoviesList = () => {
             }
           )}
       </Container>
-      <Pager totalPages={totalMoviesPages} />
+      <Pager page={page} totalPages={totalMoviesPages} />
     </>
   );
 };
