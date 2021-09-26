@@ -20,7 +20,6 @@ export const PeopleList = () => {
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
   console.log(status);
-  console.log(people);
 
   const dispatch = useDispatch();
 
