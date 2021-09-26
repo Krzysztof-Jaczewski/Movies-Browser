@@ -64,16 +64,15 @@ export const BackLink = styled(NavLink)`
 export const ErrorContainer = styled.section`
     max-width: 596px;
     position: relative;
-    margin: 180px auto 0;
+    margin: 0 auto;
     padding: 0;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}){
-        margin-top: 60px auto 0;
         max-width: 283px;
     }
 `;
