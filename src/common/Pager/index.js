@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ReactComponent as ArrowLeft } from "../../images/arrowLeft.svg";
 import { ReactComponent as ArrowRight } from "../../images/arrowRight.svg";
+import { useReplaceURLParameters } from "../../useURLParameters";
 import {
   Button,
   ButtonText,
@@ -12,6 +13,8 @@ import {
 export const Pager = ({ page, totalPages }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 767;
+  const replaceURLParameters = useReplaceURLParameters();
+
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResizeWindow);
@@ -20,14 +23,23 @@ export const Pager = ({ page, totalPages }) => {
     };
   }, []);
 
+  const changePage = (page) => {
+    replaceURLParameters([
+      {
+        key: "page",
+        value: page,
+      },
+    ]);
+  };
+
   return (
     <ButtonWrapper>
-      <Button>
+      <Button disabled={page === 1} onClick={() => changePage(1)}>
         {width > breakpoint ? <ButtonText>First</ButtonText> : <ArrowLeft />}
         <ArrowLeft />
       </Button>
 
-      <Button>
+      <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
         <ArrowLeft />
         {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
       </Button>
@@ -38,11 +50,19 @@ export const Pager = ({ page, totalPages }) => {
         <Pages>of</Pages>
         <Pages number>{totalPages}</Pages>
       </PagesWrapper>
-      <Button>
+
+      <Button
+        disabled={page === totalPages}
+        onClick={() => changePage(page + 1)}
+      >
         {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
         <ArrowRight />
       </Button>
-      <Button>
+
+      <Button
+        disabled={page === totalPages}
+        onClick={() => changePage(totalPages)}
+      >
         {width > breakpoint ? <ButtonText>Last</ButtonText> : <ArrowRight />}
         <ArrowRight />
       </Button>
