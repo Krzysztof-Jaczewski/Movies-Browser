@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
@@ -43,15 +44,17 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <Tile
-                  key={id}
-                  poster={poster_path}
-                  title={title}
-                  subtitle={release_date.slice(0, 4)}
-                  genres={nameMovieGenres(genre_ids)}
-                  rate={vote_average}
-                  votes={vote_count}
-                />
+                <Link activeClassName="active" to={`/Movies/movie_id`}>
+                  <Tile
+                    key={id}
+                    poster={poster_path}
+                    title={title}
+                    subtitle={release_date.slice(0, 4)}
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
+                </Link>
               );
             }
           )}
