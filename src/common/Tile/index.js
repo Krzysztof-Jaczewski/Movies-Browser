@@ -13,7 +13,7 @@ import {
   TileDate,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
-
+import { baseImgUrl, size } from "../../ApiParameters";
 export const Tile = ({
   poster,
   title,
@@ -26,7 +26,7 @@ export const Tile = ({
   return (
     <StyledTile person={person}>
       {poster ? (
-        <Poster person={person} src={poster} alt="" />
+        <Poster person={person} src={`${baseImgUrl}${size}${poster}`} alt="" />
       ) : (
         <Placeholder person={person} />
       )}

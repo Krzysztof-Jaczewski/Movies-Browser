@@ -15,6 +15,7 @@ export const StyledTile = styled.article`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: auto;
     grid-template-columns: auto 1fr;
+    grid-template-rows: none;
     margin: 0 16px;
   }
 

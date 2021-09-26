@@ -1,17 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { baseImgUrl, size } from "../../ApiParameters";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
+import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
-import { fetchPeople, selectPeople, selectStatus } from "./peopleSlice";
+import {
+  fetchPeople,
+  selectPeople,
+  selectStatus,
+  selectTotalPeoplePages,
+} from "./peopleSlice";
 
 export const PeopleList = () => {
-  const { results } = useSelector(selectPeople);
+  const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
+  const totalPeoplePages = useSelector(selectTotalPeoplePages);
 
   console.log(status);
-  console.log(results);
+  console.log(people);
 
   const dispatch = useDispatch();
 
@@ -21,18 +27,12 @@ export const PeopleList = () => {
     <>
       <Header title={"Popular People"} />
       <Container person>
-        {results &&
-          results.map((result) => {
-            return (
-              <Tile
-                person
-                key={result.id}
-                title={result.name}
-                poster={`${baseImgUrl}/${size}${result.profile_path}`}
-              />
-            );
+        {people &&
+          people.map(({ id, name, profile_path }) => {
+            return <Tile person key={id} title={name} poster={profile_path} />;
           })}
       </Container>
+      <Pager totalPages={totalPeoplePages} />
     </>
   );
 };

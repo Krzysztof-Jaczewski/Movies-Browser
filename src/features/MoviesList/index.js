@@ -1,15 +1,22 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { baseImgUrl, size } from "../../ApiParameters";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
+import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
-import { fetchMovies, selectMovies, selectStatus } from "./moviesSlice";
+import {
+  fetchMovies,
+  selectMovies,
+  selectStatus,
+  selectTotalMoviesPages,
+} from "./moviesSlice";
 
 export const MoviesList = () => {
-  const { results } = useSelector(selectMovies);
+  const movies = useSelector(selectMovies);
   const status = useSelector(selectStatus);
+  const totalMoviesPages = useSelector(selectTotalMoviesPages);
+
   const genres = useGenres();
 
   console.log(status);
@@ -17,37 +24,39 @@ export const MoviesList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchMovies()), [dispatch]);
-  const nameMovieGenres = (array) => {
-    const movieGenresList = [];
-    array.map(
-      (id) =>
-        genres &&
-        genres.filter((genre) =>
-          id === genre.id ? movieGenresList.push(genre.name) : ""
-        )
-    );
-    return movieGenresList;
-  };
+  const nameMovieGenres = (genre_ids) =>
+    genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
   return (
     <>
       <Header title={"Popular movies"} />
       <Container>
-        {results &&
-          results.map((result) => {
-            return (
-              <Tile
-                key={result.id}
-                poster={`${baseImgUrl}/${size}${result.poster_path}`}
-                title={result.title}
-                subtitle={result.release_date.slice(0, 4)}
-                genres={nameMovieGenres(result.genre_ids)}
-                rate={result.vote_average}
-                votes={result.vote_count}
-              />
-            );
-          })}
+        {movies &&
+          movies.map(
+            ({
+              id,
+              poster_path,
+              title,
+              release_date,
+              genre_ids,
+              vote_average,
+              vote_count,
+            }) => {
+              return (
+                <Tile
+                  key={id}
+                  poster={poster_path}
+                  title={title}
+                  subtitle={release_date.slice(0, 4)}
+                  genres={nameMovieGenres(genre_ids)}
+                  rate={vote_average}
+                  votes={vote_count}
+                />
+              );
+            }
+          )}
       </Container>
+      <Pager totalPages={totalMoviesPages} />
     </>
   );
 };
