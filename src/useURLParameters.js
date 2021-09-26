@@ -23,7 +23,7 @@ export const useReplaceURLParameters = () => {
 
     history.push(
       `${
-        location.pathname.includes("movie") ? "/movies" : "/people"
+        location.pathname.includes("Movies") ? "/Movies" : "/People"
       }?${searchParams.toString()}`
     );
   };
