@@ -9,7 +9,7 @@ const movieSlice = createSlice({
     },
     fetchMovieSuccess: (state, { payload: Apimovie }) => {
       state.status = "success";
-      state.movie = Apimovie.results;
+      state.movie = Apimovie;
     },
     fetchMovieError: (state) => {
       state.status = "error";
@@ -21,5 +21,6 @@ export const { fetchMovie, fetchMovieError, fetchMovieSuccess } =
 
 export const selectMovieState = (state) => state.movieReducer;
 export const selectMovie = (state) => selectMovieState(state).movie;
+export const selectStatus = (state) => selectMovieState(state).status;
 
 export default movieSlice.reducer;
