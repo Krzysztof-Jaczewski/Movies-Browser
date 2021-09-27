@@ -6,6 +6,7 @@ import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
+import { StyledLink } from "../styled";
 import {
   fetchMovies,
   selectMovies,
@@ -44,7 +45,7 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <Link activeClassName="active" to={`/Movies/${id}`}>
+                <StyledLink to={`/Movies/${id}`}>
                   <Tile
                     key={id}
                     poster={poster_path}
@@ -54,7 +55,7 @@ export const MoviesList = () => {
                     rate={vote_average}
                     votes={vote_count}
                   />
-                </Link>
+                </StyledLink>
               );
             }
           )}
