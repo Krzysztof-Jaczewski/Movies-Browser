@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {ReactComponent as bigStar} from "../../images/star.svg";
 
-export const TopBackground = styled.div`
+export const BackdropShadow = styled.div`
     width: 1920px;
     height: 770px;
     left: 0px;
@@ -13,7 +13,7 @@ export const TopBackground = styled.div`
         #000000 92.87%);
 `;
 
-export const TopPoster = styled.img`
+export const BackdropPoster = styled.img`
     width: 1368px;
     height: 769px;
     left: 276px;
@@ -37,8 +37,4 @@ export const BigStarIcon = styled(bigStar)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 16px;
   }
-`;
-
-export const Wrapper = styled.main`
-
 `;

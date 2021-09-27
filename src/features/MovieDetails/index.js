@@ -1,41 +1,25 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie, getMovieById } from "./movieSlice";
-import { BigStarIcon, LongTitle, TopBackground, TopPoster, Wrapper } from "./styled";
-import { baseImgUrl, size } from "../../ApiParameters";
+import { fetchMovie, selectMovie } from "./movieSlice";
+import { baseImgUrl, baseSiteUrl, size } from "../../ApiParameters";
 import { Caption, Rate, Ratings } from "../../common/Tile/styled";
 import { useEffect } from "react";
+import { Backdrop } from "../../common/Backdrop";
 
-function MovieDetails({poster, title, votes, rate, person}) {
+function MovieDetails() {
   const { id } = useParams();
-  const movie = useSelector(state => getMovieById(state, id));
+  const movie = useSelector(selectMovie);
 
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchMovie()), [dispatch]);
 
   return (
+    
   <>
-    <Wrapper>
-      <TopBackground>
-         <TopPoster src={`${baseImgUrl}${size}${poster}`} alt="" />
-          <LongTitle>
-             {title}
-              </LongTitle>
-                {votes} ? (
-                  <Ratings>
-                    <BigStarIcon />
-                      <Rate>{rate}</Rate>
-                        <Caption>{votes}</Caption>
-                        </Ratings>
-                      ) : (
-                        <Ratings>
-                            <Caption>{person ? "" : "No votes yet"}</Caption>
-                        </Ratings>
-                        )}
-                    </TopBackground>
-                    );
-                })};
-    </Wrapper>
+<Backdrop
+title="Mulan long title"
+key={id}
+/>
   </>
   );
 }; 
