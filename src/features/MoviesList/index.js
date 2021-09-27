@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
