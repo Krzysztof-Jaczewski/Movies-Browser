@@ -44,7 +44,7 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <Link activeClassName="active" to={`/Movies/movie_id`}>
+                <Link activeClassName="active" to={`/Movies/${id}`}>
                   <Tile
                     key={id}
                     poster={poster_path}
