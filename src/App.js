@@ -10,7 +10,7 @@ export const App = () => (
     <HashRouter>
       <Navigation />
       <Switch>
-        <Route path="/Movies/:movie_id">
+        <Route path="/Movies/:id">
           <MovieDetails />
         </Route>
         <Route path="/Movies">
