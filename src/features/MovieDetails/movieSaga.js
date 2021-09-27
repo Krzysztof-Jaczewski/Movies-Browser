@@ -8,7 +8,7 @@ import {
 } from "./movieSlice";
 
 function* fetchMovieHandler() {
-    const url = `${baseSiteUrl}/movie/{movie_id}?api_key=${API_Key}&language=${language}`;
+    const url = `${baseSiteUrl}/movie/id?api_key=${API_Key}&language=${language}`;
     try {
       const movie = yield call(getApi, url);
       yield put(fetchMovieSuccess(movie));
