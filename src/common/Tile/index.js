@@ -11,6 +11,7 @@ import {
   Tags,
   Title,
   TileDate,
+  TileCharacter,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
 import { baseImgUrl, size } from "../../ApiParameters";
@@ -22,6 +23,7 @@ export const Tile = ({
   rate,
   votes,
   person,
+  character
 }) => {
   return (
     <StyledTile person={person}>
@@ -33,6 +35,7 @@ export const Tile = ({
       <Descrition>
         <Info>
           <Title person={person}>{title}</Title>
+          <TileCharacter person={person}>{character}</TileCharacter>
           <TileDate>{subtitle}</TileDate>
         </Info>
         <Tags>

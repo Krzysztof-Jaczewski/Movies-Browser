@@ -100,6 +100,16 @@ export const Title = styled.h2`
   }
 `;
 
+export const TileCharacter = styled.h3`
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  word-break: break-word;
+  margin-bottom: 8px;
+  color: ${({ theme }) => theme.colors.waterloo};
+`;
+
 export const Caption = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
