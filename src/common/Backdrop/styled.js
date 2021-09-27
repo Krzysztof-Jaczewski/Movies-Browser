@@ -38,3 +38,5 @@ export const BigStarIcon = styled(bigStar)`
     width: 16px;
   }
 `;
+
+

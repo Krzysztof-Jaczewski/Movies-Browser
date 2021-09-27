@@ -1,14 +1,17 @@
+import { baseImgUrl } from "../../ApiParameters";
 import { BackdropPoster, BackdropShadow, BigStarIcon, LongTitle } from "./styled";
 
 
-export const Backdrop = ({title}) => {
+export const Backdrop = ({title, backdrops}) => {
     return (
+        <>
         <BackdropShadow>
-            <BackdropPoster src={``} alt="" />
+            <BackdropPoster src={`${baseImgUrl}${backdrops}`} alt="" />
             <LongTitle>
                 {title}
-                </LongTitle>
+            </LongTitle>
             <BigStarIcon />
         </BackdropShadow>
+        </>
     )
 }
