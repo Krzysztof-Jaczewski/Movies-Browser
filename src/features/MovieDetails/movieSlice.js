@@ -22,4 +22,7 @@ export const { fetchMovie, fetchMovieError, fetchMovieSuccess } =
 export const selectMovieState = (state) => state.movieReducer;
 export const selectMovie = (state) => selectMovieState(state).movie;
 
+export const getMovieById = (state, movie_id) =>
+  selectMovie(state).find(({id}) => id === movie_id)
+
 export default movieSlice.reducer;

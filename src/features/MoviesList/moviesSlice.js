@@ -25,7 +25,4 @@ export const selectStatus = (state) => selectMoviesState(state).status;
 export const selectTotalMoviesPages = (state) =>
   selectMoviesState(state).totalMoviesPages;
 
-export const getMovieById = (state, movie_id) =>
-  selectMovies(state).find(({id}) => id === movie_id)
-
 export default moviesSlice.reducer;
