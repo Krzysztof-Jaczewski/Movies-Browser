@@ -3,6 +3,7 @@ import { Footer } from "./common/Footer";
 import { Navigation } from "./common/Navigation";
 import { MoviesList } from "./features/MoviesList";
 import { PeopleList } from "./features/PeopleList";
+import { PersonDetails } from "./features/PersonDetails";
 
 export const App = () => (
   <>
@@ -11,6 +12,9 @@ export const App = () => (
       <Switch>
         <Route path="/Movies">
           <MoviesList />
+        </Route>
+        <Route path="/People/:id">
+          <PersonDetails />
         </Route>
         <Route path="/People">
           <PeopleList />
