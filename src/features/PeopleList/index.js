@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
+import { StyledLink } from "../../common/StyledLink";
 import { Tile } from "../../common/Tile";
 import { useURLParameter } from "../../useURLParameters";
 import {
@@ -32,7 +33,11 @@ export const PeopleList = () => {
       <Container person>
         {people &&
           people.map(({ id, name, profile_path }) => {
-            return <Tile person key={id} title={name} poster={profile_path} />;
+            return (
+              <StyledLink key={id} to={`/People/${id}`}>
+                <Tile person title={name} poster={profile_path} />
+              </StyledLink>
+            );
           })}
       </Container>
       <Pager page={page} totalPages={totalPeoplePages} />
