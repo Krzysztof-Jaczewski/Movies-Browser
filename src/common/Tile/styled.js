@@ -35,6 +35,26 @@ export const StyledTile = styled.article`
         margin: 0;
       }
     `}
+  ${({ details }) =>
+    details &&
+    css`
+      width: 100%;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: none;
+      gap: 40px;
+      padding: 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        padding: 16px;
+      }
+      &&:hover {
+        transform: none;
+      }
+
+      &&:active {
+        transform: none;
+      }
+    `}
 
   &:hover {
     transform: scale(1.05);
@@ -112,6 +132,7 @@ export const Caption = styled.span`
 
 export const TileDate = styled(Caption)`
   margin-bottom: 8px;
+  display: flex;
 
   &:empty {
     margin-bottom: 0;
@@ -172,4 +193,13 @@ export const StarIcon = styled(Star)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 16px;
   }
+`;
+export const Biography = styled.article`
+  font-size: 20px;
+`;
+
+export const BirthdayInformation = styled.article`
+  color: black;
+  font-size: 18px;
+  padding: 0 11px;
 `;

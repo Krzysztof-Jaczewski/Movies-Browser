@@ -11,6 +11,8 @@ import {
   Tags,
   Title,
   TileDate,
+  Biography,
+  BirthdayInformation,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
 import { baseImgUrl, size } from "../../ApiParameters";
@@ -22,9 +24,13 @@ export const Tile = ({
   rate,
   votes,
   person,
+  details,
+  biography,
+  additionalTitle,
+  birthday,
 }) => {
   return (
-    <StyledTile person={person}>
+    <StyledTile person={person} details={details}>
       {poster ? (
         <Poster person={person} src={`${baseImgUrl}${size}${poster}`} alt="" />
       ) : (
@@ -34,6 +40,21 @@ export const Tile = ({
         <Info>
           <Title person={person}>{title}</Title>
           <TileDate>{subtitle}</TileDate>
+          {details ? (
+            <>
+              <TileDate>
+                Date of the birth:{" "}
+                <BirthdayInformation>{birthday}</BirthdayInformation>
+              </TileDate>
+              <TileDate>
+                Place of the birth:{" "}
+                <BirthdayInformation>{additionalTitle}</BirthdayInformation>
+              </TileDate>
+              <Biography>{biography}</Biography>{" "}
+            </>
+          ) : (
+            ""
+          )}
         </Info>
         <Tags>
           {genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
@@ -46,7 +67,7 @@ export const Tile = ({
           </Ratings>
         ) : (
           <Ratings>
-            <Caption>{person ? "" : "No votes yet"} </Caption>
+            <Caption>{person || details ? "" : "No votes yet"} </Caption>
           </Ratings>
         )}
       </Descrition>
