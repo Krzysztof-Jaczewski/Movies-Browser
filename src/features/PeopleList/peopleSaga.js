@@ -5,9 +5,9 @@ import {
   fetchPeopleError,
   fetchPeopleSuccess,
 } from "./peopleSlice";
-import { API_Key, baseSiteUrl } from "../../ApiParameters";
+import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
 function* fetchPeopleHandler({ payload: { page } }) {
-  const url = `${baseSiteUrl}person/popular?api_key=${API_Key}&page=${page}`;
+  const url = `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`;
   try {
     const people = yield call(getApi, url);
     yield put(fetchPeopleSuccess(people));
