@@ -32,11 +32,7 @@ export const PeopleList = () => {
       <Container person>
         {people &&
           people.map(({ id, name, profile_path }) => {
-            return (
-              <StyledLink to={`/People/${id}`}>
-                <Tile person />
-              </StyledLink>
-            );
+            return <Tile person key={id} title={name} poster={profile_path} />;
           })}
       </Container>
       <Pager page={page} totalPages={totalPeoplePages} />
