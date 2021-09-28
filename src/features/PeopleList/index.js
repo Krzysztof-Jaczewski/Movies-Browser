@@ -20,6 +20,7 @@ export const PeopleList = () => {
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
   console.log(status);
+  console.log(people);
 
   const dispatch = useDispatch();
 
@@ -31,7 +32,11 @@ export const PeopleList = () => {
       <Container person>
         {people &&
           people.map(({ id, name, profile_path }) => {
-            return <Tile person key={id} title={name} poster={profile_path} />;
+            return (
+              <StyledLink to={`/People/${id}`}>
+                <Tile person />
+              </StyledLink>
+            );
           })}
       </Container>
       <Pager page={page} totalPages={totalPeoplePages} />
