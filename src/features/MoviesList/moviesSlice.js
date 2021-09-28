@@ -2,7 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const moviesSlice = createSlice({
   name: "moviesState",
-  initialState: { movies: [], status: "loading", totalMoviesPages: 500 },
+  initialState: {
+    movies: [],
+    status: "loading",
+    totalMoviesPages: 500,
+  },
   reducers: {
     fetchMovies: (state) => {
       state.status = "loading";

@@ -5,8 +5,8 @@ import {
   fetchMoviesError,
   fetchMoviesSuccess,
 } from "./moviesSlice";
-import { API_Key, baseSiteUrl, language, page } from "../../ApiParameters";
-function* fetchMoviesHandler() {
+import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
+function* fetchMoviesHandler({ payload: { page } }) {
   const url = `${baseSiteUrl}movie/popular?api_key=${API_Key}&language=${language}&page=${page}`;
   try {
     const movies = yield call(getApi, url);
