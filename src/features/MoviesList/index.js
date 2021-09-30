@@ -23,9 +23,9 @@ export const MoviesList = () => {
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
-  console.log(status);
-
   const dispatch = useDispatch();
+  console.log(status);
+  Object.values(movies).forEach(({ title }) => console.log(title));
 
   useEffect(() => dispatch(fetchMovies({ page })), [dispatch, page]);
   const nameMovieGenres = (genre_ids) =>
