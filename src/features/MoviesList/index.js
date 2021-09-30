@@ -6,6 +6,8 @@ import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
+import { Loading } from "../../common/Loading";
+import { Error } from "../../common/Error";
 import {
   fetchMovies,
   selectMovies,
@@ -30,35 +32,36 @@ export const MoviesList = () => {
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
   return (
-    <>
-      <Header title={"Popular movies"} />
-      <Container>
-        {movies &&
-          movies.map(
-            ({
-              id,
-              poster_path,
-              title,
-              release_date,
-              genre_ids,
-              vote_average,
-              vote_count,
-            }) => {
-              return (
-                <Tile
-                  key={id}
-                  poster={poster_path}
-                  title={title}
-                  subtitle={release_date.slice(0, 4)}
-                  genres={nameMovieGenres(genre_ids)}
-                  rate={vote_average}
-                  votes={vote_count}
-                />
-              );
-            }
-          )}
-      </Container>
-      <Pager page={page} totalPages={totalMoviesPages} />
-    </>
-  );
+    status === "success" ?
+      <>
+        <Header title={"Popular movies"} />
+        <Container>
+          {movies &&
+            movies.map(
+              ({
+                id,
+                poster_path,
+                title,
+                release_date,
+                genre_ids,
+                vote_average,
+                vote_count,
+              }) => {
+                return (
+                  <Tile
+                    key={id}
+                    poster={poster_path}
+                    title={title}
+                    subtitle={release_date.slice(0, 4)}
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
+                );
+              }
+            )}
+        </Container>
+        <Pager page={page} totalPages={totalMoviesPages} />
+      </>
+      : status === "loading" ? <Loading /> : <Error />);
 };
