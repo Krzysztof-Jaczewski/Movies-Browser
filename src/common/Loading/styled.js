@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Spinner } from "../../images/icon-spinner.svg";
 
 export const LoadingContainer = styled.div`
-    height: 100vh;
+    height: 60vh;
 `;
 
 export const LoadingImage = styled(Spinner)`
