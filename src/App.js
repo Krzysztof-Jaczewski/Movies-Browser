@@ -3,7 +3,7 @@ import { Footer } from "./common/Footer";
 import { Navigation } from "./common/Navigation";
 import { MoviesList } from "./features/MoviesList";
 import { PeopleList } from "./features/PeopleList";
-import MovieDetails from "./features/MovieDetails";
+import { MovieDetails } from "./features/MovieDetails";
 
 export const App = () => (
   <>
