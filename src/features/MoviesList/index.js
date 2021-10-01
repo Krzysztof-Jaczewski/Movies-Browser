@@ -32,8 +32,7 @@ export const MoviesList = () => {
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return (
-    status === "success" ?
+  return status === "success" ? (
     <>
       <Header title={"Popular movies"} />
       <Container>
@@ -60,11 +59,15 @@ export const MoviesList = () => {
                     votes={vote_count}
                   />
                 </StyledLink>
-                );
-              }
-            )}
-        </Container>
-        <Pager page={page} totalPages={totalMoviesPages} />
-      </>
-      : status === "loading" ? <Loading /> : <Error />);
+              );
+            }
+          )}
+      </Container>
+      <Pager page={page} totalPages={totalMoviesPages} />
+    </>
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
+  );
 };
