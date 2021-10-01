@@ -126,6 +126,15 @@ export const Caption = styled.p`
     line-height: 120%;
     align-items: center;
     `}
+
+  ${({movieInfo}) => 
+    movieInfo &&
+    css`
+      font-size: 14px;
+      line-height: 17px;
+      color: ${({ theme }) => theme.colors.black};
+    `
+  }
 `;
 
 export const TileDate = styled(Caption)`
@@ -192,9 +201,18 @@ export const Rate = styled.p`
     color: ${({ theme }) => theme.colors.white};
     font-weight: 500;
     font-size: 30px;
-    line-height: 130%;
+    line-height: 39px;
     align-items: center;
     padding: 0 7px;
+    `}
+
+    ${({ movieInfo }) =>
+    movieInfo &&
+    css`
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 29px;
+      flex-grow: 0;
     `}
 `;
 

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Info = styled.article`
+export const Wrapper = styled.article`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -18,4 +18,38 @@ export const Poster = styled.img`
     height: 464px;
     left: 40px;
     top: 40px;
+`;
+
+export const Info = styled.p`
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    color: ${({theme}) => theme.colors.black};
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    ${({main}) =>
+        main &&
+        css`
+            font-size: 20px;
+            line-height: 32px;
+            order: 5;
+            flex-grow: 0;
+        `
+    }
+`;
+
+export const Span = styled.span`
+    order: 1;
+    color: ${({theme}) => theme.colors.stormGray};
+
+    ${({rate}) =>
+        rate &&
+        css`
+            font-size: 14px;
+            line-height: 17px;
+            align-items: center;
+            color: ${({theme}) => theme.colors.black};
+        `}
 `;
