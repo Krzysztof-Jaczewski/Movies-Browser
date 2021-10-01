@@ -25,17 +25,4 @@ export const StyledContainer = styled.main`
         padding: 16px;
       }
     `}
-  ${({ details }) =>
-    details &&
-    css`
-      width: 100%;
-      grid-template-columns: 1fr;
-      grid-template-rows: none;
-      gap: 40px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        grid-template-columns: repeat(auto-fill, 128px);
-        padding: 16px;
-      }
-    `}
 `;
