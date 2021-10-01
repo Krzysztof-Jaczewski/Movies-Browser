@@ -23,6 +23,7 @@ export const StyledTile = styled.article`
     person &&
     css`
       width: 208px;
+      height: 100%;
       border-radius: 5px;
       padding: 16px;
       gap: 24px;
@@ -57,11 +58,11 @@ export const StyledTile = styled.article`
     `}
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 `;
 
@@ -199,7 +200,7 @@ export const Biography = styled.article`
 `;
 
 export const BirthdayInformation = styled.article`
-  color: black;
+  color: ${({ theme }) => theme.colors.black};
   font-size: 18px;
   padding: 0 11px;
 `;
