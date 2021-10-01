@@ -6,6 +6,9 @@ import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
+import { Loading } from "../../common/Loading";
+import { Error } from "../../common/Error";
+import { StyledLink } from "../styled";
 import {
   fetchMovies,
   selectMovies,
@@ -29,7 +32,7 @@ export const MoviesList = () => {
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return (
+  return status === "success" ? (
     <>
       <Header title={"Popular movies"} />
       <Container>
@@ -45,20 +48,26 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <Tile
-                  key={id}
-                  poster={poster_path}
-                  title={title}
-                  subtitle={release_date && release_date.slice(0, 4)}
-                  genres={nameMovieGenres(genre_ids)}
-                  rate={vote_average}
-                  votes={vote_count}
-                />
+                <StyledLink to={`/Movies/${id}`}>
+                  <Tile
+                    key={id}
+                    poster={poster_path}
+                    title={title}
+                    subtitle={release_date.slice(0, 4)}
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
+                </StyledLink>
               );
             }
           )}
       </Container>
       <Pager page={page} totalPages={totalMoviesPages} />
     </>
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
   );
 };

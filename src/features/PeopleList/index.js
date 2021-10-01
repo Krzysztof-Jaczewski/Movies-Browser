@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../common/Container";
+import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
+import { Loading } from "../../common/Loading";
 import { Pager } from "../../common/Pager";
 import { StyledLink } from "../../common/StyledLink";
 import { Tile } from "../../common/Tile";
@@ -28,19 +30,20 @@ export const PeopleList = () => {
   useEffect(() => dispatch(fetchPeople({ page })), [dispatch, page]);
 
   return (
-    <>
-      <Header title={"Popular People"} />
-      <Container person>
-        {people &&
-          people.map(({ id, name, profile_path }) => {
-            return (
-              <StyledLink key={id} to={`/People/${id}`}>
-                <Tile person title={name} poster={profile_path} />
-              </StyledLink>
-            );
-          })}
-      </Container>
-      <Pager page={page} totalPages={totalPeoplePages} />
-    </>
+    status === "success" ?
+      <>
+        <Header title={"Popular People"} />
+        <Container person>
+          {people &&
+            people.map(({ id, name, profile_path }) => {
+              return (
+                <StyledLink key={id} to={`/People/${id}`}>
+                  <Tile person title={name} poster={profile_path} />
+                </StyledLink>
+              );
+            })}
+        </Container>
+        <Pager page={page} totalPages={totalPeoplePages} />
+      </> : status === "loading" ? <Loading /> : <Error />
   );
 };

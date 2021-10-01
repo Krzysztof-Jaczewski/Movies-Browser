@@ -8,7 +8,6 @@ export const StyledNavigation = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.woodsmoke};
   padding: 23px;
-  margin-bottom: 56px;
   width: 100%;
   position: sticky;
   top: 0;

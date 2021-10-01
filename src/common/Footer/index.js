@@ -4,7 +4,7 @@ export const Footer = () => (
     <PageFooter>
         <FooterContainer>
             This product uses the TMDB API but is not endorsed or certified by TMDB.<br />
-            Created by Paweł Suchy, Krzysztof Jaczewski and Evgeny Savalyev
+            Created by Paweł Suchy, Krzysztof Jaczewski and Evgeny Savelyev
         </FooterContainer>
         <FooterLogo />
     </PageFooter>
