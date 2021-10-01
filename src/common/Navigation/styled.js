@@ -10,6 +10,9 @@ export const StyledNavigation = styled.nav`
   padding: 23px;
   margin-bottom: 56px;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: column;
@@ -25,11 +28,10 @@ export const NavigationContainer = styled.div`
   max-width: 1368px;
   width: 100%;
 
-  @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
-  {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: column;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
@@ -85,8 +87,7 @@ export const Links = styled.ul`
   font-size: 14px;
   list-style-type: none;
 
-  @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
-  {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin-left: 10px;
   }
 `;
