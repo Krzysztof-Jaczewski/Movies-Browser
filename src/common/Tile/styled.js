@@ -11,19 +11,19 @@ export const StyledTile = styled.article`
   gap: 16px;
   grid-template-rows: auto 1fr;
   transition: all 0.5s;
+  height: 100%;
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: auto;
+    width: 320px;
     grid-template-columns: auto 1fr;
     grid-template-rows: none;
-    margin: 0 16px;
   }
 
   ${({ person }) =>
     person &&
     css`
       width: 208px;
-      height: 100%;
       border-radius: 5px;
       padding: 16px;
       gap: 24px;
@@ -34,26 +34,6 @@ export const StyledTile = styled.article`
         padding: 8px;
         gap: 16px;
         margin: 0;
-      }
-    `}
-  ${({ details }) =>
-    details &&
-    css`
-      width: 100%;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: none;
-      gap: 40px;
-      padding: 40px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        padding: 16px;
-      }
-      &&:hover {
-        transform: none;
-      }
-
-      &&:active {
-        transform: none;
       }
     `}
 
@@ -114,7 +94,6 @@ export const Title = styled.h2`
   font-weight: 500;
   font-size: 22px;
   word-break: break-word;
-  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
@@ -142,20 +121,19 @@ export const Caption = styled.p`
   ${({ backdrops }) =>
     backdrops &&
     css`
-    color: ${({ theme }) => theme.colors.white};
-    font-size: 16px;
-    line-height: 120%;
-    align-items: center;
+      color: ${({ theme }) => theme.colors.white};
+      font-size: 16px;
+      line-height: 120%;
+      align-items: center;
     `}
 
-  ${({movieInfo}) => 
+  ${({ movieInfo }) =>
     movieInfo &&
     css`
       font-size: 14px;
       line-height: 17px;
       color: ${({ theme }) => theme.colors.black};
-    `
-  }
+    `}
 `;
 
 export const TileDate = styled(Caption)`
@@ -220,15 +198,15 @@ export const Rate = styled.p`
   ${({ backdrops }) =>
     backdrops &&
     css`
-    color: ${({ theme }) => theme.colors.white};
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 39px;
-    align-items: center;
-    padding: 0 7px;
+      color: ${({ theme }) => theme.colors.white};
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 39px;
+      align-items: center;
+      padding: 0 7px;
     `}
 
-    ${({ movieInfo }) =>
+  ${({ movieInfo }) =>
     movieInfo &&
     css`
       font-weight: 500;
@@ -242,13 +220,4 @@ export const StarIcon = styled(Star)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 16px;
   }
-`;
-export const Biography = styled.article`
-  font-size: 20px;
-`;
-
-export const BirthdayInformation = styled.article`
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 18px;
-  padding: 0 11px;
 `;
