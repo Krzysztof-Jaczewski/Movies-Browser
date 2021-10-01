@@ -1,115 +1,96 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export const StyledTile = styled.article`
+export const StyledDetails = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
-  width: 324px;
+  max-width: 1368px;
+  margin: 56px auto 64px;
   border-radius: 5px;
-  padding: 16px;
+  padding: 40px;
   box-shadow: 0px 4px 12px 0 rgba(186, 199, 213, 0.5);
   display: grid;
-  gap: 16px;
-  grid-template-rows: auto 1fr;
-  transition: all 0.5s;
+  gap: 40px;
+  grid-template-columns: 400px repeat(3, 200px);
+  grid-template-rows: repeat(4, 130px);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: auto;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: none;
+    grid-template-columns: 116px auto;
+    grid-template-rows: auto;
     margin: 0 16px;
+    padding: 16px;
+    gap: 16px;
   }
-
-  ${({ details }) =>
-    details &&
-    css`
-      width: 100%;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: none;
-      gap: 40px;
-      padding: 40px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        padding: 16px;
-      }
-      &&:hover {
-        transform: none;
-      }
-
-      &&:active {
-        transform: none;
-      }
-    `}
 `;
 export const Poster = styled.img`
-  width: 292px;
-  height: 434px;
+  width: 400px;
+  height: 593px;
   border-radius: 5px;
   transition: all 0.5s;
+  grid-row: 1;
+  grid-column: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 114px;
-    height: auto;
+    width: 116px;
+    height: 100%;
   }
-  ${({ person }) =>
-    person &&
-    css`
-      width: 177px;
-      height: 264px;
-      border-radius: 5px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        width: 120px;
-        height: 178px;
-      }
-    `}
 `;
 
-export const Descrition = styled.div`
+export const Description = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
-  align-items: start;
+  gap: 24px;
+  grid-row: 1;
+  grid-column: 2/6;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    grid-template-rows: auto auto 1fr;
+    gap: 16px;
   }
 `;
 
-export const Title = styled.h2`
-  border-radius: 5px;
-  font-weight: 500;
-  font-size: 22px;
-  word-break: break-word;
-  margin-bottom: 8px;
+export const Title = styled.h1`
+  font-weight: 600;
+  font-size: 36px;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    font-size: 16px;
+    font-size: 14px;
+    margin: 4px 0 0 0;
   }
 `;
 
 export const Caption = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
+  font-size: 18px;
   line-height: 24px;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    font-size: 13px;
-    line-height: 16.9px;
+    font-size: 12px;
+    line-height: 14.4px;
   }
-`;
-
-export const TileDate = styled(Caption)`
-  margin-bottom: 8px;
-  display: flex;
-
-  &:empty {
-    margin-bottom: 0;
-  }
-`;
-
-export const Biography = styled.article`
-  font-size: 20px;
 `;
 
 export const BirthdayInformation = styled.article`
   color: ${({ theme }) => theme.colors.black};
   font-size: 18px;
   padding: 0 11px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 12px;
+    line-height: 14.4px;
+  }
+`;
+export const Biography = styled.p`
+  font-size: 20px;
+  line-height: 160%;
+  grid-row: 2;
+  grid-column: 2 / span 4;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 13px;
+    line-height: 16.9px;
+    grid-column: 1 / span 5;
+  }
 `;
