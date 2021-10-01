@@ -94,6 +94,7 @@ export const Links = styled.ul`
 export const LinkItem = styled.li``;
 
 export const Link = styled(NavLink)`
+  white-space: nowrap;
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
