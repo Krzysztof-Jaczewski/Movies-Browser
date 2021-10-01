@@ -1,4 +1,7 @@
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { fetchPeopleResults } from "../../features/PeopleList/peopleSlice";
+import { useReplaceURLParameters, useURLParameter } from "../../useURLParameters";
 import {
   Link,
   LinkItem,
@@ -13,7 +16,19 @@ import {
 } from "./styled";
 
 export const Navigation = () => {
+  const queryParamName = "search"
+  const dispatch = useDispatch();
   const location = useLocation();
+  const query = useURLParameter(queryParamName);
+  const replaceURLParameters = useReplaceURLParameters();
+  const onInputChange = (queryParamName, { target }) => {
+    replaceURLParameters({
+      key: queryParamName,
+      value: target.value.trim() !== "" ? target.value : "",
+    });
+    dispatch(fetchPeopleResults(target.value));
+  };
+
   return (
     <StyledNavigation>
       <NavigationContainer>
@@ -31,7 +46,11 @@ export const Navigation = () => {
             </LinkItem>
           </Links>
         </Wrapper>
-        <StyledInput placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`} />
+        <StyledInput
+          onChange={onInputChange}
+          value={query || ""}
+          placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`}
+        />
       </NavigationContainer>
     </StyledNavigation>
   );

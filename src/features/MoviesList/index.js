@@ -26,7 +26,6 @@ export const MoviesList = () => {
 
   const dispatch = useDispatch();
   console.log(status);
-  Object.values(movies).forEach(({ title }) => console.log(title));
 
   useEffect(() => dispatch(fetchMovies({ page })), [dispatch, page]);
   const nameMovieGenres = (genre_ids) =>

@@ -11,6 +11,8 @@ import { useURLParameter } from "../../useURLParameters";
 import {
   fetchPeople,
   selectPeople,
+  selectPeopleResults,
+  selectSearchStatus,
   selectStatus,
   selectTotalPeoplePages,
 } from "./peopleSlice";
@@ -18,12 +20,15 @@ import {
 export const PeopleList = () => {
   const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
+  const peopleResults = useSelector(selectPeopleResults);
+  const searchStatus = useSelector(selectSearchStatus);
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
 
   console.log(status);
-  Object.values(people).forEach(({ name }) => console.log(name));
+  console.log(searchStatus);
+  console.log(peopleResults);
 
   const dispatch = useDispatch();
 
@@ -32,7 +37,7 @@ export const PeopleList = () => {
   return (
     status === "success" ?
       <>
-        <Header title={"Popular People"} />
+        <Header title={searchStatus === "loading" ? "Popular People" : `Search results`} />
         <Container person>
           {people &&
             people.map(({ id, name, profile_path }) => {
