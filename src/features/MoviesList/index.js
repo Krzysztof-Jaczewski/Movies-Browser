@@ -8,6 +8,7 @@ import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
+import { StyledLink } from "../styled";
 import {
   fetchMovies,
   selectMovies,
@@ -33,21 +34,22 @@ export const MoviesList = () => {
 
   return (
     status === "success" ?
-      <>
-        <Header title={"Popular movies"} />
-        <Container>
-          {movies &&
-            movies.map(
-              ({
-                id,
-                poster_path,
-                title,
-                release_date,
-                genre_ids,
-                vote_average,
-                vote_count,
-              }) => {
-                return (
+    <>
+      <Header title={"Popular movies"} />
+      <Container>
+        {movies &&
+          movies.map(
+            ({
+              id,
+              poster_path,
+              title,
+              release_date,
+              genre_ids,
+              vote_average,
+              vote_count,
+            }) => {
+              return (
+                <StyledLink to={`/Movies/${id}`}>
                   <Tile
                     key={id}
                     poster={poster_path}
@@ -57,6 +59,7 @@ export const MoviesList = () => {
                     rate={vote_average}
                     votes={vote_count}
                   />
+                </StyledLink>
                 );
               }
             )}
