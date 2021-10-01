@@ -57,7 +57,7 @@ export const PersonDetails = () => {
                     key={id}
                     poster={poster_path}
                     title={title}
-                    subtitle={release_date.slice(0, 4)}
+                    subtitle={release_date && release_date.slice(0, 4)}
                     genres={nameMovieGenres(genre_ids)}
                     rate={vote_average}
                     votes={vote_count}
@@ -89,7 +89,7 @@ export const PersonDetails = () => {
                     key={id}
                     poster={poster_path}
                     title={title}
-                    subtitle={release_date}
+                    subtitle={release_date && release_date.slice(0, 4)}
                     genres={nameMovieGenres(genre_ids)}
                     rate={vote_average}
                     votes={vote_count}
