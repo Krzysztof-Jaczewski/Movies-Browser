@@ -110,7 +110,7 @@ export const TileCharacter = styled.h3`
   color: ${({ theme }) => theme.colors.waterloo};
 `;
 
-export const Caption = styled.span`
+export const Caption = styled.p`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
 
@@ -118,6 +118,14 @@ export const Caption = styled.span`
     font-size: 13px;
     line-height: 16.9px;
   }
+  ${({ backdrops }) =>
+    backdrops &&
+    css`
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 16px;
+    line-height: 120%;
+    align-items: center;
+    `}
 `;
 
 export const TileDate = styled(Caption)`
@@ -168,7 +176,8 @@ export const Ratings = styled.section`
     grid-row: auto;
   }
 `;
-export const Rate = styled.span`
+
+export const Rate = styled.p`
   font-weight: 600;
   line-height: 24px;
   padding: 0 12px;
@@ -176,6 +185,17 @@ export const Rate = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 13px;
   }
+
+  ${({ backdrops }) =>
+    backdrops &&
+    css`
+    color: ${({ theme }) => theme.colors.white};
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 130%;
+    align-items: center;
+    padding: 0 7px;
+    `}
 `;
 
 export const StarIcon = styled(Star)`
