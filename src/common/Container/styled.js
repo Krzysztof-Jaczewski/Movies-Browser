@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledContainer = styled.article`
+export const StyledContainer = styled.main`
   display: grid;
   grid-template-columns: repeat(auto-fill, 324px);
   gap: 24px;
