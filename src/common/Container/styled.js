@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledContainer = styled.article`
+export const StyledContainer = styled.main`
   display: grid;
   grid-template-columns: repeat(auto-fill, 324px);
   gap: 24px;
@@ -19,19 +19,6 @@ export const StyledContainer = styled.article`
     css`
       border-radius: 5px;
       grid-template-columns: repeat(auto-fill, 208px);
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        grid-template-columns: repeat(auto-fill, 128px);
-        padding: 16px;
-      }
-    `}
-  ${({ details }) =>
-    details &&
-    css`
-      width: 100%;
-      grid-template-columns: 1fr;
-      grid-template-rows: none;
-      gap: 40px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         grid-template-columns: repeat(auto-fill, 128px);

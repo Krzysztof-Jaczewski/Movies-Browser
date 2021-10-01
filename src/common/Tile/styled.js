@@ -11,12 +11,13 @@ export const StyledTile = styled.article`
   gap: 16px;
   grid-template-rows: auto 1fr;
   transition: all 0.5s;
+  height: 100%;
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: auto;
+    width: 320px;
     grid-template-columns: auto 1fr;
     grid-template-rows: none;
-    margin: 0 16px;
   }
 
   ${({ person }) =>
@@ -35,33 +36,13 @@ export const StyledTile = styled.article`
         margin: 0;
       }
     `}
-  ${({ details }) =>
-    details &&
-    css`
-      width: 100%;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: none;
-      gap: 40px;
-      padding: 40px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        padding: 16px;
-      }
-      &&:hover {
-        transform: none;
-      }
-
-      &&:active {
-        transform: none;
-      }
-    `}
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 `;
 
@@ -113,14 +94,23 @@ export const Title = styled.h2`
   font-weight: 500;
   font-size: 22px;
   word-break: break-word;
-  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
   }
 `;
 
-export const Caption = styled.span`
+export const TileCharacter = styled.h3`
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  word-break: break-word;
+  margin-bottom: 8px;
+  color: ${({ theme }) => theme.colors.waterloo};
+`;
+
+export const Caption = styled.p`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
 
@@ -128,6 +118,22 @@ export const Caption = styled.span`
     font-size: 13px;
     line-height: 16.9px;
   }
+  ${({ backdrops }) =>
+    backdrops &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+      font-size: 16px;
+      line-height: 120%;
+      align-items: center;
+    `}
+
+  ${({ movieInfo }) =>
+    movieInfo &&
+    css`
+      font-size: 14px;
+      line-height: 17px;
+      color: ${({ theme }) => theme.colors.black};
+    `}
 `;
 
 export const TileDate = styled(Caption)`
@@ -179,7 +185,8 @@ export const Ratings = styled.section`
     grid-row: auto;
   }
 `;
-export const Rate = styled.span`
+
+export const Rate = styled.p`
   font-weight: 600;
   line-height: 24px;
   padding: 0 12px;
@@ -187,19 +194,30 @@ export const Rate = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 13px;
   }
+
+  ${({ backdrops }) =>
+    backdrops &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 39px;
+      align-items: center;
+      padding: 0 7px;
+    `}
+
+  ${({ movieInfo }) =>
+    movieInfo &&
+    css`
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 29px;
+      flex-grow: 0;
+    `}
 `;
 
 export const StarIcon = styled(Star)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 16px;
   }
-`;
-export const Biography = styled.article`
-  font-size: 20px;
-`;
-
-export const BirthdayInformation = styled.article`
-  color: black;
-  font-size: 18px;
-  padding: 0 11px;
 `;

@@ -8,6 +8,7 @@ import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
+import { StyledLink } from "../styled";
 import {
   fetchMovies,
   selectMovies,
@@ -31,23 +32,23 @@ export const MoviesList = () => {
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return (
-    status === "success" ?
-      <>
-        <Header title={"Popular movies"} />
-        <Container>
-          {movies &&
-            movies.map(
-              ({
-                id,
-                poster_path,
-                title,
-                release_date,
-                genre_ids,
-                vote_average,
-                vote_count,
-              }) => {
-                return (
+  return status === "success" ? (
+    <>
+      <Header title={"Popular movies"} />
+      <Container>
+        {movies &&
+          movies.map(
+            ({
+              id,
+              poster_path,
+              title,
+              release_date,
+              genre_ids,
+              vote_average,
+              vote_count,
+            }) => {
+              return (
+                <StyledLink to={`/Movies/${id}`}>
                   <Tile
                     key={id}
                     poster={poster_path}
@@ -57,11 +58,16 @@ export const MoviesList = () => {
                     rate={vote_average}
                     votes={vote_count}
                   />
-                );
-              }
-            )}
-        </Container>
-        <Pager page={page} totalPages={totalMoviesPages} />
-      </>
-      : status === "loading" ? <Loading /> : <Error />);
+                </StyledLink>
+              );
+            }
+          )}
+      </Container>
+      <Pager page={page} totalPages={totalMoviesPages} />
+    </>
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
+  );
 };
