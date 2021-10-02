@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { fetchPeopleResults } from "../../features/PeopleList/peopleSlice";
 import { useReplaceURLParameters, useURLParameter } from "../../useURLParameters";
 import {
   Link,
@@ -17,16 +15,14 @@ import {
 
 export const Navigation = () => {
   const queryParamName = "search"
-  const dispatch = useDispatch();
   const location = useLocation();
   const query = useURLParameter(queryParamName);
   const replaceURLParameters = useReplaceURLParameters();
-  const onInputChange = (queryParamName, { target }) => {
-    replaceURLParameters({
+  const onInputChange = ({ target }) => {
+    replaceURLParameters([{
       key: queryParamName,
       value: target.value.trim() !== "" ? target.value : "",
-    });
-    dispatch(fetchPeopleResults(target.value));
+    }]);
   };
 
   return (
