@@ -1,29 +1,33 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie, selectMovie, selectMovieCredits, selectMovieImages, selectStatus } from "./movieSlice";
+import { fetchMovie, selectMovie, selectMovieCredits, selectStatus } from "./movieSlice";
 import { useEffect } from "react";
 import { Backdrop } from "../../common/Backdrop";
 import { Container } from "../../common/Container";
 import { MovieInfo } from "../../common/MovieInfo";
 import { Tile } from "../../common/Tile";
-import { useGenres } from "../../fetchGenres";
 import { Title } from "../../common/Tile/styled";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 
 export const MovieDetails = () => {
   const { id } = useParams();
-  const { backdrop_path, original_title, overview, profile_path, release_date, vote_average, vote_count, production_countries, poster_path } = useSelector(selectMovie);
+  const { 
+    backdrop_path, 
+    original_title, 
+    overview, 
+    release_date, 
+    vote_average, 
+    vote_count, 
+    production_countries, 
+    poster_path, 
+    genres } = useSelector(selectMovie);
   const { cast, crew } = useSelector(selectMovieCredits);
-  console.log();
-  console.log(id);
+
   const status = useSelector(selectStatus);
-  const genres = useGenres();
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchMovie({ id })), [dispatch, id]);
-  const nameMovieGenres = (genre_ids) =>
-    genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
   return (
     status === "success" ?
@@ -42,6 +46,7 @@ export const MovieDetails = () => {
           rate={vote_average}
           votes={vote_count}
           countries={production_countries && production_countries.map(({ name }) => name)}
+          genres={genres && genres.map(({name}) => name)}
         />
         {cast && (
           <>
