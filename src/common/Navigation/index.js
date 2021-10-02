@@ -44,7 +44,7 @@ export const Navigation = () => {
         </Wrapper>
         <StyledInput
           onChange={onInputChange}
-          value={query || ""}
+          value={query}
           placeholder={`Search for ${location.pathname === "/Movies" ? "movies..." : "people..."}`}
         />
       </NavigationContainer>
