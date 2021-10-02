@@ -1,20 +1,20 @@
 import { baseImgUrl, size } from "../../ApiParameters"
 import { Container } from "../Container"
 import { Caption, Rate, Ratings, StarIcon, Tag, Tags } from "../Tile/styled"
-import { Info, Poster, Span, Wrapper } from "./styled"
+import { Description, Info, Poster, Span, Title, Wrapper } from "./styled"
 
 
-export const MovieInfo = ({poster, title, description, date, countries, votes, rate, person, genres}) => {
+export const MovieInfo = ({poster, title, description, date, countries, votes, rate, person, genres, fullDate}) => {
 
     return (
         <>
         <Container>
         <Wrapper>
             <Poster src={`${baseImgUrl}${size}${poster}`} alt=""  />
-            <div>
-                <h2>
+            <Description>
+                <Title>
                     {title}
-                </h2>
+                </Title>
                 <Info>
                     {date}
                 </Info>
@@ -22,7 +22,7 @@ export const MovieInfo = ({poster, title, description, date, countries, votes, r
                     <Span>Production:</Span> {countries}
                 </Info>
                 <Info>
-                    <Span>Release date:</Span> {date}
+                    <Span>Release date:</Span> {fullDate}
                 </Info>
                 <Tags>
                     {genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
@@ -41,7 +41,7 @@ export const MovieInfo = ({poster, title, description, date, countries, votes, r
                 <Info main>
                     {description}
                 </Info>
-            </div>
+            </Description>
         </Wrapper>
         </Container>
         </>

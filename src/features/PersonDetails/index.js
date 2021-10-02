@@ -14,6 +14,7 @@ import { Error } from "../../common/Error";
 import { Details } from "../../common/Details";
 import { CastCrew } from "../../common/CastCrew";
 import { nanoid } from "@reduxjs/toolkit";
+import { StyledLink } from "../../common/StyledLink";
 
 export const PersonDetails = () => {
   const status = useSelector(selectStatus);
@@ -58,6 +59,7 @@ export const PersonDetails = () => {
               character,
             }) => {
               return (
+                <StyledLink key={id} to={`/Movies/${id}`}>
                 <Tile
                   key={nanoid()}
                   poster={poster_path}
@@ -69,6 +71,7 @@ export const PersonDetails = () => {
                   rate={vote_average}
                   votes={vote_count}
                 />
+                </StyledLink>
               );
             }
           )}
@@ -87,6 +90,7 @@ export const PersonDetails = () => {
               vote_count,
             }) => {
               return (
+                <StyledLink key={id} to={`/Movies/${id}`}>
                 <Tile
                   key={nanoid()}
                   poster={poster_path}
@@ -98,6 +102,7 @@ export const PersonDetails = () => {
                   rate={vote_average}
                   votes={vote_count}
                 />
+                </StyledLink>
               );
             }
           )}

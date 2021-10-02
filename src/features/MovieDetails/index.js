@@ -9,6 +9,7 @@ import { Tile } from "../../common/Tile";
 import { Title } from "../../common/Tile/styled";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
+import { StyledLink } from "../../common/StyledLink";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -42,15 +43,16 @@ export const MovieDetails = () => {
           poster={poster_path}
           title={original_title}
           description={overview}
-          date={release_date}
+          date={release_date && release_date.slice(0, 4)}
+          fullDate={release_date && `${release_date.slice(8, 10)}.${release_date.slice(5, 7)}.${release_date.slice(0, 4)}`}
           rate={vote_average}
           votes={vote_count}
-          countries={production_countries && production_countries.map(({ name }) => name)}
+          countries={production_countries && `${production_countries.map(({ name }) => name)}`}
           genres={genres && genres.map(({name}) => name)}
         />
         {cast && (
           <>
-            <Title>Cast</Title>
+            <Title movie>Cast</Title>
             <Container person>
               {cast.map(
                 ({
@@ -60,13 +62,15 @@ export const MovieDetails = () => {
                   character,
                 }) => {
                   return (
-                    <Tile
-                      person
-                      key={id}
-                      poster={profile_path}
-                      character={character}
-                      title={name}
-                    />
+                    <StyledLink key={id} to={`/People/${id}`}>
+                      <Tile
+                        person
+                        key={id}
+                        poster={profile_path}
+                        character={character}
+                        title={name}
+                      />
+                    </StyledLink>
                   );
                 }
               )}
@@ -75,7 +79,7 @@ export const MovieDetails = () => {
         )}
         {crew && (
           <>
-            <Title>Crew</Title>
+            <Title movie>Crew</Title>
             <Container person>
               {crew.map(
                 ({
@@ -85,13 +89,15 @@ export const MovieDetails = () => {
                   id,
                 }) => {
                   return (
-                    <Tile
-                      person
-                      key={id}
-                      poster={profile_path}
-                      character={department}
-                      title={name}
-                    />
+                    <StyledLink key={id} to={`/People/${id}`}>
+                      <Tile
+                        person
+                        key={id}
+                        poster={profile_path}
+                        character={department}
+                        title={name}
+                      />
+                    </StyledLink>
                   );
                 }
               )}
