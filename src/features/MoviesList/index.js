@@ -23,17 +23,19 @@ export const MoviesList = () => {
   const genres = useGenres();
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+  const queryParamName = "search";
+  const query = useURLParameter(queryParamName);
 
   const dispatch = useDispatch();
   console.log(status);
 
-  useEffect(() => dispatch(fetchMovies({ page })), [dispatch, page]);
+  useEffect(() => dispatch(fetchMovies({ page, query })), [page, query]);
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
   return status === "success" ? (
     <>
-      <Header title={"Popular movies"} />
+      <Header title={query === null ? "Popular movies" : `Search results for ${query}`} />
       <Container>
         {movies &&
           movies.map(
