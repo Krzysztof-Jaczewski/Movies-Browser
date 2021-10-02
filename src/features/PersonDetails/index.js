@@ -57,6 +57,7 @@ export const PersonDetails = () => {
               vote_average,
               vote_count,
               character,
+              id,
             }) => {
               return (
                 <StyledLink key={id} to={`/Movies/${id}`}>
@@ -88,6 +89,7 @@ export const PersonDetails = () => {
               genre_ids,
               vote_average,
               vote_count,
+              id,
             }) => {
               return (
                 <StyledLink key={id} to={`/Movies/${id}`}>

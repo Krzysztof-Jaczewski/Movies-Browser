@@ -10,6 +10,7 @@ import { Title } from "../../common/Tile/styled";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { StyledLink } from "../../common/StyledLink";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -65,7 +66,7 @@ export const MovieDetails = () => {
                     <StyledLink key={id} to={`/People/${id}`}>
                       <Tile
                         person
-                        key={id}
+                        key={nanoid()}
                         poster={profile_path}
                         character={character}
                         title={name}
@@ -92,7 +93,7 @@ export const MovieDetails = () => {
                     <StyledLink key={id} to={`/People/${id}`}>
                       <Tile
                         person
-                        key={id}
+                        key={nanoid()}
                         poster={profile_path}
                         character={department}
                         title={name}
