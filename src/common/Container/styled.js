@@ -19,6 +19,7 @@ export const StyledContainer = styled.main`
     css`
       border-radius: 5px;
       grid-template-columns: repeat(auto-fill, 208px);
+      margin-bottom: 64px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         grid-template-columns: repeat(auto-fill, 128px);

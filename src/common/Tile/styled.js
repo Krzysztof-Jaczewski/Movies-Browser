@@ -98,6 +98,17 @@ export const Title = styled.h2`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
   }
+
+  ${({movie}) =>
+    movie &&
+      css`
+          font-weight: 600;
+          font-size: 36px;
+          max-width: 1368px;
+          margin: 0 auto;
+          margin-bottom: 32px;  
+      `
+  }
 `;
 
 export const TileCharacter = styled.h3`

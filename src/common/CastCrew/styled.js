@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Header = styled.header`
   font-weight: 600;
@@ -35,4 +35,5 @@ export const Section = styled.section`
     gap: 24px;
     padding: 16px;
   }
+
 `;

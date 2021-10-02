@@ -41,10 +41,12 @@ export const BackdropPoster = styled.div`
 export const LongTitle = styled.header`
     font-weight: 600;
     font-size: 64px;
-    line-height: 120%;
+    line-height: 77px;
+    width: 1368px;
     color: ${({ theme }) => theme.colors.white};
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
       font-size: 24px;
