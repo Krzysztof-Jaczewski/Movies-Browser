@@ -11,33 +11,29 @@ import { useURLParameter } from "../../useURLParameters";
 import {
   fetchPeople,
   selectPeople,
-  selectPeopleResults,
-  selectSearchStatus,
   selectStatus,
   selectTotalPeoplePages,
 } from "./peopleSlice";
 
 export const PeopleList = () => {
+  const queryParamName = "search";
   const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
-  const peopleResults = useSelector(selectPeopleResults);
-  const searchStatus = useSelector(selectSearchStatus);
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+  const query = useURLParameter(queryParamName);
 
   console.log(status);
-  console.log(searchStatus);
-  console.log(peopleResults);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople({ page })), [dispatch, page]);
+  useEffect(() => dispatch(fetchPeople({ page, query })), [page, query]);
 
   return (
     status === "success" ?
       <>
-        <Header title={searchStatus === "loading" ? "Popular People" : `Search results`} />
+        <Header title={query === null ? "Popular People" : `Search results for ${query}`} />
         <Container person>
           {people &&
             people.map(({ id, name, profile_path }) => {
