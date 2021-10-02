@@ -8,7 +8,7 @@ import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
-import { StyledLink } from "../styled";
+import { StyledLink } from "../../common/StyledLink";
 import {
   fetchMovies,
   selectMovies,
