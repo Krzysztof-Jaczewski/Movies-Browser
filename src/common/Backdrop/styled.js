@@ -27,11 +27,15 @@ export const BackdropShadow = styled.div`
   }
 `;
 
-export const BackdropPoster = styled.img`
+export const BackdropPoster = styled.div`
     width: 1368px;
     height: 769px;
     left: 276px;
-    position: absolute;
+    margin: 0 auto;
+    background-image: url(${({image}) => image});
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 30px black, inset 0 0 60px black, inset 0 0 90px black, inset 0 0 120px black, inset 0 0 150px black;
 `;
 
 export const LongTitle = styled.header`

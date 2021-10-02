@@ -7,7 +7,7 @@ export const Backdrop = ({title, votes, rate, person, poster}) => {
     return (
         <>
         <BackdropShadow>
-            <BackdropPoster src={`${baseImgUrl}${sizeBackdrop}${poster}`} alt="" />
+            <BackdropPoster image={`${baseImgUrl}${sizeBackdrop}${poster}`} alt="" />
             <Wrapper>
             <LongTitle>
                 {title}
