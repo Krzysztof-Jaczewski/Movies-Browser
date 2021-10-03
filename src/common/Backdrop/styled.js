@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as bigStar } from "../../images/star.svg";
 
 export const BackdropShadow = styled.div`
-    width: 1920px;
+    width: 100%;
     height: 770px;
     left: 0px;
     top: 94px;
@@ -13,10 +13,11 @@ export const BackdropShadow = styled.div`
         #000000 92.87%);
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-      width: 320px;
+      width: 100%;
       height: 148px;
       left: 0px;
       top: 141px;
+      margin: 0 auto;
       background: linear-gradient(269.75deg, 
         #000000 8.69%, rgba(0, 0, 0, 0.873268) 10.09%, rgba(0, 0, 0, 0.720529) 12.16%, rgba(0, 0, 0, 0.294577) 17.19%, rgba(0, 0, 0, 0.159921) 19.93%, rgba(0, 0, 0, 0) 25.43%), linear-gradient(90.09deg, 
         #000000 8.05%, rgba(0, 0, 0, 0.984059) 9.4%, rgba(0, 0, 0, 0.967732) 10.59%, rgba(0, 0, 0, 0.865569) 11.79%, rgba(0, 0, 0, 0.230315) 20.89%, rgba(0, 0, 0, 0) 26.12%), linear-gradient(180deg, 
@@ -28,7 +29,7 @@ export const BackdropShadow = styled.div`
 `;
 
 export const BackdropPoster = styled.div`
-    width: 1368px;
+    width: 100%;
     height: 769px;
     left: 276px;
     margin: 0 auto;
@@ -36,6 +37,12 @@ export const BackdropPoster = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: inset 0 0 30px black, inset 0 0 60px black, inset 0 0 90px black, inset 0 0 120px black, inset 0 0 150px black;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+      width: 100%;
+      height: 148px;
+      left: 29px;
+    }
 `;
 
 export const LongTitle = styled.header`
@@ -50,6 +57,9 @@ export const LongTitle = styled.header`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
       font-size: 24px;
+      width: 214px;
+      font-size: 24px;
+      line-height: 29px;
     }
 `;
 
@@ -60,8 +70,7 @@ export const BigStarIcon = styled(bigStar)`
   }
 `;
 
-export const Wrapper = styled.div`
-  gap: 24px;
+export const Wrapper = styled.main`
   max-width: 1368px;
   font-style: normal;
   font-weight: normal;
@@ -72,13 +81,25 @@ export const Wrapper = styled.div`
   top: 631px;
 
   @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}) {
-    margin-left: 16px;
+    width: 214px;
+    height: 29px;
+    left: 16px;
+    top: 200px;
+    margin-bottom: 8px;
   }
   `;
 
 export const RateTotal = styled.span`
   font-size: 16px;
-  line-height: 120%;
+  line-height: 19px;
   margin-left: 7px;
   font-weight: normal;
+
+  @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}) {
+    font-size: 10px;
+    line-height: 12px;
+    margin-left: 2px;
+    font-weight: normal;
+  }
 `;
+
