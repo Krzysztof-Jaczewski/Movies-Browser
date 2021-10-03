@@ -22,30 +22,31 @@ This is basic movie browser, where you can look, and serch your favourite films,
 
 Basic Page contains list of popular movies, we see numer of pages we can browse, on each page are up to 20 movies,
 
- <img src="readme/gifs/Movies.gif" alt="html" width="500px" height="400px">
+ <img src="readme/gifs/Movies.gif" alt="Movies" width="600px" height="500px">
 
 ### :microscope: Movie Detalis
 
 Every movie time you can click and browser will redirect you to this movie details where you can read more about it, and see what people took part in the creation this movie
 
- <img src="readme/gifs/Movie Details.gif" alt="html" width="500px" height="300px">
+ <img src="readme/gifs/Movie Details.gif" alt="Movie" width="600px" height="400px">
 
 ### :dolls: People
 
 The second page is people list, you can also browse the pages and look wich are popular
 
- <img src="readme/gifs/People.gif" alt="html" width="500px" height="400px">
+ <img src="readme/gifs/People.gif" alt="People" width="600px" height="500px">
 
 ### :camera: Person Details
 
 silmilar to movie details, you can click on every person you like and see move information about it, if some movie would interest you you can go directly to the next to it by clicking in his tile
 
- <img src="readme/gifs/Person.gif" alt="html" width="500px" height="300px">
+ <img src="readme/gifs/Person.gif" alt="Person" width="600px" height="500px">
 
 ### :mag_right: Search
 
 And the final feature is search option, where you can seach your favourite movie just by tiping it title into input, and site will show all results that icnludes word you write, same thing you can do by changing page to peaple, Browser will be serching for person witch words you write
-<img src="readme/gifs/Search.gif" alt="html" width="500px" height="300px">
+
+<img src="readme/gifs/Search.gif" alt="Search" width="600px" height="400px">
 
 ## :gear: Used Technologies
 
