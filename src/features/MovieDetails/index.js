@@ -36,7 +36,6 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchMovie({ id })), [dispatch, id]);
-
   return status === "success" ? (
     <>
       <Backdrop
