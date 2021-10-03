@@ -28,7 +28,7 @@ export const PeopleList = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople({ page, query })), [page, query]);
+  useEffect(() => dispatch(fetchPeople({ page, query })), [dispatch, page, query]);
 
   return (
     status === "success" ?

@@ -8,6 +8,7 @@ import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
+import { NoResults } from "../../common/NoResults";
 import { StyledLink } from "../styled";
 import {
   fetchMovies,
@@ -29,11 +30,11 @@ export const MoviesList = () => {
   const dispatch = useDispatch();
   console.log(status);
 
-  useEffect(() => dispatch(fetchMovies({ page, query })), [page, query]);
+  useEffect(() => dispatch(fetchMovies({ page, query })), [dispatch, page, query]);
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return status === "success" ? (
+  return (movies.length !== 0 & status === "success") ? (
     <>
       <Header title={query === null ? "Popular movies" : `Search results for ${query}`} />
       <Container>
@@ -66,7 +67,7 @@ export const MoviesList = () => {
       </Container>
       <Pager page={page} totalPages={totalMoviesPages} />
     </>
-  ) : status === "loading" ? (
+  ) : (status === "success" & movies.length === 0) ? <NoResults query={query} /> : status === "loading" ? (
     <Loading />
   ) : (
     <Error />
