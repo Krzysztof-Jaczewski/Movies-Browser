@@ -29,21 +29,24 @@ export const PeopleList = () => {
 
   useEffect(() => dispatch(fetchPeople({ page })), [dispatch, page]);
 
-  return (
-    status === "success" ?
-      <>
-        <Header title={"Popular People"} />
-        <Container person>
-          {people &&
-            people.map(({ id, name, profile_path }) => {
-              return (
-                <StyledLink key={id} to={`/People/${id}`}>
-                  <Tile person title={name} poster={profile_path} />
-                </StyledLink>
-              );
-            })}
-        </Container>
-        <Pager page={page} totalPages={totalPeoplePages} />
-      </> : status === "loading" ? <Loading /> : <Error />
+  return status === "success" ? (
+    <>
+      <Header title={"Popular People"} />
+      <Container person>
+        {people &&
+          people.map(({ id, name, profile_path }) => {
+            return (
+              <StyledLink key={id} to={`/People/${id}`}>
+                <Tile person title={name} poster={profile_path} />
+              </StyledLink>
+            );
+          })}
+      </Container>
+      <Pager page={page} totalPages={totalPeoplePages} />
+    </>
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
   );
 };
