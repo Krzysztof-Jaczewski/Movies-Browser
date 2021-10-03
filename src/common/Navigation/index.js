@@ -22,6 +22,10 @@ export const Navigation = () => {
     replaceURLParameters([{
       key: queryParamName,
       value: target.value.trim() !== "" ? target.value : "",
+    },
+    {
+      key: "page",
+      value: 1,
     }]);
   };
 
