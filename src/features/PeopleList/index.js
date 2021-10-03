@@ -4,6 +4,7 @@ import { Container } from "../../common/Container";
 import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
 import { Loading } from "../../common/Loading";
+import { NoResults } from "../../common/NoResults";
 import { Pager } from "../../common/Pager";
 import { StyledLink } from "../../common/StyledLink";
 import { Tile } from "../../common/Tile";
@@ -31,7 +32,7 @@ export const PeopleList = () => {
   useEffect(() => dispatch(fetchPeople({ page, query })), [dispatch, page, query]);
 
   return (
-    status === "success" ?
+    (people.length !== 0 & status === "success") ?
       <>
         <Header title={query === null ? "Popular People" : `Search results for ${query}`} />
         <Container person>
@@ -45,6 +46,6 @@ export const PeopleList = () => {
             })}
         </Container>
         <Pager page={page} totalPages={totalPeoplePages} />
-      </> : status === "loading" ? <Loading /> : <Error />
+      </> : (people.length === 0 & status === "success") ? <NoResults /> : status === "loading" ? <Loading /> : <Error />
   );
 };
