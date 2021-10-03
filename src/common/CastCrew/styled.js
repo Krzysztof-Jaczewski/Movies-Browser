@@ -10,6 +10,7 @@ export const Header = styled.header`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 20px;
     padding: 16px;
+    margin-bottom: 0;
   }
 `;
 
@@ -32,7 +33,6 @@ export const Section = styled.section`
     gap: 16px;
     grid-template-columns: auto;
     margin: 0;
-    gap: 24px;
-    padding: 16px;
+    padding: 0 16px;
   }
 `;

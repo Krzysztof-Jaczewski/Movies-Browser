@@ -8,7 +8,7 @@ import {
   fetchMovieSuccess,
 } from "./movieSlice";
 
-function* fetchMovieHandler({ payload: {id} }) {
+function* fetchMovieHandler({ payload: { id } }) {
   const movieURL = `${baseSiteUrl}movie/${id}?api_key=${API_Key}&language=${language}`;
   const creditsURL = `${baseSiteUrl}movie/${id}/credits?api_key=${API_Key}&language=${language}`;
   try {
@@ -24,4 +24,4 @@ function* fetchMovieHandler({ payload: {id} }) {
 
 export function* movieSaga() {
   yield takeLatest(fetchMovie.type, fetchMovieHandler);
-};
+}

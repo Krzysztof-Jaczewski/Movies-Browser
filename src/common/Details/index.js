@@ -3,9 +3,10 @@ import {
   Poster,
   Description,
   Title,
-  Caption,
   Biography,
   BirthdayInformation,
+  Birth,
+  Frame,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
 import { baseImgUrl, size } from "../../ApiParameters";
@@ -26,12 +27,14 @@ export const Details = ({
       )}
       <Description>
         <Title>{title}</Title>
-        <Caption>
-          Date of the birth:{" "}
-          <BirthdayInformation>{birthday}</BirthdayInformation>
-          Place of the birth:
-          <BirthdayInformation>{additionalTitle}</BirthdayInformation>
-        </Caption>
+        <Birth>
+          <Frame birth>
+            <BirthdayInformation>{birthday}</BirthdayInformation>
+          </Frame>
+          <Frame>
+            <BirthdayInformation>{additionalTitle}</BirthdayInformation>
+          </Frame>
+        </Birth>
       </Description>
       <Biography>{biography}</Biography>
     </StyledDetails>
