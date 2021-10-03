@@ -21,10 +21,7 @@ const peopleSlice = createSlice({
     },
   },
 });
-export const {
-  fetchPeople,
-  fetchPeopleError,
-  fetchPeopleSuccess } =
+export const { fetchPeople, fetchPeopleError, fetchPeopleSuccess } =
   peopleSlice.actions;
 export const selectPeopleState = (state) => state.peopleReducer;
 export const selectPeople = (state) => selectPeopleState(state).people;

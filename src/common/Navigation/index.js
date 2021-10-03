@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { useReplaceURLParameters, useURLParameter } from "../../useURLParameters";
+import {
+  useReplaceURLParameters,
+  useURLParameter,
+} from "../../useURLParameters";
 import {
   Link,
   LinkItem,
@@ -14,19 +17,21 @@ import {
 } from "./styled";
 
 export const Navigation = () => {
-  const queryParamName = "search"
+  const queryParamName = "search";
   const location = useLocation();
   const query = useURLParameter(queryParamName);
   const replaceURLParameters = useReplaceURLParameters();
   const onInputChange = ({ target }) => {
-    replaceURLParameters([{
-      key: queryParamName,
-      value: target.value.trim() !== "" ? target.value : "",
-    },
-    {
-      key: "page",
-      value: 1,
-    }]);
+    replaceURLParameters([
+      {
+        key: queryParamName,
+        value: target.value.trim() !== "" ? target.value : "",
+      },
+      {
+        key: "page",
+        value: 1,
+      },
+    ]);
   };
 
   return (
@@ -49,7 +54,9 @@ export const Navigation = () => {
         <StyledInput
           onChange={onInputChange}
           value={query}
-          placeholder={`Search for ${location.pathname.includes("/Movies") ? "movies..." : "people..."}`}
+          placeholder={`Search for ${
+            location.pathname.includes("/Movies") ? "movies..." : "people..."
+          }`}
         />
       </NavigationContainer>
     </StyledNavigation>

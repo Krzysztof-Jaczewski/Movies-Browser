@@ -29,23 +29,35 @@ export const PeopleList = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople({ page, query })), [dispatch, page, query]);
+  useEffect(
+    () => dispatch(fetchPeople({ page, query })),
+    [dispatch, page, query]
+  );
 
-  return (
-    (people.length !== 0 & status === "success") ?
-      <>
-        <Header title={query === null ? "Popular People" : `Search results for ${query}`} />
-        <Container person>
-          {people &&
-            people.map(({ id, name, profile_path }) => {
-              return (
-                <StyledLink key={id} to={`/People/${id}`}>
-                  <Tile person title={name} poster={profile_path} />
-                </StyledLink>
-              );
-            })}
-        </Container>
-        <Pager page={page} totalPages={totalPeoplePages} />
-      </> : (people.length === 0 & status === "success") ? <NoResults /> : status === "loading" ? <Loading /> : <Error />
+  return (people.length !== 0) & (status === "success") ? (
+    <>
+      <Header
+        title={
+          query === null ? "Popular People" : `Search results for ${query}`
+        }
+      />
+      <Container person>
+        {people &&
+          people.map(({ id, name, profile_path }) => {
+            return (
+              <StyledLink key={id} to={`/People/${id}`}>
+                <Tile person title={name} poster={profile_path} />
+              </StyledLink>
+            );
+          })}
+      </Container>
+      <Pager page={page} totalPages={totalPeoplePages} />
+    </>
+  ) : (people.length === 0) & (status === "success") ? (
+    <NoResults />
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
   );
 };

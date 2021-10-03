@@ -99,16 +99,15 @@ export const Title = styled.h2`
     font-size: 16px;
   }
 
-  ${({movie}) =>
+  ${({ movie }) =>
     movie &&
-      css`
-          font-weight: 600;
-          font-size: 36px;
-          max-width: 1368px;
-          margin: 0 auto;
-          margin-bottom: 32px;  
-      `
-  }
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      max-width: 1368px;
+      margin: 0 auto;
+      margin-bottom: 32px;
+    `}
 `;
 
 export const TileCharacter = styled.h3`
@@ -176,18 +175,18 @@ export const Tags = styled.ul`
     flex-direction: row;
   }
 
-  ${({movie}) =>
+  ${({ movie }) =>
     movie &&
-      css`
-        margin-bottom: 24px;
-        gap: 16px;
+    css`
+      margin-bottom: 24px;
+      gap: 16px;
 
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-          flex-direction: row;
-          align-items: center;
-          padding: 0px;
-        }
-      `}
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+      }
+    `}
 `;
 
 export const Tag = styled.li`
@@ -203,9 +202,9 @@ export const Tag = styled.li`
     padding: 4px 8px;
   }
 
-  ${({movie}) =>
+  ${({ movie }) =>
     movie &&
-      css`
+    css`
         line-height: 14px;
 
         @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
@@ -224,18 +223,18 @@ export const Ratings = styled.section`
     grid-row: auto;
   }
 
-  ${({movie}) =>
+  ${({ movie }) =>
     movie &&
-      css`
+    css`
         margin-bottom: 24px;
 
         @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
           margin-bottom: 0px;        
       `}
 
-  ${({backdrops}) =>
+  ${({ backdrops }) =>
     backdrops &&
-      css`
+    css`
         @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
           margin-top: 0px;     
       `}
@@ -262,7 +261,7 @@ export const Rate = styled.p`
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         font-size: 21px;
-  }
+      }
     `}
 
   ${({ movieInfo }) =>

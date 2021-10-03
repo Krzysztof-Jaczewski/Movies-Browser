@@ -61,17 +61,18 @@ export const PersonDetails = () => {
             }) => {
               return (
                 <StyledLink key={id} to={`/Movies/${id}`}>
-                <Tile
-                  key={nanoid()}
-                  poster={poster_path}
-                  title={title}
-                  subtitle={
-                    release_date && `${character} (${release_date.slice(0, 4)})`
-                  }
-                  genres={nameMovieGenres(genre_ids)}
-                  rate={vote_average}
-                  votes={vote_count}
-                />
+                  <Tile
+                    key={nanoid()}
+                    poster={poster_path}
+                    title={title}
+                    subtitle={
+                      release_date &&
+                      `${character} (${release_date.slice(0, 4)})`
+                    }
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
                 </StyledLink>
               );
             }
@@ -93,17 +94,17 @@ export const PersonDetails = () => {
             }) => {
               return (
                 <StyledLink key={id} to={`/Movies/${id}`}>
-                <Tile
-                  key={nanoid()}
-                  poster={poster_path}
-                  title={title}
-                  subtitle={
-                    release_date && `${job} (${release_date.slice(0, 4)})`
-                  }
-                  genres={nameMovieGenres(genre_ids)}
-                  rate={vote_average}
-                  votes={vote_count}
-                />
+                  <Tile
+                    key={nanoid()}
+                    poster={poster_path}
+                    title={title}
+                    subtitle={
+                      release_date && `${job} (${release_date.slice(0, 4)})`
+                    }
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
                 </StyledLink>
               );
             }
