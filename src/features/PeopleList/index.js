@@ -4,6 +4,7 @@ import { Container } from "../../common/Container";
 import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
 import { Loading } from "../../common/Loading";
+import { NoResults } from "../../common/NoResults";
 import { Pager } from "../../common/Pager";
 import { StyledLink } from "../../common/StyledLink";
 import { Tile } from "../../common/Tile";
@@ -16,22 +17,30 @@ import {
 } from "./peopleSlice";
 
 export const PeopleList = () => {
+  const queryParamName = "search";
   const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+  const query = useURLParameter(queryParamName);
 
   console.log(status);
-  console.log(people);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople({ page })), [dispatch, page]);
+  useEffect(
+    () => dispatch(fetchPeople({ page, query })),
+    [dispatch, page, query]
+  );
 
-  return status === "success" ? (
+  return (people.length !== 0) & (status === "success") ? (
     <>
-      <Header title={"Popular People"} />
+      <Header
+        title={
+          query === null ? "Popular People" : `Search results for ${query}`
+        }
+      />
       <Container person>
         {people &&
           people.map(({ id, name, profile_path }) => {
@@ -44,6 +53,8 @@ export const PeopleList = () => {
       </Container>
       <Pager page={page} totalPages={totalPeoplePages} />
     </>
+  ) : (people.length === 0) & (status === "success") ? (
+    <NoResults />
   ) : status === "loading" ? (
     <Loading />
   ) : (

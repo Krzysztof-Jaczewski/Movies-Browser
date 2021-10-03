@@ -6,8 +6,11 @@ import {
   fetchPeopleSuccess,
 } from "./peopleSlice";
 import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
-function* fetchPeopleHandler({ payload: { page } }) {
-  const url = `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`;
+function* fetchPeopleHandler({ payload: { page, query } }) {
+  const url =
+    query === null
+      ? `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`
+      : `${baseSiteUrl}search/person?api_key=${API_Key}&query=${query}&page=${page}`;
   try {
     const people = yield call(getApi, url);
     yield put(fetchPeopleSuccess(people));

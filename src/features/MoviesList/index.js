@@ -8,7 +8,8 @@ import { useGenres } from "../../fetchGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
-import { StyledLink } from "../styled";
+import { NoResults } from "../../common/NoResults";
+import { StyledLink } from "../../common/StyledLink";
 import {
   fetchMovies,
   selectMovies,
@@ -23,18 +24,26 @@ export const MoviesList = () => {
   const genres = useGenres();
   const pageParameter = +useURLParameter("page");
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
-
-  console.log(status);
+  const queryParamName = "search";
+  const query = useURLParameter(queryParamName);
 
   const dispatch = useDispatch();
+  console.log(status);
 
-  useEffect(() => dispatch(fetchMovies({ page })), [dispatch, page]);
+  useEffect(
+    () => dispatch(fetchMovies({ page, query })),
+    [dispatch, page, query]
+  );
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return status === "success" ? (
+  return (movies.length !== 0) & (status === "success") ? (
     <>
-      <Header title={"Popular movies"} />
+      <Header
+        title={
+          query === null ? "Popular movies" : `Search results for ${query}`
+        }
+      />
       <Container>
         {movies &&
           movies.map(
@@ -53,7 +62,7 @@ export const MoviesList = () => {
                     key={id}
                     poster={poster_path}
                     title={title}
-                    subtitle={release_date.slice(0, 4)}
+                    subtitle={release_date && release_date.slice(0, 4)}
                     genres={nameMovieGenres(genre_ids)}
                     rate={vote_average}
                     votes={vote_count}
@@ -65,6 +74,8 @@ export const MoviesList = () => {
       </Container>
       <Pager page={page} totalPages={totalMoviesPages} />
     </>
+  ) : (status === "success") & (movies.length === 0) ? (
+    <NoResults query={query} />
   ) : status === "loading" ? (
     <Loading />
   ) : (
