@@ -98,6 +98,17 @@ export const Title = styled.h2`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
   }
+
+  ${({movie}) =>
+    movie &&
+      css`
+          font-weight: 600;
+          font-size: 36px;
+          max-width: 1368px;
+          margin: 0 auto;
+          margin-bottom: 32px;  
+      `
+  }
 `;
 
 export const TileCharacter = styled.h3`
@@ -123,8 +134,12 @@ export const Caption = styled.p`
     css`
       color: ${({ theme }) => theme.colors.white};
       font-size: 16px;
-      line-height: 120%;
+      line-height: 19px;
       align-items: center;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        font-size: 10px;
+      }
     `}
 
   ${({ movieInfo }) =>
@@ -160,7 +175,21 @@ export const Tags = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: row;
   }
+
+  ${({movie}) =>
+    movie &&
+      css`
+        margin-bottom: 24px;
+        gap: 16px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+          flex-direction: row;
+          align-items: center;
+          padding: 0px;
+        }
+      `}
 `;
+
 export const Tag = styled.li`
   background-color: ${({ theme }) => theme.colors.mystic};
   border-radius: 5px;
@@ -173,6 +202,16 @@ export const Tag = styled.li`
     line-height: 11px;
     padding: 4px 8px;
   }
+
+  ${({movie}) =>
+    movie &&
+      css`
+        line-height: 14px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+          font-size: 10px;
+          line-height: 11px;
+      `}
 `;
 
 export const Ratings = styled.section`
@@ -184,6 +223,22 @@ export const Ratings = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-row: auto;
   }
+
+  ${({movie}) =>
+    movie &&
+      css`
+        margin-bottom: 24px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+          margin-bottom: 0px;        
+      `}
+
+  ${({backdrops}) =>
+    backdrops &&
+      css`
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+          margin-top: 0px;     
+      `}
 `;
 
 export const Rate = styled.p`
@@ -204,6 +259,10 @@ export const Rate = styled.p`
       line-height: 39px;
       align-items: center;
       padding: 0 7px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        font-size: 21px;
+  }
     `}
 
   ${({ movieInfo }) =>

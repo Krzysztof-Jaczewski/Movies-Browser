@@ -30,6 +30,14 @@ export const Button = styled.button`
   &:disabled {
     background: ${({ theme }) => theme.colors.mystic};
   }
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 `;
 
 export const ButtonText = styled.span`

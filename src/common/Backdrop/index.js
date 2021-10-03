@@ -7,20 +7,20 @@ export const Backdrop = ({title, votes, rate, person, poster}) => {
     return (
         <>
         <BackdropShadow>
-            <BackdropPoster src={`${baseImgUrl}${sizeBackdrop}${poster}`} alt="" />
+            <BackdropPoster image={`${baseImgUrl}${sizeBackdrop}${poster}`} alt="" />
             <Wrapper>
             <LongTitle>
                 {title}
             </LongTitle>
             {votes ? (
-                    <Ratings>
+                    <Ratings backdrops>
                         <BigStarIcon />
                         <Rate backdrops>{rate}<RateTotal>/10</RateTotal></Rate>
                         <Caption backdrops>{votes} votes</Caption>
                     </Ratings>
                     ) : (
                     <Ratings>
-                        <Caption>{person ? "" : "No votes yet"} </Caption>
+                        <Caption backdrops>{person ? "" : "No votes yet"} </Caption>
                     </Ratings>
                 )}
             </Wrapper>
