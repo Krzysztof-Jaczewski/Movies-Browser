@@ -38,7 +38,7 @@ export const PeopleList = () => {
     <>
       <Header
         title={
-          query === null ? "Popular People" : `Search results for ${query}`
+          query === null ? "Popular People" : `Search results for "${query}""`
         }
       />
       <Container person>

@@ -41,7 +41,7 @@ export const MoviesList = () => {
     <>
       <Header
         title={
-          query === null ? "Popular movies" : `Search results for ${query}`
+          query === null ? "Popular movies" : `Search results for "${query}"`
         }
       />
       <Container>

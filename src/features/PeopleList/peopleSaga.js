@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "@redux-saga/core/effects";
+import { call, delay, put, takeLatest } from "@redux-saga/core/effects";
 import { getApi } from "../../getApi";
 import {
   fetchPeople,
@@ -12,6 +12,7 @@ function* fetchPeopleHandler({ payload: { page, query } }) {
       ? `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`
       : `${baseSiteUrl}search/person?api_key=${API_Key}&query=${query}&page=${page}`;
   try {
+    yield delay(500);
     const people = yield call(getApi, url);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
