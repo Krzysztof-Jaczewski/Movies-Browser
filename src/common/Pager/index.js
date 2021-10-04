@@ -37,8 +37,9 @@ export const Pager = ({ page, totalPages }) => {
       {page === 1 ?
     <>
       <Button disabled={page === 1} onClick={() => changePage(1)}>
+      <ArrowDisabled left />
     {width > breakpoint ? <ButtonText>First</ButtonText> : <ArrowDisabled left />}
-    <ArrowDisabled left />
+    
   </Button>
 
   <Button disabled={page === 1} onClick={() => changePage(page - 1)}>

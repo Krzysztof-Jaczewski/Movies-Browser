@@ -86,6 +86,7 @@ export const BackdropShadow = styled.div`
         rgba(0, 0, 0, 0.740286) 89.82%,
         #000000 96.18%
       );
+    }
 `;
 
 export const BackdropPoster = styled.div`
