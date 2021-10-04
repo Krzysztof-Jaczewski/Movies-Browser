@@ -1,6 +1,11 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie, selectMovie, selectMovieCredits, selectStatus } from "./movieSlice";
+import {
+  fetchMovie,
+  selectMovie,
+  selectMovieCredits,
+  selectStatus,
+} from "./movieSlice";
 import { useEffect } from "react";
 import { Backdrop } from "../../common/Backdrop";
 import { Container } from "../../common/Container";

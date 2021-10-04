@@ -2,7 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const peopleSlice = createSlice({
   name: "peopleState",
-  initialState: { people: [], status: "loading", totalPeoplePages: 500 },
+  initialState: {
+    people: [],
+    status: "loading",
+    totalPeoplePages: 500,
+  },
   reducers: {
     fetchPeople: (state) => {
       state.status = "loading";

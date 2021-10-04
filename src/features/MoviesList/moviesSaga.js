@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "@redux-saga/core/effects";
+import { call, delay, put, takeLatest } from "@redux-saga/core/effects";
 import { getApi } from "../../getApi";
 import {
   fetchMovies,
@@ -6,9 +6,13 @@ import {
   fetchMoviesSuccess,
 } from "./moviesSlice";
 import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
-function* fetchMoviesHandler({ payload: { page } }) {
-  const url = `${baseSiteUrl}movie/popular?api_key=${API_Key}&language=${language}&page=${page}`;
+function* fetchMoviesHandler({ payload: { page, query } }) {
+  const url =
+    query === null
+      ? `${baseSiteUrl}movie/popular?api_key=${API_Key}&language=${language}&page=${page}`
+      : `${baseSiteUrl}search/movie?api_key=${API_Key}&query=${query}&page=${page}`;
   try {
+    yield delay(500);
     const movies = yield call(getApi, url);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {

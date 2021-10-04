@@ -99,7 +99,7 @@ export const Title = styled.h2`
     font-size: 16px;
   }
 
-  ${({movie}) =>
+  ${({ movie }) =>
     movie &&
       css`
         font-weight: 600;

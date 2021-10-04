@@ -11,7 +11,7 @@ const movieSlice = createSlice({
       state.status = "success";
       state.movie = ApiMovie;
     },
-    fetchMovieCreditsSuccess: (state, {payload: ApiMovieCredits}) => {
+    fetchMovieCreditsSuccess: (state, { payload: ApiMovieCredits }) => {
       state.status = "success";
       state.credits = ApiMovieCredits;
     },
@@ -20,14 +20,13 @@ const movieSlice = createSlice({
     },
   },
 });
-export const { 
-  fetchMovie, 
+export const {
+  fetchMovie,
   fetchMovieCreditsSuccess,
-  fetchMovieError, 
+  fetchMovieError,
   fetchMovieSuccess,
-  fetchMovieImagesSuccess
-} =
-  movieSlice.actions;
+  fetchMovieImagesSuccess,
+} = movieSlice.actions;
 
 export const selectMovieState = (state) => state.movieReducer;
 export const selectMovie = (state) => selectMovieState(state).movie;
