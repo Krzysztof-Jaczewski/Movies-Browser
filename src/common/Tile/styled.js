@@ -106,7 +106,6 @@ export const Title = styled.h2`
           font-size: 36px;
           max-width: 1368px;
           margin: 0 auto;
-          margin-bottom: 32px;  
       `
   }
 `;
@@ -179,7 +178,6 @@ export const Tags = styled.ul`
   ${({movie}) =>
     movie &&
       css`
-        margin-bottom: 24px;
         gap: 16px;
 
         @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
@@ -215,7 +213,6 @@ export const Tag = styled.li`
 `;
 
 export const Ratings = styled.section`
-  grid-row: -1;
   display: flex;
   align-items: center;
   margin-top: 8px;
@@ -227,7 +224,6 @@ export const Ratings = styled.section`
   ${({movie}) =>
     movie &&
       css`
-        margin-bottom: 24px;
 
         @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
           margin-bottom: 0px;        
@@ -249,30 +245,6 @@ export const Rate = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 13px;
   }
-
-  ${({ backdrops }) =>
-    backdrops &&
-    css`
-      color: ${({ theme }) => theme.colors.white};
-      font-weight: 500;
-      font-size: 30px;
-      line-height: 39px;
-      align-items: center;
-      padding: 0 7px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        font-size: 21px;
-  }
-    `}
-
-  ${({ movieInfo }) =>
-    movieInfo &&
-    css`
-      font-weight: 500;
-      font-size: 22px;
-      line-height: 29px;
-      flex-grow: 0;
-    `}
 `;
 
 export const StarIcon = styled(Star)`

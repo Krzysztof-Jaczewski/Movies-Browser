@@ -16,7 +16,7 @@ export const MovieDetails = () => {
   const { id } = useParams();
   const { 
     backdrop_path, 
-    original_title, 
+    title, 
     overview, 
     release_date, 
     vote_average, 
@@ -35,20 +35,21 @@ export const MovieDetails = () => {
     status === "success" ?
       <>
         <Backdrop
-          title={original_title}
+          title={title}
           poster={backdrop_path}
           rate={vote_average}
           votes={vote_count}
         />
         <MovieInfo
           poster={poster_path}
-          title={original_title}
+          title={title && title.slice(0)}
           description={overview}
           date={release_date && release_date.slice(0, 4)}
           fullDate={release_date && `${release_date.slice(8, 10)}.${release_date.slice(5, 7)}.${release_date.slice(0, 4)}`}
           rate={vote_average}
           votes={vote_count}
-          countries={production_countries && `${production_countries.map(({ name }) => name)}`}
+          fullCountryName={production_countries && `${production_countries.map(({ name }) => name)}`}
+          shortCountryName={production_countries && `${production_countries.map(({ iso_3166_1 }) => iso_3166_1)}`}
           genres={genres && genres.map(({name}) => name)}
         />
         {cast && (

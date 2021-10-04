@@ -103,3 +103,37 @@ export const RateTotal = styled.span`
   }
 `;
 
+export const Rate = styled.p`
+    color: ${({ theme }) => theme.colors.white};
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+    align-items: center;
+    padding: 0 7px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 21px;
+  }
+`;
+
+export const Ratings = styled.section`
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    grid-row: auto;
+    margin-top: 0px; 
+  }
+`;
+
+export const Caption = styled.p`
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 10px;
+  }
+`;
