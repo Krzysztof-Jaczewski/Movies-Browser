@@ -1,12 +1,14 @@
 import { baseImgUrl, sizeBackdrop } from "../../ApiParameters";
-import { BackdropPoster, BackdropShadow, BigStarIcon, Caption, LongTitle, Rate, RateTotal, Ratings, Wrapper } from "./styled";
+import { BackdropPoster, BackdropShadow, BigStarIcon, Caption, LongTitle, Rate, RateTotal, Ratings, Rectangle, Wrapper } from "./styled";
 
 
 export const Backdrop = ({title, votes, rate, person, poster}) => {
     return (
         <>
+        <Rectangle>
         <BackdropShadow>
             <BackdropPoster image={`${baseImgUrl}${sizeBackdrop}${poster}`} alt="" />
+            
             <Wrapper>
             <LongTitle>
                 {title}
@@ -24,6 +26,7 @@ export const Backdrop = ({title, votes, rate, person, poster}) => {
                 )}
             </Wrapper>
         </BackdropShadow>
+        </Rectangle>
         </>
     )
 }

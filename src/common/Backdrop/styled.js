@@ -89,6 +89,18 @@ export const BackdropShadow = styled.div`
     }
 `;
 
+export const Rectangle = styled.div`
+  max-width: 100%;
+  height: 769px;
+  background: ${({theme}) => theme.colors.black};
+
+  @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}) {
+    height: 148px;
+    display: grid;
+    grid-column: 2;
+  }
+`;
+
 export const BackdropPoster = styled.div`
     width: 1368px;
     height: 769px;
@@ -102,8 +114,8 @@ export const BackdropPoster = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
       width: 262px;
       height: 148px;
-      box-shadow: inset 0 0 5px black, inset 0 0 15px black, inset 0 0 30px black, inset 0 0 45px black, inset 0 0 60px black;
-      
+      box-shadow: inset 0 0 5px black, inset 0 0 10px black, inset 0 0 15px black, inset 0 0 20px black, inset 0 0 25px black;
+      grid-column: 2;
     }
 `;
 
@@ -116,6 +128,7 @@ export const LongTitle = styled.header`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
       font-size: 24px;
       line-height: 29px;
+
     }
 `;
 
@@ -137,7 +150,7 @@ export const Wrapper = styled.main`
   @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}) {
     gap: 4px;
     grid-row: 2;
-    
+
   }
 `;
 
@@ -174,8 +187,8 @@ export const Ratings = styled.section`
   margin-bottom: 56px; 
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    margin-top: 0px; 
     margin-bottom: 8px;
+    height: 18px;
   }
 `;
 

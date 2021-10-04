@@ -15,7 +15,7 @@ export const Wrapper = styled.article`
         padding: 16px;
         margin: 16px;
         grid-template-columns: 114px auto;
-        grid-template-rows: repeat(2, 176px);
+        grid-template-rows: repeat(2, auto);
         gap: 16px;
     }
 `;
@@ -98,7 +98,6 @@ export const MainInfo = styled.p`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         font-size: 14px;
         line-height: 22px;
-        margin-bottom: 16px;
         grid-column: 1 / span 5;
     }
 `;

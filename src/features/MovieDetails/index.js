@@ -47,7 +47,7 @@ export const MovieDetails = () => {
         />
         <MovieInfo
           poster={poster_path}
-          title={title && title.slice(0)}
+          title={title.lenght > 25 ? title : title.slice(0, title.lastIndexOf(':')) || title.slice(0, title.lastIndexOf('and'))}
           description={overview}
           date={release_date && release_date.slice(0, 4)}
           fullDate={release_date && `${release_date.slice(8, 10)}.${release_date.slice(5, 7)}.${release_date.slice(0, 4)}`}
