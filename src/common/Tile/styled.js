@@ -102,10 +102,15 @@ export const Title = styled.h2`
   ${({movie}) =>
     movie &&
       css`
-          font-weight: 600;
-          font-size: 36px;
-          max-width: 1368px;
-          margin: 0 auto;
+        font-weight: 600;
+        font-size: 36px;
+        max-width: 1368px;
+        margin: 64px auto 32px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+      font-size: 20px;
+      margin: 21px auto 0;
+  }
       `
   }
 `;
@@ -128,26 +133,6 @@ export const Caption = styled.p`
     font-size: 13px;
     line-height: 16.9px;
   }
-  ${({ backdrops }) =>
-    backdrops &&
-    css`
-      color: ${({ theme }) => theme.colors.white};
-      font-size: 16px;
-      line-height: 19px;
-      align-items: center;
-
-      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        font-size: 10px;
-      }
-    `}
-
-  ${({ movieInfo }) =>
-    movieInfo &&
-    css`
-      font-size: 14px;
-      line-height: 17px;
-      color: ${({ theme }) => theme.colors.black};
-    `}
 `;
 
 export const TileDate = styled(Caption)`
@@ -174,18 +159,6 @@ export const Tags = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: row;
   }
-
-  ${({movie}) =>
-    movie &&
-      css`
-        gap: 16px;
-
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-          flex-direction: row;
-          align-items: center;
-          padding: 0px;
-        }
-      `}
 `;
 
 export const Tag = styled.li`
@@ -200,16 +173,6 @@ export const Tag = styled.li`
     line-height: 11px;
     padding: 4px 8px;
   }
-
-  ${({movie}) =>
-    movie &&
-      css`
-        line-height: 14px;
-
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-          font-size: 10px;
-          line-height: 11px;
-      `}
 `;
 
 export const Ratings = styled.section`
@@ -220,21 +183,6 @@ export const Ratings = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-row: auto;
   }
-
-  ${({movie}) =>
-    movie &&
-      css`
-
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-          margin-bottom: 0px;        
-      `}
-
-  ${({backdrops}) =>
-    backdrops &&
-      css`
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-          margin-top: 0px;     
-      `}
 `;
 
 export const Rate = styled.p`

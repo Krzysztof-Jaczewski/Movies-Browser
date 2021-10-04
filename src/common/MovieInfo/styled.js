@@ -9,13 +9,13 @@ export const Wrapper = styled.article`
     max-width: 1368px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     margin: 64px auto;
+    grid-template-rows: repeat(2, 260px);
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        max-width: 288px;
         padding: 16px;
-        margin: 16px auto;
-        grid-template-columns: 116px auto;
-        grid-template-rows: auto;
+        margin: 16px;
+        grid-template-columns: 114px auto;
+        grid-template-rows: repeat(2, 176px);
         gap: 16px;
     }
 `;
@@ -23,11 +23,14 @@ export const Wrapper = styled.article`
 export const Description = styled.div`
   display: grid;
   gap: 24px;
+  grid-row: 1;
   grid-column: 2/6;
-  grid-template-rows: auto;
+  grid-template-rows: auto 1fr;
   
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         gap: 8px;
+        grid-template-rows: auto;
+        margin-bottom: 16px;
     }
 `;
 
@@ -66,6 +69,7 @@ export const SubTitle = styled.h2`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         font-weight: 500;
         font-size: 13px;
+        height: 17px;
         color: ${({theme}) => theme.colors.waterloo};
     }
 `;
@@ -87,12 +91,15 @@ export const Info = styled.p`
 
 export const MainInfo = styled.p`
     font-size: 20px;
-    line-height: 32px;
+    line-height: 32px;  
+    grid-row: 2;
+    grid-column: 2 / span 4;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         font-size: 14px;
         line-height: 22px;
         margin-bottom: 16px;
+        grid-column: 1 / span 5;
     }
 `;
 
@@ -116,7 +123,7 @@ export const Tags = styled.ul`
   flex-wrap: wrap;
   gap: 16px;
   padding-left: 0;
-  max-height: 30px;
+
 
   &:empty {
     margin-bottom: 0;
@@ -126,7 +133,7 @@ export const Tags = styled.ul`
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    max-height: 19px;
+
     gap: 8px;
   }
 `;
@@ -152,8 +159,6 @@ export const Ratings = styled.section`
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    grid-row: auto;
-    margin-bottom: 0px;
     gap: 7px; 
     flex-wrap: nowrap;  
   }

@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import { ReactComponent as ArrowImage } from "../../images/arrow.svg";
+import { ReactComponent as ArrowDisabledImage } from "../../images/arrowDisabled.svg";
 
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -29,6 +31,7 @@ export const Button = styled.button`
 
   &:disabled {
     background: ${({ theme }) => theme.colors.mystic};
+    color: ${({ theme }) => theme.colors.waterloo};
   }
 
   &:hover {
@@ -47,10 +50,6 @@ export const ButtonText = styled.span`
   margin: 0px 8px;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.mineShaft};
-
-  &:disabled {
-    background: ${({ theme }) => theme.colors.woodsmoke};
-  }
 `;
 
 export const PagesWrapper = styled.div`
@@ -78,4 +77,22 @@ export const Pages = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin: 0px 2px;
   }
+`;
+
+export const Arrow = styled(ArrowImage)`
+
+  ${({left})=>
+  left &&
+  css`
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  `}
+`;
+
+export const ArrowDisabled = styled(ArrowDisabledImage)`
+   
+   ${({left})=>
+  left &&
+  css`
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  `}
 `;

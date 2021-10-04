@@ -22,7 +22,7 @@ export const StyledContainer = styled.main`
       margin-bottom: 64px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        grid-template-columns: repeat(auto-fill, 128px);
+        grid-template-columns: repeat(auto-fill, 136px);
         padding: 16px;
       }
     `}

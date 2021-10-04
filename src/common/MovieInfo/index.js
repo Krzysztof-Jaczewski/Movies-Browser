@@ -87,11 +87,10 @@ export const MovieInfo = ({
                         <Caption>{person ? "" : "No votes yet"} </Caption>
                     </Ratings>
                 )}
+            </Description>
             <MainInfo>
                     {description}
                 </MainInfo>
-            </Description>
-
         </Wrapper>
         </>
     )

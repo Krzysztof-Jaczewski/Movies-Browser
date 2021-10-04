@@ -53,7 +53,7 @@ export const MoviesList = () => {
                     key={id}
                     poster={poster_path}
                     title={title}
-                    subtitle={release_date.slice(0, 4)}
+                    subtitle={release_date && release_date.slice(0, 4)}
                     genres={nameMovieGenres(genre_ids)}
                     rate={vote_average}
                     votes={vote_count}

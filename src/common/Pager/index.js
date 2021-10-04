@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ReactComponent as ArrowLeft } from "../../images/arrowLeft.svg";
-import { ReactComponent as ArrowRight } from "../../images/arrowRight.svg";
 import { useReplaceURLParameters } from "../../useURLParameters";
 import {
+  Arrow,
+  ArrowDisabled,
   Button,
   ButtonText,
   ButtonWrapper,
@@ -34,16 +34,29 @@ export const Pager = ({ page, totalPages }) => {
 
   return (
     <ButtonWrapper>
+      {page === 1 ?
+    <>
       <Button disabled={page === 1} onClick={() => changePage(1)}>
-        {width > breakpoint ? <ButtonText>First</ButtonText> : <ArrowLeft />}
-        <ArrowLeft />
-      </Button>
+    {width > breakpoint ? <ButtonText>First</ButtonText> : <ArrowDisabled left />}
+    <ArrowDisabled left />
+  </Button>
 
-      <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
-        <ArrowLeft />
-        {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
-      </Button>
-
+  <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
+    <ArrowDisabled left />
+    {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
+  </Button>
+  </>
+  :
+  <>
+  <Button disabled={page === 1} onClick={() => changePage(1)}>
+    {width > breakpoint ? <ButtonText>First</ButtonText> : <Arrow left />}
+    <Arrow left />
+  </Button>
+  <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
+    <Arrow left />
+    {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
+  </Button>
+    </>}
       <PagesWrapper>
         <Pages>Page</Pages>
         <Pages number>{page}</Pages>
@@ -51,21 +64,44 @@ export const Pager = ({ page, totalPages }) => {
         <Pages number>{totalPages}</Pages>
       </PagesWrapper>
 
+      {page === totalPages ?
+        <>
+        <Button
+        disabled={page === totalPages}
+        onClick={() => changePage(page + 1)}
+      >
+        {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
+        <ArrowDisabled />
+      </Button>
+            <Button
+            disabled={page === totalPages}
+            onClick={() => changePage(totalPages)}
+          >
+            {width > breakpoint ? <ButtonText>Last</ButtonText> : <ArrowDisabled />}
+            <ArrowDisabled />
+          </Button>
+          </>
+      :
+      <>
       <Button
         disabled={page === totalPages}
         onClick={() => changePage(page + 1)}
       >
         {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
-        <ArrowRight />
+        <Arrow />
       </Button>
+            <Button
+            disabled={page === totalPages}
+            onClick={() => changePage(totalPages)}
+          >
+            {width > breakpoint ? <ButtonText>Last</ButtonText> : <Arrow />}
+            <Arrow />
+          </Button>
+          </>
+    }
+    
 
-      <Button
-        disabled={page === totalPages}
-        onClick={() => changePage(totalPages)}
-      >
-        {width > breakpoint ? <ButtonText>Last</ButtonText> : <ArrowRight />}
-        <ArrowRight />
-      </Button>
+
     </ButtonWrapper>
   );
 };
