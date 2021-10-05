@@ -15,7 +15,7 @@ export const StyledTile = styled.article`
   z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 320px;
+    width: 330px;
     grid-template-columns: auto 1fr;
     grid-template-rows: none;
   }
@@ -31,6 +31,7 @@ export const StyledTile = styled.article`
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         width: 136px;
         grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
         padding: 8px;
         gap: 8px;
         margin: 0;
@@ -93,26 +94,21 @@ export const Title = styled.h2`
   border-radius: 5px;
   font-weight: 500;
   font-size: 22px;
-  word-break: break-word;
+  line-height: 28.6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
+    line-height: 18px;
   }
+  ${({ person }) =>
+    person &&
+    css`
+      text-align: center;
 
-  ${({ movie }) =>
-    movie &&
-      css`
-        font-weight: 600;
-        font-size: 36px;
-        max-width: 1368px;
-        margin: 64px auto 32px;
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-      font-size: 20px;
-      margin: 21px auto 12px 16px;
-  }
-      `
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        font-size: 14px;
+      }
+    `}
 `;
 
 export const TileCharacter = styled.h3`
@@ -120,9 +116,18 @@ export const TileCharacter = styled.h3`
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  word-break: break-word;
-  margin-bottom: 8px;
+  margin: 8px 0;
+  line-height: 27px;
+  text-align: center;
   color: ${({ theme }) => theme.colors.waterloo};
+
+  &:empty {
+    margin: 0;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 13px;
+    line-height: 17px;
+  }
 `;
 
 export const Caption = styled.p`
@@ -136,11 +141,10 @@ export const Caption = styled.p`
 `;
 
 export const TileDate = styled(Caption)`
-  margin-bottom: 8px;
-  display: flex;
+  margin: 8px 0;
 
   &:empty {
-    margin-bottom: 0;
+    margin: 0;
   }
 `;
 

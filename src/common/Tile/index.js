@@ -23,10 +23,6 @@ export const Tile = ({
   rate,
   votes,
   person,
-  details,
-  biography,
-  additionalTitle,
-  birthday,
   character,
 }) => {
   return (
@@ -39,23 +35,23 @@ export const Tile = ({
       <Descrition>
         <Info>
           <Title person={person}>{title}</Title>
-          <TileCharacter person={person}>{character}</TileCharacter>
+          <TileCharacter>{character}</TileCharacter>
           <TileDate>{subtitle}</TileDate>
         </Info>
         <Tags>
           {genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
         </Tags>
-        {votes ? (
-          <Ratings>
-            <StarIcon />
-            <Rate>{rate}</Rate>
-            <Caption>{votes} votes</Caption>
-          </Ratings>
-        ) : (
-          <Ratings>
+        <Ratings>
+          {votes ? (
+            <>
+              <StarIcon />
+              <Rate>{rate}</Rate>
+              <Caption>{votes} votes</Caption>
+            </>
+          ) : (
             <Caption>{person ? "" : "No votes yet"} </Caption>
-          </Ratings>
-        )}
+          )}
+        </Ratings>
       </Descrition>
     </StyledTile>
   );
