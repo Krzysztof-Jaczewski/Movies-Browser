@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   padding: 16px 32px;
-  background-color: blue;
+  background-color: ${({ theme }) => theme.colors.curiousBlue};
   color: white;
   margin: 24px 0;
   border-radius: 24px;
