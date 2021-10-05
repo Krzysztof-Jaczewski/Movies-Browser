@@ -22,9 +22,6 @@ export const PersonDetails = () => {
   const { profile_path, name, birthday, place_of_birth, biography } =
     useSelector(selectPerson);
   const { crew, cast } = useSelector(selectPersonCredtis);
-
-  console.log(crew);
-  console.log(cast);
   const genres = useGenres();
   const dispatch = useDispatch();
 

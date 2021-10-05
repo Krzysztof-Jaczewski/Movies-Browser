@@ -26,8 +26,6 @@ export const PeopleList = () => {
   const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
   const query = useURLParameter(queryParamName);
 
-  console.log(status);
-
   const dispatch = useDispatch();
 
   useEffect(

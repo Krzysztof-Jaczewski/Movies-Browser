@@ -31,10 +31,10 @@ export const MovieDetails = () => {
     genres,
   } = useSelector(selectMovie);
   const { cast, crew } = useSelector(selectMovieCredits);
-
   const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
+  console.log(production_countries);
   useEffect(() => dispatch(fetchMovie({ id })), [dispatch, id]);
 
   return status === "success" ? (

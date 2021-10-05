@@ -29,7 +29,6 @@ export const MoviesList = () => {
   const query = useURLParameter(queryParamName);
 
   const dispatch = useDispatch();
-  console.log(status);
 
   useEffect(
     () => dispatch(fetchMovies({ page, query })),
