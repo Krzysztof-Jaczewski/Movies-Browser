@@ -58,7 +58,7 @@ export const MovieInfo = ({
                 <ProductionRelease>
                     {width > breakpoint ? 
                     <Info>
-                        <Span>Production:</Span> 
+                        <Span>Production: </Span> 
                             {fullCountryName}
                     </Info> : 
                     <Info>
@@ -66,7 +66,7 @@ export const MovieInfo = ({
                     </Info>
                     }
                     <Info>
-                    {width > breakpoint ? <Span>Release date:</Span> : ""} 
+                    {width > breakpoint ? <Span>Release date: </Span> : ""} 
                         {fullDate}
                     </Info>
                 </ProductionRelease>

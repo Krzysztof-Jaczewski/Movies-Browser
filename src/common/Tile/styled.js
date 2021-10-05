@@ -25,14 +25,14 @@ export const StyledTile = styled.article`
     css`
       width: 208px;
       border-radius: 5px;
-      padding: 16px;
-      gap: 24px;
+      padding: 14px;
+      gap: 16px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         width: 136px;
         grid-template-columns: auto;
         padding: 8px;
-        gap: 16px;
+        gap: 8px;
         margin: 0;
       }
     `}
@@ -109,7 +109,7 @@ export const Title = styled.h2`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
       font-size: 20px;
-      margin: 21px auto 0;
+      margin: 21px auto 12px 16px;
   }
       `
   }
