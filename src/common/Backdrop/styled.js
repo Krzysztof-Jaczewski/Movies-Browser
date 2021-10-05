@@ -33,8 +33,8 @@ export const BackdropPoster = styled.div`
   background-image: url(${({ image }) => image});
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 30px black, inset 0 0 60px black, inset 0 0 90px black,
-    inset 0 0 120px black, inset 0 0 150px black;
+  box-shadow: inset 0 0 50px black, inset 0 0 100px black, inset 0 0 200px black,
+    inset 0 0 300px black, inset 0 0 400px black;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     width: 320px;
@@ -67,7 +67,6 @@ export const Wrapper = styled.article`
   align-self: flex-end;
   display: flex;
   flex-direction: column;
-  background-color: rgb(0, 0, 0, 0.4);
   gap: 24px;
   grid-row: 1;
   grid-column: 1;
