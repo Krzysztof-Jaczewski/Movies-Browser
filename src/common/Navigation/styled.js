@@ -37,6 +37,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 16px;
 `;
 
 export const StyledLogo = styled(Logo)`
