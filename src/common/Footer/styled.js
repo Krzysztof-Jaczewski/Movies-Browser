@@ -9,6 +9,7 @@ export const PageFooter = styled.footer`
     font-weight: 500;
     letter-spacing: 1px;
     background-color: ${({ theme }) => theme.colors.woodsmoke};
+    margin-top: 30px;
     padding: 10px;
     line-height: 1.5;
     color: ${({ theme }) => theme.colors.white};
