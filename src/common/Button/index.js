@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  padding: 16px 32px;
-  background-color: ${({ theme }) => theme.colors.curiousBlue};
-  color: white;
+  background-color: ${({ theme }) => theme.colors.scienceBlue};
+  padding: 16px 24px;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
   margin: 24px 0;
-  border-radius: 24px;
-  transition: all 0.5s;
 
   &:hover {
-    transform: scale(1.08);
+    filter: brightness(120%);
   }
   &:active {
-    transform: scale(0.92);
+    filter: brightness(130%);
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin: 12px auto 12px 16px;

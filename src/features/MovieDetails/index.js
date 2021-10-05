@@ -42,7 +42,7 @@ export const MovieDetails = () => {
   useEffect(() => dispatch(fetchMovie({ id })), [dispatch, id]);
 
   return (
-    <MainContainer>
+    <>
       {status === "success" ? (
         <>
           <Backdrop
@@ -51,39 +51,53 @@ export const MovieDetails = () => {
             rate={vote_average}
             votes={vote_count}
           />
-          <MovieInfo
-            poster={poster_path}
-            title={
-              (title.includes(":") && title.slice(0, title.lastIndexOf(":"))) ||
-              (title.includes(" and ") &&
-                title.slice(0, title.lastIndexOf(" and "))) ||
-              title
-            }
-            description={overview}
-            date={release_date && release_date.slice(0, 4)}
-            fullDate={
-              release_date &&
-              `${release_date.slice(8, 10)}.${release_date.slice(
-                5,
-                7
-              )}.${release_date.slice(0, 4)}`
-            }
-            rate={vote_average}
-            votes={vote_count}
-            fullCountryName={
-              production_countries &&
-              `${production_countries.map(({ name }) => ` ${name}`)} `
-            }
-            genres={genres && genres.map(({ name }) => name)}
-          />
-          {cast && (
-            <>
-              <Header title={"Cast"} />
-              <Container person>
-                {cast.length > castLimit
-                  ? cast
-                      .slice(0, castLimit)
-                      .map(({ id, name, profile_path, character }) => {
+          <MainContainer>
+            <MovieInfo
+              poster={poster_path}
+              title={
+                (title.includes(":") &&
+                  title.slice(0, title.lastIndexOf(":"))) ||
+                (title.includes(" and ") &&
+                  title.slice(0, title.lastIndexOf(" and "))) ||
+                title
+              }
+              description={overview}
+              date={release_date && release_date.slice(0, 4)}
+              fullDate={
+                release_date &&
+                `${release_date.slice(8, 10)}.${release_date.slice(
+                  5,
+                  7
+                )}.${release_date.slice(0, 4)}`
+              }
+              rate={vote_average}
+              votes={vote_count}
+              fullCountryName={
+                production_countries &&
+                `${production_countries.map(({ name }) => ` ${name}`)} `
+              }
+              genres={genres && genres.map(({ name }) => name)}
+            />
+            {cast && (
+              <>
+                <Header title={"Cast"} />
+                <Container person>
+                  {cast.length > castLimit
+                    ? cast
+                        .slice(0, castLimit)
+                        .map(({ id, name, profile_path, character }) => {
+                          return (
+                            <StyledLink key={nanoid()} to={`/People/${id}`}>
+                              <Tile
+                                person
+                                poster={profile_path}
+                                character={character}
+                                title={name}
+                              />
+                            </StyledLink>
+                          );
+                        })
+                    : cast.map(({ id, name, profile_path, character }) => {
                         return (
                           <StyledLink key={nanoid()} to={`/People/${id}`}>
                             <Tile
@@ -94,41 +108,41 @@ export const MovieDetails = () => {
                             />
                           </StyledLink>
                         );
-                      })
-                  : cast.map(({ id, name, profile_path, character }) => {
-                      return (
-                        <StyledLink key={nanoid()} to={`/People/${id}`}>
-                          <Tile
-                            person
-                            poster={profile_path}
-                            character={character}
-                            title={name}
-                          />
-                        </StyledLink>
-                      );
-                    })}
-              </Container>
-              {cast.length > 12 ? (
-                <Button
-                  onClick={() =>
-                    setCastLimit(castLimit === 12 ? cast.lenght : 12)
-                  }
-                >
-                  {castLimit === 12 ? "Show more" : "Hide"}
-                </Button>
-              ) : (
-                ""
-              )}
-            </>
-          )}
-          {crew && (
-            <>
-              <Header title={"Crew"} />
-              <Container person>
-                {crew.length > crewLimit
-                  ? crew
-                      .slice(0, crewLimit)
-                      .map(({ name, profile_path, department, id }) => {
+                      })}
+                </Container>
+                {cast.length > 12 ? (
+                  <Button
+                    onClick={() =>
+                      setCastLimit(castLimit === 12 ? cast.lenght : 12)
+                    }
+                  >
+                    {castLimit === 12 ? "Show more" : "Hide"}
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </>
+            )}
+            {crew && (
+              <>
+                <Header title={"Crew"} />
+                <Container person>
+                  {crew.length > crewLimit
+                    ? crew
+                        .slice(0, crewLimit)
+                        .map(({ name, profile_path, department, id }) => {
+                          return (
+                            <StyledLink key={nanoid()} to={`/People/${id}`}>
+                              <Tile
+                                person
+                                poster={profile_path}
+                                character={department}
+                                title={name}
+                              />
+                            </StyledLink>
+                          );
+                        })
+                    : crew.map(({ name, profile_path, department, id }) => {
                         return (
                           <StyledLink key={nanoid()} to={`/People/${id}`}>
                             <Tile
@@ -139,39 +153,28 @@ export const MovieDetails = () => {
                             />
                           </StyledLink>
                         );
-                      })
-                  : crew.map(({ name, profile_path, department, id }) => {
-                      return (
-                        <StyledLink key={nanoid()} to={`/People/${id}`}>
-                          <Tile
-                            person
-                            poster={profile_path}
-                            character={department}
-                            title={name}
-                          />
-                        </StyledLink>
-                      );
-                    })}
-              </Container>
-              {crew.length > 12 ? (
-                <Button
-                  onClick={() =>
-                    setCrewLimit(crewLimit === 12 ? cast.lenght : 12)
-                  }
-                >
-                  {crewLimit === 12 ? "Show more" : "Hide"}
-                </Button>
-              ) : (
-                ""
-              )}
-            </>
-          )}
+                      })}
+                </Container>
+                {crew.length > 12 ? (
+                  <Button
+                    onClick={() =>
+                      setCrewLimit(crewLimit === 12 ? cast.lenght : 12)
+                    }
+                  >
+                    {crewLimit === 12 ? "Show more" : "Hide"}
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </>
+            )}
+          </MainContainer>
         </>
       ) : status === "loading" ? (
         <Loading />
       ) : (
         <Error />
       )}
-    </MainContainer>
+    </>
   );
 };
