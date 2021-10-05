@@ -12,9 +12,10 @@ import { useGenres } from "../../fetchGenres";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { Details } from "../../common/Details";
-import { CastCrew } from "../../common/CastCrew";
 import { nanoid } from "@reduxjs/toolkit";
 import { StyledLink } from "../../common/StyledLink";
+import { Container } from "../../common/Container";
+import { Header } from "../../common/Header";
 
 export const PersonDetails = () => {
   const status = useSelector(selectStatus);
@@ -44,68 +45,74 @@ export const PersonDetails = () => {
       />
 
       {cast && (
-        <CastCrew header={`Movies - Cast (${cast.length})`}>
-          {cast.map(
-            ({
-              poster_path,
-              title,
-              release_date,
-              genre_ids,
-              vote_average,
-              vote_count,
-              character,
-              id,
-            }) => {
-              return (
-                <StyledLink key={nanoid()} to={`/Movies/${id}`}>
-                  <Tile
-                    poster={poster_path}
-                    title={title}
-                    subtitle={
-                      release_date &&
-                      `${character} (${release_date.slice(0, 4)})`
-                    }
-                    genres={nameMovieGenres(genre_ids)}
-                    rate={vote_average}
-                    votes={vote_count}
-                  />
-                </StyledLink>
-              );
-            }
-          )}
-        </CastCrew>
+        <>
+          <Header title={`Movies - Cast (${cast.length})`} />
+          <Container>
+            {cast.map(
+              ({
+                poster_path,
+                title,
+                release_date,
+                genre_ids,
+                vote_average,
+                vote_count,
+                character,
+                id,
+              }) => {
+                return (
+                  <StyledLink key={nanoid()} to={`/Movies/${id}`}>
+                    <Tile
+                      poster={poster_path}
+                      title={title}
+                      subtitle={
+                        release_date &&
+                        `${character} (${release_date.slice(0, 4)})`
+                      }
+                      genres={nameMovieGenres(genre_ids)}
+                      rate={vote_average}
+                      votes={vote_count}
+                    />
+                  </StyledLink>
+                );
+              }
+            )}
+          </Container>
+        </>
       )}
       {crew && (
-        <CastCrew header={`Movies - Crew  (${crew.length})`}>
-          {crew.map(
-            ({
-              poster_path,
-              title,
-              job,
-              release_date,
-              genre_ids,
-              vote_average,
-              vote_count,
-              id,
-            }) => {
-              return (
-                <StyledLink key={id} to={`/Movies/${id}`}>
-                  <Tile
-                    key={nanoid()}
-                    poster={poster_path}
-                    title={title}
-                    subtitle={
-                      release_date && `${job} (${release_date.slice(0, 4)})`
-                    }
-                    genres={nameMovieGenres(genre_ids)}
-                    rate={vote_average}
-                    votes={vote_count}
-                  />
-                </StyledLink>
-              );
-            }
-          )}
-        </CastCrew>
+        <>
+          <Header title={`Movies - Crew  (${crew.length})`} />
+          <Container>
+            {crew.map(
+              ({
+                poster_path,
+                title,
+                job,
+                release_date,
+                genre_ids,
+                vote_average,
+                vote_count,
+                id,
+              }) => {
+                return (
+                  <StyledLink key={id} to={`/Movies/${id}`}>
+                    <Tile
+                      key={nanoid()}
+                      poster={poster_path}
+                      title={title}
+                      subtitle={
+                        release_date && `${job} (${release_date.slice(0, 4)})`
+                      }
+                      genres={nameMovieGenres(genre_ids)}
+                      rate={vote_average}
+                      votes={vote_count}
+                    />
+                  </StyledLink>
+                );
+              }
+            )}
+          </Container>
+        </>
       )}
     </>
   ) : status === "loading" ? (
