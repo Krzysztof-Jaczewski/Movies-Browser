@@ -4,12 +4,12 @@ import { ReactComponent as Logo } from "../../images/tmdb.svg";
 export const PageFooter = styled.footer`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  text-align: center;
+  justify-content: space-between;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
   background-color: ${({ theme }) => theme.colors.woodsmoke};
+  margin-top: 30px;
   padding: 10px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.white};
@@ -21,16 +21,17 @@ export const PageFooter = styled.footer`
 `;
 
 export const FooterContainer = styled.div`
-  width: 70%;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1368px;
   margin: 0 auto;
 `;
 
 export const FooterLogo = styled(Logo)`
   width: 50px;
   height: 50px;
-  position: absolute;
-  right: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin: 10px;
