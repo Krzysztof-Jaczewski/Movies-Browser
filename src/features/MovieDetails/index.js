@@ -11,7 +11,7 @@ import { Backdrop } from "../../common/Backdrop";
 import { Container } from "../../common/Container";
 import { MovieInfo } from "../../common/MovieInfo";
 import { Tile } from "../../common/Tile";
-import { Title } from "../../common/Tile/styled";
+import { Header } from "../../common/Header";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { StyledLink } from "../../common/StyledLink";
@@ -71,7 +71,7 @@ export const MovieDetails = () => {
       />
       {cast && (
         <>
-          <Title movie>Cast</Title>
+          <Header title={"Cast"} />
           <Container person>
             {cast.map(({ id, name, profile_path, character }) => {
               return (
@@ -90,7 +90,7 @@ export const MovieDetails = () => {
       )}
       {crew && (
         <>
-          <Title movie>Crew</Title>
+          <Header title={"Crew"} />
           <Container person>
             {crew.map(({ name, profile_path, department, id }) => {
               return (
