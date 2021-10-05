@@ -13,11 +13,10 @@ export const PageFooter = styled.footer`
     line-height: 1.5;
     color: ${({ theme }) => theme.colors.white};
 
-    @media(max-width:${({ theme }) => theme.breakpoint.mobileMax})
-    {
-        font-size: 10px;
-        text-align: left;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 10px;
+    text-align: left;
+  }
 `;
 
 export const FooterContainer = styled.div`
@@ -33,10 +32,9 @@ export const FooterLogo = styled(Logo)`
     width: 50px;
     height: 50px;
 
-    @media(max-width:${({ theme }) => theme.breakpoint.mobileMax})
-    {
-        margin: 10px;
-        width: 36px;
-        height: 36px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    margin: 10px;
+    width: 36px;
+    height: 36px;
+  }
 `;

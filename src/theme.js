@@ -9,6 +9,9 @@ export const theme = {
     mineShaft: "#333333",
     pattensBlue: "#D6E4FF",
     silver: "#C4C4C4",
+    scienceBlue: "#0044CC",
+    stormGray: "#74788B",
+    black: "#000000",
   },
   breakpoint: {
     mobileMax: "767px",

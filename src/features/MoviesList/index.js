@@ -1,53 +1,83 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { baseImgUrl, size } from "../../ApiParameters";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
+import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
 import { useGenres } from "../../fetchGenres";
-import { fetchMovies, selectMovies, selectStatus } from "./moviesSlice";
+import { useURLParameter } from "../../useURLParameters";
+import { Loading } from "../../common/Loading";
+import { Error } from "../../common/Error";
+import { NoResults } from "../../common/NoResults";
+import { StyledLink } from "../../common/StyledLink";
+import {
+  fetchMovies,
+  selectMovies,
+  selectStatus,
+  selectTotalMoviesPages,
+} from "./moviesSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const MoviesList = () => {
-  const { results } = useSelector(selectMovies);
+  const movies = useSelector(selectMovies);
   const status = useSelector(selectStatus);
+  const totalMoviesPages = useSelector(selectTotalMoviesPages);
   const genres = useGenres();
-
-  console.log(status);
+  const pageParameter = +useURLParameter("page");
+  const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+  const queryParamName = "search";
+  const query = useURLParameter(queryParamName);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchMovies()), [dispatch]);
-  const nameMovieGenres = (array) => {
-    const movieGenresList = [];
-    array.map(
-      (id) =>
-        genres &&
-        genres.filter((genre) =>
-          id === genre.id ? movieGenresList.push(genre.name) : ""
-        )
-    );
-    return movieGenresList;
-  };
+  useEffect(
+    () => dispatch(fetchMovies({ page, query })),
+    [dispatch, page, query]
+  );
+  const nameMovieGenres = (genre_ids) =>
+    genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return (
+  return (movies.length !== 0) & (status === "success") ? (
     <>
-      <Header title={"Popular movies"} />
+      <Header
+        title={
+          query === null ? "Popular movies" : `Search results for "${query}"`
+        }
+      />
       <Container>
-        {results &&
-          results.map((result) => {
-            return (
-              <Tile
-                key={result.id}
-                poster={`${baseImgUrl}/${size}${result.poster_path}`}
-                title={result.title}
-                subtitle={result.release_date.slice(0, 4)}
-                genres={nameMovieGenres(result.genre_ids)}
-                rate={result.vote_average}
-                votes={result.vote_count}
-              />
-            );
-          })}
+        {movies &&
+          movies.map(
+            ({
+              id,
+              poster_path,
+              title,
+              release_date,
+              genre_ids,
+              vote_average,
+              vote_count,
+            }) => {
+              return (
+                <StyledLink key={nanoid()} to={`/Movies/${id}`}>
+                  <Tile
+                    poster={poster_path}
+                    title={title}
+                    subtitle={release_date && release_date.slice(0, 4)}
+                    genres={nameMovieGenres(genre_ids)}
+                    rate={vote_average}
+                    votes={vote_count}
+                  />
+                </StyledLink>
+              );
+            }
+          )}
       </Container>
+      <Pager page={page} totalPages={totalMoviesPages} />
     </>
+  ) : (status === "success") & (movies.length === 0) ? (
+    <NoResults query={query} />
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
   );
 };

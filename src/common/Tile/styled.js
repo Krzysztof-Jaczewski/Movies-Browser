@@ -11,11 +11,13 @@ export const StyledTile = styled.article`
   gap: 16px;
   grid-template-rows: auto 1fr;
   transition: all 0.5s;
+  height: 100%;
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: auto;
+    width: 330px;
     grid-template-columns: auto 1fr;
-    margin: 0 16px;
+    grid-template-rows: none;
   }
 
   ${({ person }) =>
@@ -23,24 +25,25 @@ export const StyledTile = styled.article`
     css`
       width: 208px;
       border-radius: 5px;
-      padding: 16px;
-      gap: 24px;
+      padding: 14px;
+      gap: 16px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         width: 136px;
         grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
         padding: 8px;
-        gap: 16px;
+        gap: 8px;
         margin: 0;
       }
     `}
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
 `;
 
@@ -91,15 +94,43 @@ export const Title = styled.h2`
   border-radius: 5px;
   font-weight: 500;
   font-size: 22px;
-  word-break: break-word;
-  margin-bottom: 8px;
+  line-height: 28.6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     font-size: 16px;
+    line-height: 18px;
+  }
+  ${({ person }) =>
+    person &&
+    css`
+      text-align: center;
+
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+        font-size: 14px;
+      }
+    `}
+`;
+
+export const TileCharacter = styled.h3`
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  margin: 8px 0;
+  line-height: 27px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.waterloo};
+
+  &:empty {
+    margin: 0;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    font-size: 13px;
+    line-height: 17px;
   }
 `;
 
-export const Caption = styled.span`
+export const Caption = styled.p`
   color: ${({ theme }) => theme.colors.waterloo};
   line-height: 24px;
 
@@ -110,10 +141,10 @@ export const Caption = styled.span`
 `;
 
 export const TileDate = styled(Caption)`
-  margin-bottom: 8px;
+  margin: 8px 0;
 
   &:empty {
-    margin-bottom: 0;
+    margin: 0;
   }
 `;
 
@@ -133,6 +164,7 @@ export const Tags = styled.ul`
     flex-direction: row;
   }
 `;
+
 export const Tag = styled.li`
   background-color: ${({ theme }) => theme.colors.mystic};
   border-radius: 5px;
@@ -148,7 +180,6 @@ export const Tag = styled.li`
 `;
 
 export const Ratings = styled.section`
-  grid-row: -1;
   display: flex;
   align-items: center;
   margin-top: 8px;
@@ -157,7 +188,8 @@ export const Ratings = styled.section`
     grid-row: auto;
   }
 `;
-export const Rate = styled.span`
+
+export const Rate = styled.p`
   font-weight: 600;
   line-height: 24px;
   padding: 0 12px;

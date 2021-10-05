@@ -3,14 +3,15 @@ import { ReactComponent as Logo } from "../../images/video.svg";
 import SearchIcon from "../../images/search.svg";
 import { NavLink } from "react-router-dom";
 
-const activeClassName = "active";
 export const StyledNavigation = styled.nav`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.woodsmoke};
   padding: 23px;
-  margin-bottom: 56px;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: column;
@@ -26,19 +27,17 @@ export const NavigationContainer = styled.div`
   max-width: 1368px;
   width: 100%;
 
-  @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax})
-  {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     flex-direction: column;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
-  max-width: 1368px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 16px;
 `;
 
 export const StyledLogo = styled(Logo)`
@@ -79,19 +78,24 @@ export const LogoHeader = styled.h1`
 `;
 
 export const Links = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   text-transform: uppercase;
   padding-left: 0;
   font-weight: 600;
   font-size: 14px;
   list-style-type: none;
-  display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    margin-left: 10px;
+  }
 `;
 
 export const LinkItem = styled.li``;
 
-export const Link = styled(NavLink).attrs(() => ({
-  activeClassName
-}))`
+export const Link = styled(NavLink)`
+  white-space: nowrap;
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
@@ -108,7 +112,7 @@ export const Link = styled(NavLink).attrs(() => ({
     filter: invert(1);
   }
 
-  &.${activeClassName} {
+  &.active {
     border: 1px solid ${({ theme }) => theme.colors.white};
   }
 `;
@@ -122,11 +126,10 @@ export const StyledInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.mystic};
   border-radius: 33px;
   padding: 12px 40px;
-  margin: 0 auto;
-  width: 432px;
+  max-width: 432px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 100%;
     margin-top: 24px;
   }
 `;

@@ -1,38 +1,60 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { baseImgUrl, size } from "../../ApiParameters";
 import { Container } from "../../common/Container";
+import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
+import { Loading } from "../../common/Loading";
+import { NoResults } from "../../common/NoResults";
+import { Pager } from "../../common/Pager";
+import { StyledLink } from "../../common/StyledLink";
 import { Tile } from "../../common/Tile";
-import { fetchPeople, selectPeople, selectStatus } from "./peopleSlice";
+import { useURLParameter } from "../../useURLParameters";
+import {
+  fetchPeople,
+  selectPeople,
+  selectStatus,
+  selectTotalPeoplePages,
+} from "./peopleSlice";
 
 export const PeopleList = () => {
-  const { results } = useSelector(selectPeople);
+  const queryParamName = "search";
+  const people = useSelector(selectPeople);
   const status = useSelector(selectStatus);
-
-  console.log(status);
-  console.log(results);
+  const totalPeoplePages = useSelector(selectTotalPeoplePages);
+  const pageParameter = +useURLParameter("page");
+  const page = pageParameter < 1 || pageParameter > 500 ? 1 : pageParameter;
+  const query = useURLParameter(queryParamName);
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchPeople()), [dispatch]);
+  useEffect(
+    () => dispatch(fetchPeople({ page, query })),
+    [dispatch, page, query]
+  );
 
-  return (
+  return (people.length !== 0) & (status === "success") ? (
     <>
-      <Header title={"Popular People"} />
+      <Header
+        title={query ? `Search results for "${query}"` : "Popular People"}
+      />
       <Container person>
-        {results &&
-          results.map((result) => {
+        {people &&
+          people.map(({ id, name, profile_path }) => {
             return (
-              <Tile
-                person
-                key={result.id}
-                title={result.name}
-                poster={`${baseImgUrl}/${size}${result.profile_path}`}
-              />
+              <StyledLink key={nanoid()} to={`/People/${id}`}>
+                <Tile person title={name} poster={profile_path} />
+              </StyledLink>
             );
           })}
       </Container>
+      <Pager page={page} totalPages={totalPeoplePages} />
     </>
+  ) : (people.length === 0) & (status === "success") ? (
+    <NoResults />
+  ) : status === "loading" ? (
+    <Loading />
+  ) : (
+    <Error />
   );
 };
