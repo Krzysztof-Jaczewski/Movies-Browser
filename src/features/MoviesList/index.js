@@ -17,6 +17,7 @@ import {
   selectTotalMoviesPages,
 } from "./moviesSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { MainContainer } from "../../common/Maincontainer";
 
 export const MoviesList = () => {
   const movies = useSelector(selectMovies);
@@ -37,47 +38,53 @@ export const MoviesList = () => {
   const nameMovieGenres = (genre_ids) =>
     genres && genre_ids.map((tag) => genres.find(({ id }) => id === tag).name);
 
-  return (movies.length !== 0) & (status === "success") ? (
-    <>
-      <Header
-        title={
-          query === null ? "Popular movies" : `Search results for "${query}"`
-        }
-      />
-      <Container>
-        {movies &&
-          movies.map(
-            ({
-              id,
-              poster_path,
-              title,
-              release_date,
-              genre_ids,
-              vote_average,
-              vote_count,
-            }) => {
-              return (
-                <StyledLink key={nanoid()} to={`/Movies/${id}`}>
-                  <Tile
-                    poster={poster_path}
-                    title={title}
-                    subtitle={release_date && release_date.slice(0, 4)}
-                    genres={nameMovieGenres(genre_ids)}
-                    rate={vote_average}
-                    votes={vote_count}
-                  />
-                </StyledLink>
-              );
+  return (
+    <MainContainer>
+      {(movies.length !== 0) & (status === "success") ? (
+        <>
+          <Header
+            title={
+              query === null
+                ? "Popular movies"
+                : `Search results for "${query}"`
             }
-          )}
-      </Container>
-      <Pager page={page} totalPages={totalMoviesPages} />
-    </>
-  ) : (status === "success") & (movies.length === 0) ? (
-    <NoResults query={query} />
-  ) : status === "loading" ? (
-    <Loading />
-  ) : (
-    <Error />
+          />
+          <Container>
+            {movies &&
+              movies.map(
+                ({
+                  id,
+                  poster_path,
+                  title,
+                  release_date,
+                  genre_ids,
+                  vote_average,
+                  vote_count,
+                }) => {
+                  return (
+                    <StyledLink key={nanoid()} to={`/Movies/${id}`}>
+                      <Tile
+                        poster={poster_path}
+                        title={title}
+                        subtitle={release_date && release_date.slice(0, 4)}
+                        genres={nameMovieGenres(genre_ids)}
+                        rate={vote_average}
+                        votes={vote_count}
+                      />
+                    </StyledLink>
+                  );
+                }
+              )}
+          </Container>
+          <Pager page={page} totalPages={totalMoviesPages} />
+        </>
+      ) : (status === "success") & (movies.length === 0) ? (
+        <NoResults query={query} />
+      ) : status === "loading" ? (
+        <Loading />
+      ) : (
+        <Error />
+      )}
+    </MainContainer>
   );
 };

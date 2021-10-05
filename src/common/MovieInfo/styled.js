@@ -6,7 +6,7 @@ export const Wrapper = styled.article`
   gap: 40px;
   padding: 40px;
   background-color: ${({ theme }) => theme.colors.white};
-  max-width: 1368px;
+
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   margin: 64px auto;
   grid-template-rows: repeat(2, 260px);

@@ -5,6 +5,7 @@ import { Container } from "../../common/Container";
 import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
 import { Loading } from "../../common/Loading";
+import { MainContainer } from "../../common/Maincontainer";
 import { NoResults } from "../../common/NoResults";
 import { Pager } from "../../common/Pager";
 import { StyledLink } from "../../common/StyledLink";
@@ -33,28 +34,32 @@ export const PeopleList = () => {
     [dispatch, page, query]
   );
 
-  return (people.length !== 0) & (status === "success") ? (
-    <>
-      <Header
-        title={query ? `Search results for "${query}"` : "Popular People"}
-      />
-      <Container person>
-        {people &&
-          people.map(({ id, name, profile_path }) => {
-            return (
-              <StyledLink key={nanoid()} to={`/People/${id}`}>
-                <Tile person title={name} poster={profile_path} />
-              </StyledLink>
-            );
-          })}
-      </Container>
-      <Pager page={page} totalPages={totalPeoplePages} />
-    </>
-  ) : (people.length === 0) & (status === "success") ? (
-    <NoResults />
-  ) : status === "loading" ? (
-    <Loading />
-  ) : (
-    <Error />
+  return (
+    <MainContainer>
+      {(people.length !== 0) & (status === "success") ? (
+        <>
+          <Header
+            title={query ? `Search results for "${query}"` : "Popular People"}
+          />
+          <Container person>
+            {people &&
+              people.map(({ id, name, profile_path }) => {
+                return (
+                  <StyledLink key={nanoid()} to={`/People/${id}`}>
+                    <Tile person title={name} poster={profile_path} />
+                  </StyledLink>
+                );
+              })}
+          </Container>
+          <Pager page={page} totalPages={totalPeoplePages} />
+        </>
+      ) : (people.length === 0) & (status === "success") ? (
+        <NoResults />
+      ) : status === "loading" ? (
+        <Loading />
+      ) : (
+        <Error />
+      )}
+    </MainContainer>
   );
 };
