@@ -6,12 +6,9 @@ export const BackdropContainer = styled.div`
   height: 770px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 538px auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     height: 148px;
-    grid-template-rows: 60px auto;
-    grid-template-columns: auto;
   }
 `;
 
@@ -31,6 +28,8 @@ export const BackdropPoster = styled.div`
   width: 1368px;
   height: 769px;
   margin: 0 auto;
+  grid-row: 1;
+  grid-column: 1;
   background-image: url(${({ image }) => image});
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,18 +64,16 @@ export const BigStarIcon = styled(bigStar)`
 
 export const Wrapper = styled.article`
   max-width: 1368px;
-  font-style: normal;
-  font-weight: normal;
-  display: grid;
-  background-color: rgb(0, 0, 0, 0.5);
-
-  grid-row: 3;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0, 0.4);
   gap: 24px;
+  grid-row: 1;
+  grid-column: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     gap: 4px;
-    grid-row: 2/-1;
-    align-self: flex-end;
     margin-left: 16px;
   }
 `;
