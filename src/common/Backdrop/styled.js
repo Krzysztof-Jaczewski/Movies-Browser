@@ -186,11 +186,16 @@ export const Rate = styled.p`
 export const Ratings = styled.section`
   display: flex;
   align-items: center;
-  margin-bottom: 56px; 
+  margin-bottom: 56px;
+  max-width: 150px;
+  flex-wrap: wrap;
+  row-gap: 16.9px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin-bottom: 8px;
     height: 18px;
+    max-width: 100%;
+    flex-wrap: nowrap;
   }
 `;
 
