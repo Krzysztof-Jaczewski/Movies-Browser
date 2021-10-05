@@ -49,8 +49,8 @@ export const BackdropShadow = styled.div`
       left: 0px;
       top: 141px;
       margin: 0 auto;
-      grid-template-rows: repeat(2, 51px);
-      grid-template-columns: 16px 1fr;
+      grid-template-rows: 60px auto;
+      grid-template-columns: auto;
       background: linear-gradient(
         269.75deg,
         #000000 8.69%,
@@ -149,7 +149,9 @@ export const Wrapper = styled.main`
 
   @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}) {
     gap: 4px;
-    grid-row: 2;
+    grid-row: 2/-1;
+    align-self: flex-end;
+    margin-left: 16px;
 
   }
 `;
