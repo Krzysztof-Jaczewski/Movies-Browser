@@ -1,4 +1,4 @@
-import { call, delay, put, takeLatest } from "@redux-saga/core/effects";
+import { call, put, debounce } from "@redux-saga/core/effects";
 import { getApi } from "../../getApi";
 import {
   fetchMovies,
@@ -7,12 +7,10 @@ import {
 } from "./moviesSlice";
 import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
 function* fetchMoviesHandler({ payload: { page, query } }) {
-  const url =
-    query === null
-      ? `${baseSiteUrl}movie/popular?api_key=${API_Key}&language=${language}&page=${page}`
-      : `${baseSiteUrl}search/movie?api_key=${API_Key}&query=${query}&page=${page}`;
+  const url = query
+    ? `${baseSiteUrl}search/movie?api_key=${API_Key}&query=${query}&page=${page}`
+    : `${baseSiteUrl}movie/popular?api_key=${API_Key}&language=${language}&page=${page}`;
   try {
-    yield delay(500);
     const movies = yield call(getApi, url);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
@@ -22,5 +20,5 @@ function* fetchMoviesHandler({ payload: { page, query } }) {
 }
 
 export function* moviesSaga() {
-  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(500, fetchMovies.type, fetchMoviesHandler);
 }

@@ -1,4 +1,4 @@
-import { call, delay, put, takeLatest } from "@redux-saga/core/effects";
+import { call, put, debounce } from "@redux-saga/core/effects";
 import { getApi } from "../../getApi";
 import {
   fetchPeople,
@@ -7,12 +7,10 @@ import {
 } from "./peopleSlice";
 import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
 function* fetchPeopleHandler({ payload: { page, query } }) {
-  const url =
-    query === null
-      ? `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`
-      : `${baseSiteUrl}search/person?api_key=${API_Key}&query=${query}&page=${page}`;
+  const url = query
+    ? `${baseSiteUrl}search/person?api_key=${API_Key}&query=${query}&page=${page}`
+    : `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`;
   try {
-    yield delay(500);
     const people = yield call(getApi, url);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
@@ -22,5 +20,5 @@ function* fetchPeopleHandler({ payload: { page, query } }) {
 }
 
 export function* peopleSaga() {
-  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
+  yield debounce(500, fetchPeople.type, fetchPeopleHandler);
 }

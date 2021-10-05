@@ -6,6 +6,8 @@ import {
   Button,
   ButtonText,
   ButtonWrapper,
+  LetfArrow,
+  LetfArrowDisabled,
   Pages,
   PagesWrapper,
 } from "./styled";
@@ -34,75 +36,51 @@ export const Pager = ({ page, totalPages }) => {
 
   return (
     <ButtonWrapper>
-      {page === 1 ?
-    <>
-      <Button disabled={page === 1} onClick={() => changePage(1)}>
-      <ArrowDisabled left />
-    {width > breakpoint ? <ButtonText>First</ButtonText> : <ArrowDisabled left />}
-    
-  </Button>
+      <>
+        <Button disabled={page === 1} onClick={() => changePage(1)}>
+          {page === 1 ? <LetfArrowDisabled /> : <LetfArrow />}
+          {width > breakpoint ? (
+            <ButtonText>First</ButtonText>
+          ) : page === 1 ? (
+            <LetfArrowDisabled />
+          ) : (
+            <LetfArrow />
+          )}
+        </Button>
+        <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
+          {page === 1 ? <LetfArrowDisabled /> : <LetfArrow />}
+          {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
+        </Button>
+      </>
 
-  <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
-    <ArrowDisabled left />
-    {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
-  </Button>
-  </>
-  :
-  <>
-  <Button disabled={page === 1} onClick={() => changePage(1)}>
-    {width > breakpoint ? <ButtonText>First</ButtonText> : <Arrow left />}
-    <Arrow left />
-  </Button>
-  <Button disabled={page === 1} onClick={() => changePage(page - 1)}>
-    <Arrow left />
-    {width > breakpoint ? <ButtonText>Previous</ButtonText> : ""}
-  </Button>
-    </>}
       <PagesWrapper>
         <Pages>Page</Pages>
         <Pages number>{page}</Pages>
         <Pages>of</Pages>
         <Pages number>{totalPages}</Pages>
       </PagesWrapper>
-
-      {page === totalPages ?
-        <>
-        <Button
-        disabled={page === totalPages}
-        onClick={() => changePage(page + 1)}
-      >
-        {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
-        <ArrowDisabled />
-      </Button>
-            <Button
-            disabled={page === totalPages}
-            onClick={() => changePage(totalPages)}
-          >
-            {width > breakpoint ? <ButtonText>Last</ButtonText> : <ArrowDisabled />}
-            <ArrowDisabled />
-          </Button>
-          </>
-      :
       <>
-      <Button
-        disabled={page === totalPages}
-        onClick={() => changePage(page + 1)}
-      >
-        {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
-        <Arrow />
-      </Button>
-            <Button
-            disabled={page === totalPages}
-            onClick={() => changePage(totalPages)}
-          >
-            {width > breakpoint ? <ButtonText>Last</ButtonText> : <Arrow />}
+        <Button
+          disabled={page === totalPages}
+          onClick={() => changePage(page + 1)}
+        >
+          {width > breakpoint ? <ButtonText>Next</ButtonText> : ""}
+          {page === totalPages ? <ArrowDisabled /> : <Arrow />}
+        </Button>
+        <Button
+          disabled={page === totalPages}
+          onClick={() => changePage(totalPages)}
+        >
+          {width > breakpoint ? (
+            <ButtonText>Last</ButtonText>
+          ) : page === totalPages ? (
+            <ArrowDisabled />
+          ) : (
             <Arrow />
-          </Button>
-          </>
-    }
-    
-
-
+          )}
+          {page === totalPages ? <ArrowDisabled /> : <Arrow />}
+        </Button>
+      </>
     </ButtonWrapper>
   );
 };
