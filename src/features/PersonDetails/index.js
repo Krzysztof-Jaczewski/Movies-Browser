@@ -60,9 +60,8 @@ export const PersonDetails = () => {
               id,
             }) => {
               return (
-                <StyledLink key={id} to={`/Movies/${id}`}>
+                <StyledLink target={"_blank"} key={nanoid()} to={`/Movies/${id}`}>
                   <Tile
-                    key={nanoid()}
                     poster={poster_path}
                     title={title}
                     subtitle={

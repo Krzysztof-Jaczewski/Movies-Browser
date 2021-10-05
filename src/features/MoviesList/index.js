@@ -16,6 +16,7 @@ import {
   selectStatus,
   selectTotalMoviesPages,
 } from "./moviesSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const MoviesList = () => {
   const movies = useSelector(selectMovies);
@@ -57,9 +58,8 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <StyledLink to={`/Movies/${id}`}>
+                <StyledLink target={"_blank"} key={nanoid()} to={`/Movies/${id}`}>
                   <Tile
-                    key={id}
                     poster={poster_path}
                     title={title}
                     subtitle={release_date && release_date.slice(0, 4)}

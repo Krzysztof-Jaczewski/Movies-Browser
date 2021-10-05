@@ -47,7 +47,7 @@ export const MovieDetails = () => {
         />
         <MovieInfo
           poster={poster_path}
-          title={title.lenght > 25 ? title : title.slice(0, title.lastIndexOf(':')) || title.slice(0, title.lastIndexOf('and'))}
+          title={title.includes(":") && title.slice(0, title.lastIndexOf(":")) || title.includes(" and ") && title.slice(0, title.lastIndexOf(" and ")) || title}
           description={overview}
           date={release_date && release_date.slice(0, 4)}
           fullDate={release_date && `${release_date.slice(8, 10)}.${release_date.slice(5, 7)}.${release_date.slice(0, 4)}`}
@@ -55,6 +55,7 @@ export const MovieDetails = () => {
           votes={vote_count}
           fullCountryName={production_countries && `${production_countries.map(({ name }) => name)}`}
           shortCountryName={production_countries && `${production_countries.map(({ iso_3166_1 }) => iso_3166_1)}`}
+         
           genres={genres && genres.map(({name}) => name)}
         />
         {cast && (
@@ -69,10 +70,9 @@ export const MovieDetails = () => {
                   character,
                 }) => {
                   return (
-                    <StyledLink key={id} to={`/People/${id}`}>
+                    <StyledLink target={"_blank"} key={nanoid()} to={`/People/${id}`}>
                       <Tile
                         person
-                        key={nanoid()}
                         poster={profile_path}
                         character={character}
                         title={name}

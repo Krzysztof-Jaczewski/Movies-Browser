@@ -1,3 +1,4 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../common/Container";
@@ -45,7 +46,7 @@ export const PeopleList = () => {
         {people &&
           people.map(({ id, name, profile_path }) => {
             return (
-              <StyledLink key={id} to={`/People/${id}`}>
+              <StyledLink target={"_blank"} key={nanoid()} to={`/People/${id}`}>
                 <Tile person title={name} poster={profile_path} />
               </StyledLink>
             );
