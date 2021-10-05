@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.h1`
-  margin: 56px auto 24px auto;
+  margin: 24px auto;
   font-size: 36px;
   font-weight: 600;
   line-height: 43.2px;

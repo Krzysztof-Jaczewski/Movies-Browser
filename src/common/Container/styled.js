@@ -1,10 +1,9 @@
 import styled, { css } from "styled-components";
 
-export const StyledContainer = styled.main`
+export const StyledContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, 324px);
   gap: 24px;
-  max-width: 1368px;
   margin: 0 auto;
   transition: all 0.5s;
   justify-content: center;

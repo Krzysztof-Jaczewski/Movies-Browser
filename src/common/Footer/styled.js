@@ -22,7 +22,7 @@ export const PageFooter = styled.footer`
 
 export const FooterContainer = styled.div`
   width: 70%;
-  max-width: 1368px;
+
   margin: 0 auto;
 `;
 
