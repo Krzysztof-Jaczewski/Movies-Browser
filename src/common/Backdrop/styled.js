@@ -63,7 +63,6 @@ export const BigStarIcon = styled(bigStar)`
 `;
 
 export const Wrapper = styled.article`
-  max-width: 1368px;
   align-self: flex-end;
   display: flex;
   flex-direction: column;

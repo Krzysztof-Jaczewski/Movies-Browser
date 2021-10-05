@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledDetails = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
-  max-width: 1368px;
   margin: 56px auto 64px;
   border-radius: 5px;
   padding: 40px;
