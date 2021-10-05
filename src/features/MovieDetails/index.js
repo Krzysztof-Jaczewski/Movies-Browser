@@ -34,7 +34,6 @@ export const MovieDetails = () => {
   const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
-  console.log(production_countries);
   useEffect(() => dispatch(fetchMovie({ id })), [dispatch, id]);
 
   return status === "success" ? (
@@ -66,11 +65,7 @@ export const MovieDetails = () => {
         votes={vote_count}
         fullCountryName={
           production_countries &&
-          `${production_countries.map(({ name }) => name)}`
-        }
-        shortCountryName={
-          production_countries &&
-          `${production_countries.map(({ iso_3166_1 }) => iso_3166_1)}`
+          `${production_countries.map(({ name }) => ` ${name}`)} `
         }
         genres={genres && genres.map(({ name }) => name)}
       />
