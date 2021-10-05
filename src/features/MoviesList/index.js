@@ -58,7 +58,7 @@ export const MoviesList = () => {
               vote_count,
             }) => {
               return (
-                <StyledLink target={"_blank"} key={nanoid()} to={`/Movies/${id}`}>
+                <StyledLink key={nanoid()} to={`/Movies/${id}`}>
                   <Tile
                     poster={poster_path}
                     title={title}

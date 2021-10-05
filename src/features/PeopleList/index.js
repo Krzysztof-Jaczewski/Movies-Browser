@@ -38,15 +38,13 @@ export const PeopleList = () => {
   return (people.length !== 0) & (status === "success") ? (
     <>
       <Header
-        title={
-          query === null ? "Popular People" : `Search results for "${query}""`
-        }
+        title={query ? `Search results for "${query}"` : "Popular People"}
       />
       <Container person>
         {people &&
           people.map(({ id, name, profile_path }) => {
             return (
-              <StyledLink target={"_blank"} key={nanoid()} to={`/People/${id}`}>
+              <StyledLink key={nanoid()} to={`/People/${id}`}>
                 <Tile person title={name} poster={profile_path} />
               </StyledLink>
             );
