@@ -82,33 +82,20 @@ export const MovieDetails = () => {
               <>
                 <Header title={"Cast"} />
                 <Container person>
-                  {cast.length > castLimit
-                    ? cast
-                        .slice(0, castLimit)
-                        .map(({ id, name, profile_path, character }) => {
-                          return (
-                            <StyledLink key={nanoid()} to={`/People/${id}`}>
-                              <Tile
-                                person
-                                poster={profile_path}
-                                character={character}
-                                title={name}
-                              />
-                            </StyledLink>
-                          );
-                        })
-                    : cast.map(({ id, name, profile_path, character }) => {
-                        return (
-                          <StyledLink key={nanoid()} to={`/People/${id}`}>
-                            <Tile
-                              person
-                              poster={profile_path}
-                              character={character}
-                              title={name}
-                            />
-                          </StyledLink>
-                        );
-                      })}
+                  {cast
+                    .slice(0, cast.length > castLimit ? castLimit : cast.length)
+                    .map(({ id, name, profile_path, character }) => {
+                      return (
+                        <StyledLink key={nanoid()} to={`/People/${id}`}>
+                          <Tile
+                            person
+                            poster={profile_path}
+                            character={character}
+                            title={name}
+                          />
+                        </StyledLink>
+                      );
+                    })}
                 </Container>
                 {cast.length > 12 ? (
                   <Button
@@ -127,38 +114,25 @@ export const MovieDetails = () => {
               <>
                 <Header title={"Crew"} />
                 <Container person>
-                  {crew.length > crewLimit
-                    ? crew
-                        .slice(0, crewLimit)
-                        .map(({ name, profile_path, department, id }) => {
-                          return (
-                            <StyledLink key={nanoid()} to={`/People/${id}`}>
-                              <Tile
-                                person
-                                poster={profile_path}
-                                character={department}
-                                title={name}
-                              />
-                            </StyledLink>
-                          );
-                        })
-                    : crew.map(({ name, profile_path, department, id }) => {
-                        return (
-                          <StyledLink key={nanoid()} to={`/People/${id}`}>
-                            <Tile
-                              person
-                              poster={profile_path}
-                              character={department}
-                              title={name}
-                            />
-                          </StyledLink>
-                        );
-                      })}
+                  {crew
+                    .slice(0, crew.length > crewLimit ? crewLimit : crew.length)
+                    .map(({ name, profile_path, department, id }) => {
+                      return (
+                        <StyledLink key={nanoid()} to={`/People/${id}`}>
+                          <Tile
+                            person
+                            poster={profile_path}
+                            character={department}
+                            title={name}
+                          />
+                        </StyledLink>
+                      );
+                    })}
                 </Container>
                 {crew.length > 12 ? (
                   <Button
                     onClick={() =>
-                      setCrewLimit(crewLimit === 12 ? cast.lenght : 12)
+                      setCrewLimit(crewLimit === 12 ? crew.length : 12)
                     }
                   >
                     {crewLimit === 12 ? "Show more" : "Hide"}

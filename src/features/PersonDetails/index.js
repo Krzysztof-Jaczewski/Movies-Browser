@@ -55,126 +55,17 @@ export const PersonDetails = () => {
             <>
               <Header title={`Movies - Cast (${cast.length})`} />
               <Container>
-                {cast.length > castLimit
-                  ? cast
-                      .slice(0, castLimit)
-                      .map(
-                        ({
-                          poster_path,
-                          title,
-                          release_date,
-                          genre_ids,
-                          vote_average,
-                          vote_count,
-                          character,
-                          id,
-                        }) => {
-                          return (
-                            <StyledLink key={nanoid()} to={`/Movies/${id}`}>
-                              <Tile
-                                poster={poster_path}
-                                title={title}
-                                subtitle={
-                                  release_date &&
-                                  `${character} (${release_date.slice(0, 4)})`
-                                }
-                                genres={nameMovieGenres(genre_ids)}
-                                rate={vote_average}
-                                votes={vote_count}
-                              />
-                            </StyledLink>
-                          );
-                        }
-                      )
-                  : cast.map(
-                      ({
-                        poster_path,
-                        title,
-                        release_date,
-                        genre_ids,
-                        vote_average,
-                        vote_count,
-                        character,
-                        id,
-                      }) => {
-                        return (
-                          <StyledLink key={nanoid()} to={`/Movies/${id}`}>
-                            <Tile
-                              poster={poster_path}
-                              title={title}
-                              subtitle={
-                                release_date &&
-                                `${character} (${release_date.slice(0, 4)})`
-                              }
-                              genres={nameMovieGenres(genre_ids)}
-                              rate={vote_average}
-                              votes={vote_count}
-                            />
-                          </StyledLink>
-                        );
-                      }
-                    )}
-              </Container>
-              {cast.length > 12 ? (
-                <Button
-                  onClick={() =>
-                    setCastLimit(castLimit === 12 ? cast.lenght : 12)
-                  }
-                >
-                  {castLimit === 12 ? "Show more" : "Hide"}
-                </Button>
-              ) : (
-                ""
-              )}
-            </>
-          )}
-          {crew && (
-            <>
-              <Header title={`Movies - Crew  (${crew.length})`} />
-              <Container>
-                {crew.length > crewLimit ? (
-                  <>
-                    {crew
-                      .slice(0, crewLimit)
-                      .map(
-                        ({
-                          poster_path,
-                          title,
-                          job,
-                          release_date,
-                          genre_ids,
-                          vote_average,
-                          vote_count,
-                          id,
-                        }) => {
-                          return (
-                            <StyledLink key={nanoid()} to={`/Movies/${id}`}>
-                              <Tile
-                                poster={poster_path}
-                                title={title}
-                                subtitle={
-                                  release_date &&
-                                  `${job} (${release_date.slice(0, 4)})`
-                                }
-                                genres={nameMovieGenres(genre_ids)}
-                                rate={vote_average}
-                                votes={vote_count}
-                              />
-                            </StyledLink>
-                          );
-                        }
-                      )}
-                  </>
-                ) : (
-                  crew.map(
+                {cast
+                  .slice(0, cast.length > castLimit ? castLimit : cast.length)
+                  .map(
                     ({
                       poster_path,
                       title,
-                      job,
                       release_date,
                       genre_ids,
                       vote_average,
                       vote_count,
+                      character,
                       id,
                     }) => {
                       return (
@@ -184,7 +75,7 @@ export const PersonDetails = () => {
                             title={title}
                             subtitle={
                               release_date &&
-                              `${job} (${release_date.slice(0, 4)})`
+                              `${character} (${release_date.slice(0, 4)})`
                             }
                             genres={nameMovieGenres(genre_ids)}
                             rate={vote_average}
@@ -193,13 +84,63 @@ export const PersonDetails = () => {
                         </StyledLink>
                       );
                     }
-                  )
-                )}
+                  )}
+              </Container>
+              {cast.length > 12 ? (
+                <Button
+                  onClick={() =>
+                    setCastLimit(castLimit === 12 ? cast.length : 12)
+                  }
+                >
+                  {castLimit === 12 ? "Show more" : "Hide"}
+                </Button>
+              ) : (
+                ""
+              )}
+            </>
+          )}
+
+          {crew && (
+            <>
+              <Header title={`Movies - Crew  (${crew.length})`} />
+              <Container>
+                <>
+                  {crew
+                    .slice(0, crew.length > crewLimit ? crewLimit : crew.length)
+                    .map(
+                      ({
+                        poster_path,
+                        title,
+                        job,
+                        release_date,
+                        genre_ids,
+                        vote_average,
+                        vote_count,
+                        id,
+                      }) => {
+                        return (
+                          <StyledLink key={nanoid()} to={`/Movies/${id}`}>
+                            <Tile
+                              poster={poster_path}
+                              title={title}
+                              subtitle={
+                                release_date &&
+                                `${job} (${release_date.slice(0, 4)})`
+                              }
+                              genres={nameMovieGenres(genre_ids)}
+                              rate={vote_average}
+                              votes={vote_count}
+                            />
+                          </StyledLink>
+                        );
+                      }
+                    )}
+                </>
               </Container>
               {crew.length > 12 ? (
                 <Button
                   onClick={() =>
-                    setCrewLimit(crewLimit === 12 ? cast.lenght : 12)
+                    setCrewLimit(crewLimit === 12 ? crew.length : 12)
                   }
                 >
                   {crewLimit === 12 ? "Show more" : "Hide"}
