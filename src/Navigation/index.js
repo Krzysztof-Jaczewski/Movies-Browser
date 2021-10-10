@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useReplaceURLParameters, useURLParameter } from "../useURLParameters";
+import { StyledLink } from "../common/StyledLink";
 import {
   Link,
   LinkItem,
@@ -36,8 +37,10 @@ export const Navigation = () => {
       <NavigationContainer>
         <Wrapper>
           <LogoWrapper>
-            <StyledLogo />
-            <LogoHeader>Movies Browser</LogoHeader>
+            <StyledLink to={"/Movies"}>
+              <StyledLogo />
+              <LogoHeader>Movies Browser</LogoHeader>
+            </StyledLink>
           </LogoWrapper>
           <Links>
             <LinkItem>

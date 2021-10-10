@@ -68,6 +68,7 @@ export const LogoHeader = styled.h1`
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -1.5px;
+  color: ${({ theme }) => theme.colors.white};
   white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
