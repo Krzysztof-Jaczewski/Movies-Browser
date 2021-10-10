@@ -4,6 +4,7 @@ import { ReactComponent as Star } from "./star.svg";
 export const StyledTile = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  max-width: 324px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0 rgba(186, 199, 213, 0.5);
   display: grid;
@@ -16,11 +17,13 @@ export const StyledTile = styled.article`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     grid-template-columns: auto 1fr;
     grid-template-rows: none;
+    max-width: 100%;
   }
 
   ${({ person }) =>
     person &&
     css`
+      max-width: 208px;
       border-radius: 5px;
       padding: 14px;
       gap: 16px;

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const StyledContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(324px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(256px, auto));
   gap: 24px;
   transition: all 0.5s;
 
@@ -10,11 +10,12 @@ export const StyledContainer = styled.section`
     gap: 16px;
     padding: 16px;
   }
+
   ${({ person }) =>
     person &&
     css`
       border-radius: 5px;
-      grid-template-columns: repeat(auto-fit, minmax(208px, auto));
+      grid-template-columns: repeat(auto-fit, minmax(180px, auto));
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         grid-template-columns: repeat(auto-fit, minmax(136px, auto));
