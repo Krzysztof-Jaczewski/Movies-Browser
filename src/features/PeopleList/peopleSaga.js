@@ -1,24 +1,23 @@
-import { call, put, debounce } from "@redux-saga/core/effects";
-import { getApi } from "../../getApi";
+import { call, put, takeLatest } from "@redux-saga/core/effects";
+import { getApi } from "../../logic/getApi";
+import { getURLpath } from "../../logic/getURLpath";
 import {
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
 } from "./peopleSlice";
-import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
 function* fetchPeopleHandler({ payload: { page, query } }) {
   const url = query
-    ? `${baseSiteUrl}search/person?api_key=${API_Key}&query=${query}&page=${page}`
-    : `${baseSiteUrl}person/popular?api_key=${API_Key}&language=${language}&page=${page}`;
+    ? getURLpath("search/person", page, query)
+    : getURLpath("person/popular", page);
   try {
     const people = yield call(getApi, url);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(fetchPeopleError());
-    yield call(alert, "coś poszło nie tak!");
   }
 }
 
 export function* peopleSaga() {
-  yield debounce(500, fetchPeople.type, fetchPeopleHandler);
+  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
 }

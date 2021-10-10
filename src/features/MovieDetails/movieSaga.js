@@ -1,6 +1,6 @@
-import { put, call, takeLatest } from "@redux-saga/core/effects";
-import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
-import { getApi } from "../../getApi";
+import { put, call, all, takeLatest } from "@redux-saga/core/effects";
+import { getApi } from "../../logic/getApi";
+import { getDetailsURLpath } from "../../logic/getURLpath";
 import {
   fetchMovie,
   fetchMovieCreditsSuccess,
@@ -9,16 +9,19 @@ import {
 } from "./movieSlice";
 
 function* fetchMovieHandler({ payload: { id } }) {
-  const movieURL = `${baseSiteUrl}movie/${id}?api_key=${API_Key}&language=${language}`;
-  const creditsURL = `${baseSiteUrl}movie/${id}/credits?api_key=${API_Key}&language=${language}`;
+  const movieURL = getDetailsURLpath("movie/" + id);
+  const creditsURL = getDetailsURLpath("movie/" + id + "/credits");
   try {
-    const movie = yield call(getApi, movieURL);
-    yield put(fetchMovieSuccess(movie));
-    const movieCredits = yield call(getApi, creditsURL);
-    yield put(fetchMovieCreditsSuccess(movieCredits));
+    const [movie, credits] = yield all([
+      call(getApi, movieURL),
+      call(getApi, creditsURL),
+    ]);
+    yield all([
+      put(fetchMovieSuccess(movie)),
+      put(fetchMovieCreditsSuccess(credits)),
+    ]);
   } catch (error) {
     yield put(fetchMovieError());
-    yield call(alert, "coś poszło nie tak!");
   }
 }
 
