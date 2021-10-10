@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 export const StyledNavigation = styled.nav`
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.woodsmoke};
+  background-color: ${({ theme }) => theme.colors.black};
   padding: 23px;
   width: 100%;
   position: sticky;
@@ -100,7 +100,7 @@ export const Link = styled(NavLink)`
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
-  background-color: ${({ theme }) => theme.colors.woodsmoke};
+  background-color: ${({ theme }) => theme.colors.black};
   border: 1px solid transparent;
   border-radius: 24px;
 
