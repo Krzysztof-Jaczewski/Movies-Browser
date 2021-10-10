@@ -36,12 +36,12 @@ export const Navigation = () => {
     <StyledNavigation>
       <NavigationContainer>
         <Wrapper>
-          <LogoWrapper>
-            <StyledLink to={"/Movies"}>
+          <StyledLink to={"/Movies"}>
+            <LogoWrapper>
               <StyledLogo />
               <LogoHeader>Movies Browser</LogoHeader>
-            </StyledLink>
-          </LogoWrapper>
+            </LogoWrapper>
+          </StyledLink>
           <Links>
             <LinkItem>
               <Link to="/Movies">Movies</Link>
