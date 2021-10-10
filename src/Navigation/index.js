@@ -1,8 +1,5 @@
 import { useLocation } from "react-router-dom";
-import {
-  useReplaceURLParameters,
-  useURLParameter,
-} from "../../useURLParameters";
+import { useReplaceURLParameters, useURLParameter } from "../useURLParameters";
 import {
   Link,
   LinkItem,
