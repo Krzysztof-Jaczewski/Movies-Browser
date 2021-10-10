@@ -1,6 +1,6 @@
 import { put, call, takeLatest, all } from "@redux-saga/core/effects";
 import { getDetailsURLpath } from "../../logic/getURLpath";
-import { getApi } from "../../logic/getApi";
+import { getAPI } from "../../logic/getAPI";
 
 import {
   fetchPerson,
@@ -14,8 +14,8 @@ function* fetchPersonHandler({ payload: { id } }) {
   const creditsURL = getDetailsURLpath(`person/${id}/movie_credits`);
   try {
     const [person, personCredits] = yield all([
-      call(getApi, personURL),
-      call(getApi, creditsURL),
+      call(getAPI, personURL),
+      call(getAPI, creditsURL),
     ]);
     yield all([
       put(fetchPersonSuccess(person)),

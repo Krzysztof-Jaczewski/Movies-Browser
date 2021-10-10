@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects";
-import { getApi } from "../../logic/getApi";
+import { getAPI } from "../../logic/getAPI";
 import { getURLpath } from "../../logic/getURLpath";
 import {
   fetchPeople,
@@ -11,7 +11,7 @@ function* fetchPeopleHandler({ payload: { page, query } }) {
     ? getURLpath("search/person", page, query)
     : getURLpath("person/popular", page);
   try {
-    const people = yield call(getApi, url);
+    const people = yield call(getAPI, url);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(fetchPeopleError());

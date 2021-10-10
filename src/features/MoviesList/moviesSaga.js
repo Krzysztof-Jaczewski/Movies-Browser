@@ -1,5 +1,5 @@
 import { call, put, debounce } from "@redux-saga/core/effects";
-import { getApi } from "../../logic/getApi";
+import { getAPI } from "../../logic/getAPI";
 import { getURLpath } from "../../logic/getURLpath";
 import {
   fetchMovies,
@@ -12,7 +12,7 @@ function* fetchMoviesHandler({ payload: { page, query } }) {
     ? getURLpath("search/movie", page, query)
     : getURLpath("movie/popular", page);
   try {
-    const movies = yield call(getApi, url);
+    const movies = yield call(getAPI, url);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
     yield put(fetchMoviesError());
