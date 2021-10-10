@@ -13,7 +13,8 @@ html {
 button {
   cursor: pointer;
 }
-body{
+
+body { 
   font-family: 'Poppins', sans-serif;
   background-color: ${({ theme }) => theme.colors.whisper};
   word-break: break-word;
