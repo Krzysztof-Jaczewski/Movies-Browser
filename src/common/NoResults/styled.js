@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as NoResultImage } from "../../images/picture.svg";
+import { ReactComponent as NoResultImage } from "./picture.svg";
 
 export const Image = styled(NoResultImage)`
   display: block;

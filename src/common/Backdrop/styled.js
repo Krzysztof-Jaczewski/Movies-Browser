@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as bigStar } from "../../images/star.svg";
+import { ReactComponent as bigStar } from "./bigStar.svg";
 
 export const BackdropContainer = styled.div`
   max-width: 1368px;

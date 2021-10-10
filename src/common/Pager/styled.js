@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as ArrowImage } from "../../images/arrow.svg";
-import { ReactComponent as ArrowDisabledImage } from "../../images/arrowDisabled.svg";
+import { ReactComponent as ArrowImage } from "./arrow.svg";
+import { ReactComponent as ArrowDisabledImage } from "./arrowDisabled.svg";
 
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -54,6 +54,10 @@ export const ButtonText = styled.span`
   margin: 0px 8px;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.mineShaft};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    display: none;
+  }
 `;
 
 export const PagesWrapper = styled.div`

@@ -25,7 +25,6 @@ export const MovieInfo = ({
   description,
   date,
   fullCountryName,
-  shortCountryName,
   votes,
   rate,
   person,
@@ -52,11 +51,11 @@ export const MovieInfo = ({
           <SubTitle>{date}</SubTitle>
           <ProductionRelease>
             <Info>
-              {width > breakpoint ? <Span>Production: </Span> : " "}
+              <Span>Production: </Span>
               {fullCountryName}
             </Info>
             <Info>
-              {width > breakpoint ? <Span>Release date: </Span> : ""}
+              <Span>Release date: </Span>
               {fullDate}
             </Info>
           </ProductionRelease>
