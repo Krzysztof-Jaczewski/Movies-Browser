@@ -22,8 +22,10 @@ import { Button } from "../../common/Button";
 
 export const MovieDetails = () => {
   const { id } = useParams();
+
   const [castLimit, setCastLimit] = useState(12);
   const [crewLimit, setCrewLimit] = useState(12);
+
   const {
     backdrop_path,
     title,

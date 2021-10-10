@@ -21,11 +21,12 @@ import { Button } from "../../common/Button";
 import { MainContainer } from "../../common/MainContainer";
 
 export const PersonDetails = () => {
+  const { id } = useParams();
+
   const [castLimit, setCastLimit] = useState(12);
   const [crewLimit, setCrewLimit] = useState(12);
 
   const status = useSelector(selectStatus);
-  const { id } = useParams();
 
   const { profile_path, name, birthday, place_of_birth, biography } =
     useSelector(selectPerson);
