@@ -8,7 +8,7 @@ import {
   selectStatus,
 } from "./personSlice";
 import { Tile } from "../../common/Tile";
-import { useGenres } from "../../fetchGenres";
+import { useGenres } from "../../useGenres";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { Details } from "../../common/Details";
@@ -18,16 +18,20 @@ import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { useState } from "react";
 import { Button } from "../../common/Button";
-import { MainContainer } from "../../common/Maincontainer";
+import { MainContainer } from "../../common/MainContainer";
 
 export const PersonDetails = () => {
-  const status = useSelector(selectStatus);
   const [castLimit, setCastLimit] = useState(12);
   const [crewLimit, setCrewLimit] = useState(12);
+
+  const status = useSelector(selectStatus);
   const { id } = useParams();
+
   const { profile_path, name, birthday, place_of_birth, biography } =
     useSelector(selectPerson);
+
   const { crew, cast } = useSelector(selectPersonCredtis);
+
   const genres = useGenres();
   const dispatch = useDispatch();
 

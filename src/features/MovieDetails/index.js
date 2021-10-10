@@ -16,7 +16,7 @@ import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { StyledLink } from "../../common/StyledLink";
 import { nanoid } from "@reduxjs/toolkit";
-import { MainContainer } from "../../common/Maincontainer";
+import { MainContainer } from "../../common/MainContainer";
 import { useState } from "react";
 import { Button } from "../../common/Button";
 

@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 import { Container } from "../../common/Container";
 import { Header } from "../../common/Header";
 import { Pager } from "../../common/Pager";
 import { Tile } from "../../common/Tile";
-import { useGenres } from "../../fetchGenres";
+import { useGenres } from "../../useGenres";
 import { useURLParameter } from "../../useURLParameters";
 import { Loading } from "../../common/Loading";
 import { Error } from "../../common/Error";
 import { NoResults } from "../../common/NoResults";
 import { StyledLink } from "../../common/StyledLink";
+import { MainContainer } from "../../common/MainContainer";
 import {
   fetchMovies,
   selectMovies,
   selectStatus,
   selectTotalMoviesPages,
 } from "./moviesSlice";
-import { nanoid } from "@reduxjs/toolkit";
-import { MainContainer } from "../../common/Maincontainer";
 
 export const MoviesList = () => {
   const movies = useSelector(selectMovies);
