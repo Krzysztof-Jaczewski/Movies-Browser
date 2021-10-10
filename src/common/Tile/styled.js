@@ -3,19 +3,17 @@ import { ReactComponent as Star } from "./star.svg";
 
 export const StyledTile = styled.article`
   background-color: ${({ theme }) => theme.colors.white};
-  width: 324px;
   border-radius: 5px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0 rgba(186, 199, 213, 0.5);
   display: grid;
-  gap: 16px;
   grid-template-rows: auto 1fr;
+  gap: 16px;
   transition: all 0.5s;
   height: 100%;
   z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 330px;
     grid-template-columns: auto 1fr;
     grid-template-rows: none;
   }
@@ -23,13 +21,11 @@ export const StyledTile = styled.article`
   ${({ person }) =>
     person &&
     css`
-      width: 208px;
       border-radius: 5px;
       padding: 14px;
       gap: 16px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        width: 136px;
         grid-template-columns: auto;
         grid-template-rows: auto 1fr;
         padding: 8px;
@@ -48,25 +44,23 @@ export const StyledTile = styled.article`
 `;
 
 export const Poster = styled.img`
-  width: 292px;
-  height: 434px;
+  width: 100%;
+  min-height: 434px;
   border-radius: 5px;
   transition: all 0.5s;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 114px;
-    height: auto;
+    min-height: 150px;
+    max-height: 178px;
   }
   ${({ person }) =>
     person &&
     css`
-      width: 177px;
-      height: 264px;
+      min-height: 0;
       border-radius: 5px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-        width: 120px;
-        height: 178px;
+        max-height: 190px;
       }
     `}
 `;
