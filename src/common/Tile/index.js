@@ -14,7 +14,7 @@ import {
   TileCharacter,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
-import { baseImgUrl, size } from "../../ApiParameters";
+import { getPosterURLpath } from "../../logic/getURLpath";
 export const Tile = ({
   poster,
   title,
@@ -28,7 +28,7 @@ export const Tile = ({
   return (
     <StyledTile person={person}>
       {poster ? (
-        <Poster person={person} src={`${baseImgUrl}${size}${poster}`} alt="" />
+        <Poster person={person} src={getPosterURLpath(poster)} alt="" />
       ) : (
         <Placeholder person={person} />
       )}

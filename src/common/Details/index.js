@@ -9,7 +9,7 @@ import {
   Frame,
 } from "./styled";
 import { Placeholder } from "../Placeholder";
-import { baseImgUrl, size } from "../../ApiParameters";
+import { getPosterURLpath } from "../../logic/getURLpath";
 export const Details = ({
   poster,
   title,
@@ -21,7 +21,7 @@ export const Details = ({
   return (
     <StyledDetails>
       {poster ? (
-        <Poster src={`${baseImgUrl}${size}${poster}`} alt="" />
+        <Poster src={getPosterURLpath(poster)} alt="" />
       ) : (
         <Placeholder />
       )}
