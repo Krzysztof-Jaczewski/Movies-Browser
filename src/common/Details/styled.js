@@ -60,13 +60,13 @@ export const Title = styled.h1`
   }
 `;
 
-export const Birth = styled.p`
+export const Birth = styled.span`
   display: grid;
   align-content: flex-start;
   gap: 8px;
 `;
 
-export const Frame = styled.p`
+export const Frame = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
   font-size: 18px;
   line-height: 24px;
@@ -100,7 +100,7 @@ export const Frame = styled.p`
 export const BirthdayInformation = styled.article`
   color: ${({ theme }) => theme.colors.black};
 `;
-export const Biography = styled.p`
+export const Biography = styled.span`
   font-size: 20px;
   line-height: 160%;
   grid-row: 2 /-1;

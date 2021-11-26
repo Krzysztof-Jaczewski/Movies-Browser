@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Star } from "../../images/star.svg";
+import { ReactComponent as Star } from "./star.svg";
 
 export const Wrapper = styled.article`
   display: grid;
@@ -114,6 +114,10 @@ export const Span = styled.span`
       color: ${({ theme }) => theme.colors.black};
       margin-left: 8px;
     `}
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
+    display: none;
+  }
 `;
 
 export const Tags = styled.ul`

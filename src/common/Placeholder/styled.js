@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Camera } from "../../images/video.svg";
-import { ReactComponent as Profile } from "../../images/profile.svg";
+import { ReactComponent as Camera } from "./video.svg";
+import { ReactComponent as Profile } from "./profile.svg";
 
 export const StyledPlaceholder = styled.div`
-  width: 292px;
+  max-width: 292px;
   height: 434px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.silver};
@@ -11,20 +11,20 @@ export const StyledPlaceholder = styled.div`
   place-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
-    width: 114px;
+    max-width: 114px;
     height: 169px;
   }
 
   ${({ person }) =>
     person &&
     css`
-      width: 177px;
+      max-width: 177px;
       height: 264px;
       border-radius: 5px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
         width: 120px;
-        height: 178px;
+        max-height: 178px;
       }
     `}
 `;

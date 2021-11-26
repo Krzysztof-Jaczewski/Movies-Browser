@@ -1,6 +1,6 @@
-import { put, call, takeLatest } from "@redux-saga/core/effects";
-import { API_Key, baseSiteUrl, language } from "../../ApiParameters";
-import { getApi } from "../../getApi";
+import { put, call, takeLatest, all } from "@redux-saga/core/effects";
+import { getDetailsURLpath } from "../../logic/getURLpath";
+import { getAPI } from "../../logic/getAPI";
 
 import {
   fetchPerson,
@@ -10,16 +10,19 @@ import {
 } from "./personSlice";
 
 function* fetchPersonHandler({ payload: { id } }) {
-  const personURL = `${baseSiteUrl}person/${id}?api_key=${API_Key}&language=${language}`;
-  const creditsURL = `${baseSiteUrl}person/${id}/movie_credits?api_key=${API_Key}&language=${language}`;
+  const personURL = getDetailsURLpath(`person/${id}`);
+  const creditsURL = getDetailsURLpath(`person/${id}/movie_credits`);
   try {
-    const person = yield call(getApi, personURL);
-    yield put(fetchPersonSuccess(person));
-    const personCredits = yield call(getApi, creditsURL);
-    yield put(fetchPersonCreditsSuccess(personCredits));
+    const [person, personCredits] = yield all([
+      call(getAPI, personURL),
+      call(getAPI, creditsURL),
+    ]);
+    yield all([
+      put(fetchPersonSuccess(person)),
+      put(fetchPersonCreditsSuccess(personCredits)),
+    ]);
   } catch (error) {
     yield put(fetchPersonError());
-    yield call(alert, "coś poszło nie tak!");
   }
 }
 

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as Danger } from "../../images/danger.svg";
+import { ReactComponent as Danger } from "./danger.svg";
 
 export const Heading = styled.h2`
   font-size: 36px;

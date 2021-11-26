@@ -2,18 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const personSlice = createSlice({
   name: "personState",
-  initialState: { person: [], credits: [], status: "loading" },
+  initialState: {
+    person: [],
+    credits: [],
+    status: "initial",
+  },
   reducers: {
     fetchPerson: (state) => {
       state.status = "loading";
     },
-    fetchPersonSuccess: (state, { payload: ApiPerson }) => {
+    fetchPersonSuccess: (state, { payload: Person }) => {
       state.status = "success";
-      state.person = ApiPerson;
+      state.person = Person;
     },
-    fetchPersonCreditsSuccess: (state, { payload: ApiPersonCredits }) => {
+    fetchPersonCreditsSuccess: (state, { payload: PersonCredits }) => {
       state.status = "success";
-      state.credits = ApiPersonCredits;
+      state.credits = PersonCredits;
     },
     fetchPersonError: (state) => {
       state.status = "error";

@@ -5,7 +5,7 @@ import { Container } from "../../common/Container";
 import { Error } from "../../common/Error";
 import { Header } from "../../common/Header";
 import { Loading } from "../../common/Loading";
-import { MainContainer } from "../../common/Maincontainer";
+import { MainContainer } from "../../common/MainContainer";
 import { NoResults } from "../../common/NoResults";
 import { Pager } from "../../common/Pager";
 import { StyledLink } from "../../common/StyledLink";

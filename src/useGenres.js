@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { API_Key, baseSiteUrl, language } from "./ApiParameters";
+import { API_Key, baseSiteUrl, language } from "./logic/getURLpath";
 
 export const useGenres = () => {
   const [genre, setGenre] = useState();

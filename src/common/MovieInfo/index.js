@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { baseImgUrl, size } from "../../ApiParameters";
+import { getPosterURLpath } from "../../logic/getURLpath";
+import { Placeholder } from "../Placeholder";
 import {
   Caption,
   Description,
@@ -25,7 +26,6 @@ export const MovieInfo = ({
   description,
   date,
   fullCountryName,
-  shortCountryName,
   votes,
   rate,
   person,
@@ -46,17 +46,21 @@ export const MovieInfo = ({
   return (
     <>
       <Wrapper>
-        <Poster src={`${baseImgUrl}${size}${poster}`} alt="" />
+        {poster ? (
+          <Poster person={person} src={getPosterURLpath(poster)} alt="" />
+        ) : (
+          <Placeholder person={person} />
+        )}
         <Description>
           <Title>{title}</Title>
           <SubTitle>{date}</SubTitle>
           <ProductionRelease>
             <Info>
-              {width > breakpoint ? <Span>Production: </Span> : " "}
+              <Span>Production: </Span>
               {fullCountryName}
             </Info>
             <Info>
-              {width > breakpoint ? <Span>Release date: </Span> : ""}
+              <Span>Release date: </Span>
               {fullDate}
             </Info>
           </ProductionRelease>

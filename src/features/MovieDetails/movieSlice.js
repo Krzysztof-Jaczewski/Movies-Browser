@@ -2,18 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const movieSlice = createSlice({
   name: "movieState",
-  initialState: { movie: [], credits: [], status: "loading" },
+  initialState: {
+    movie: [],
+    credits: [],
+    status: "initial",
+  },
   reducers: {
     fetchMovie: (state) => {
       state.status = "loading";
     },
-    fetchMovieSuccess: (state, { payload: ApiMovie }) => {
+    fetchMovieSuccess: (state, { payload: Movie }) => {
       state.status = "success";
-      state.movie = ApiMovie;
+      state.movie = Movie;
     },
-    fetchMovieCreditsSuccess: (state, { payload: ApiMovieCredits }) => {
+    fetchMovieCreditsSuccess: (state, { payload: MovieCredits }) => {
       state.status = "success";
-      state.credits = ApiMovieCredits;
+      state.credits = MovieCredits;
     },
     fetchMovieError: (state) => {
       state.status = "error";

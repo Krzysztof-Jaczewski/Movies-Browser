@@ -4,17 +4,17 @@ const peopleSlice = createSlice({
   name: "peopleState",
   initialState: {
     people: [],
-    status: "loading",
-    totalPeoplePages: 500,
+    totalPeoplePages: null,
+    status: "initial",
   },
   reducers: {
     fetchPeople: (state) => {
       state.status = "loading";
     },
-    fetchPeopleSuccess: (state, { payload: Apipeople }) => {
+    fetchPeopleSuccess: (state, { payload: { results, total_pages } }) => {
       state.status = "success";
-      state.people = Apipeople.results;
-      state.totalPeoplePages = Apipeople.total_pages;
+      state.people = results;
+      state.totalPeoplePages = total_pages;
     },
     fetchPeopleError: (state) => {
       state.status = "error";

@@ -4,17 +4,17 @@ const moviesSlice = createSlice({
   name: "moviesState",
   initialState: {
     movies: [],
-    status: "loading",
-    totalMoviesPages: 500,
+    totalMoviesPages: null,
+    status: "initial",
   },
   reducers: {
     fetchMovies: (state) => {
       state.status = "loading";
     },
-    fetchMoviesSuccess: (state, { payload: Apimovies }) => {
+    fetchMoviesSuccess: (state, { payload: { results, total_pages } }) => {
       state.status = "success";
-      state.movies = Apimovies.results;
-      state.totalMoviesPages = Apimovies.total_pages;
+      state.movies = results;
+      state.totalMoviesPages = total_pages;
     },
     fetchMoviesError: (state) => {
       state.status = "error";

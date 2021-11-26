@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "../../images/tmdb.svg";
+import { ReactComponent as Logo } from "./tmdb.svg";
 
 export const PageFooter = styled.footer`
   display: flex;

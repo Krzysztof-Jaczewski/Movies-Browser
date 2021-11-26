@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { ReactComponent as Logo } from "../../images/video.svg";
-import SearchIcon from "../../images/search.svg";
+import { ReactComponent as Logo } from "./video.svg";
+import SearchIcon from "./search.svg";
 import { NavLink } from "react-router-dom";
 
 export const StyledNavigation = styled.nav`
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.woodsmoke};
+  background-color: ${({ theme }) => theme.colors.black};
   padding: 23px;
   width: 100%;
   position: sticky;
@@ -68,6 +68,7 @@ export const LogoHeader = styled.h1`
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -1.5px;
+  color: ${({ theme }) => theme.colors.white};
   white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
@@ -99,7 +100,7 @@ export const Link = styled(NavLink)`
   padding: 8px 24px;
   text-decoration: none;
   color: currentColor;
-  background-color: ${({ theme }) => theme.colors.woodsmoke};
+  background-color: ${({ theme }) => theme.colors.black};
   border: 1px solid transparent;
   border-radius: 24px;
 
@@ -122,7 +123,8 @@ export const StyledInput = styled.input`
   background-repeat: no-repeat;
   background-size: 12px;
   background-position: 17px center;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 24px;
   border: 1px solid ${({ theme }) => theme.colors.mystic};
   border-radius: 33px;
   padding: 12px 40px;
@@ -131,5 +133,7 @@ export const StyledInput = styled.input`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}) {
     margin-top: 24px;
+    font-size: 13px;
+    line-height: 17px;
   }
 `;

@@ -1,4 +1,4 @@
-import { baseImgUrl, sizeBackdrop } from "../../ApiParameters";
+import { getPosterURLpath } from "../../logic/getURLpath";
 import {
   BackdropPoster,
   BackdropContainer,
@@ -17,11 +17,7 @@ export const Backdrop = ({ title, votes, rate, person, poster }) => {
     <>
       <Rectangle>
         <BackdropContainer>
-          <BackdropPoster
-            image={`${baseImgUrl}${sizeBackdrop}${poster}`}
-            alt=""
-          />
-
+          <BackdropPoster image={getPosterURLpath(poster)} alt="" />
           <Wrapper>
             <LongTitle>{title}</LongTitle>
             {votes ? (

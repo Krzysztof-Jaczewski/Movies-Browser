@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Spinner } from "../../images/icon-spinner.svg";
+import { ReactComponent as Spinner } from "./icon-spinner.svg";
 
 export const LoadingContainer = styled.div`
   height: 60vh;
