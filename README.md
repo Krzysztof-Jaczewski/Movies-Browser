@@ -2,49 +2,60 @@
 
 ## :computer: Demonstration
 
-checkout [Demonstration](https://krzysztof-jaczewski.github.io/Movies-Browser/)
+checkout [Demonstration](https://krzysztof-jaczewski.github.io/movies-browser/)
 
 ## :trophy: Authors :trophy:
 
 ### Created by:
 
-- Paweł Suchy
-- Evgeny Savelyev
-- Krzysztof Jaczewski
+-   Paweł Suchy
+-   Evgeny Savelyev
+-   Krzysztof Jaczewski
 
 ## :milky_way: General
 
-This is basic movie browser, where you can look, and serch your favourite films, actors and get more information about them. Site is using Api taken from TMDB, feel free to take a look and enjoy our creation🙂
+This is basic movie browser, where you can look, and serch your favourite films,
+actors and get more information about them. Site is using Api taken from TMDB,
+feel free to take a look and enjoy our creation🙂
 
 ## :scroll: Features
 
 ### :tv: Movies
 
-Basic Page contains list of popular movies, we see numer of pages we can browse, on each page are up to 20 movies,
+Basic Page contains list of popular movies, we see numer of pages we can browse,
+on each page are up to 20 movies,
 
  <img src="readme/gifs/Movies.gif" alt="Movies" width="600px" height="500px">
 
 ### :microscope: Movie Detalis
 
-Every movie time you can click and browser will redirect you to this movie details where you can read more about it, and see what people took part in the creation this movie
+Every movie time you can click and browser will redirect you to this movie
+details where you can read more about it, and see what people took part in the
+creation this movie
 
  <img src="readme/gifs/Movie Details.gif" alt="Movie" width="600px" height="400px">
 
 ### :dolls: People
 
-The second page is people list, you can also browse the pages and look wich are popular
+The second page is people list, you can also browse the pages and look wich are
+popular
 
  <img src="readme/gifs/People.gif" alt="People" width="600px" height="500px">
 
 ### :camera: Person Details
 
-silmilar to movie details, you can click on every person you like and see move information about it, if some movie would interest you you can go directly to the next to it by clicking in his tile
+silmilar to movie details, you can click on every person you like and see move
+information about it, if some movie would interest you you can go directly to
+the next to it by clicking in his tile
 
  <img src="readme/gifs/Person.gif" alt="Person" width="600px" height="500px">
 
 ### :mag_right: Search
 
-And the final feature is search option, where you can seach your favourite movie just by tiping it title into input, and site will show all results that icnludes word you write, same thing you can do by changing page to peaple, Browser will be serching for person witch words you write
+And the final feature is search option, where you can seach your favourite movie
+just by tiping it title into input, and site will show all results that icnludes
+word you write, same thing you can do by changing page to peaple, Browser will
+be serching for person witch words you write
 
 <img src="readme/gifs/Search.gif" alt="Search" width="600px" height="400px">
 
@@ -160,19 +171,31 @@ You will also see any lint errors in the console.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It correctly bundles React in production mode and optimizes the build for the best
+performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about
+[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
+more information.
 
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you aren’t satisfied with the build tool and configuration choices, you can
+`eject` at any time. This command will remove the single build dependency from
+your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Instead, it will copy all the configuration files and the transitive
+dependencies (webpack, Babel, ESLint, etc) right into your project so you have
+full control over them. All of the commands except `eject` will still work, but
+they will point to the copied scripts so you can tweak them. At this point
+you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You don’t have to ever use `eject`. The curated feature set is suitable for
+small and middle deployments, and you shouldn’t feel obligated to use this
+feature. However we understand that this tool wouldn’t be useful if you couldn’t
+customize it when you are ready for it.
